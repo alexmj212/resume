@@ -1,0 +1,163 @@
+body, html {
+	height:100%;
+}
+
+body, html, ul, li, h1, h2, h3, h4, h5, p {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	padding-left:25px;
+}
+
+h1 {
+	font-size:16pt;
+	font-family: Roboto, Arial, sans-serif;
+	font-weight: 400;
+	width:100%;
+}
+
+h2 {
+	font-size:12pt;
+	font-family: Roboto, Arial, sans-serif;
+	font-weight: 300;
+	width:100%;
+}
+
+a {
+	color:#37c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+b {
+	font-family: Roboto, Arial, sans-serif;
+	font-weight: 700;
+}
+
+#header {
+	position:fixed;
+	width:100%;
+	padding:0px 0px;
+	text-align: center;
+}
+
+.header-content, .body-content, .footer-content {
+	width:900px;
+}
+
+.header-content {
+	margin-left:50px;
+	background-color: #fff;
+	border-bottom:1px solid #ddd;
+}
+
+.body-content {
+	padding-left:50px;
+	line-height: 1.5em;
+	padding-top:79px;
+}
+
+.header-table, .body-table {
+	width:100%;
+	margin:auto;
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 10pt;
+	font-weight:300;
+}
+
+#effect {
+	position:fixed;
+	overflow:hidden;
+	text-align: center;
+	word-wrap:break-word;
+	background-color:#777;
+	width:35px;
+	height:100%;
+	float:left;
+	font-family: Lucida Console, Courier New, mono;
+	color:#aaa;
+}
+
+.name, .subtext {
+
+}
+
+.name {
+	text-align:left;
+	font-weight: 700;
+	font-family: Roboto, Arial, sans-serif;
+	text-transform: uppercase;
+	text-shadow:2px 2px 0px #ddd;
+	font-size:30pt;
+}
+
+.subtext {
+	text-align: right;
+	font-size:12pt;
+}
+
+.description {
+	text-align: left;
+}
+
+.body-table {
+	border-collapse: collapse;
+}
+
+#slidein {
+	/*background-color: #aaa;*/
+	border-top:1px solid #ddd;
+	display:none;
+}
+
+.left {
+	vertical-align: top;
+	width:130px;
+	padding:5px 25px 0px 0px;
+}
+
+.left h1 {
+	color:#aaa;
+	font-family: Roboto, Arial, sans-serif;
+	font-weight:300;
+	text-transform: uppercase;
+
+}
+
+.right {
+	vertical-align: top;
+	padding: 7px 0px 25px 10px;
+}
+
+.date-location {
+	float:right;
+	text-align:right;
+	font-weight:bold;
+}
+
+.tech-column {
+	width:30%;
+	display:inline-block;
+	vertical-align: top;
+}
+
+.tech-column h2 {
+	/*border-bottom:1px solid #ddd;*/
+	font-size:10pt;
+	font-family: Roboto, Arial, sans-serif;
+	font-weight:700;
+	margin-bottom:5px;
+}
+
+.experience {
+	padding-bottom: 10px;
+}
+
+.experience ul {
+	padding-bottom:10px;
+}

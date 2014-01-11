@@ -1,0 +1,49 @@
+.header-content, .body-content, .footer-content {
+	padding-left: 10px;
+	width:85%;
+	margin: auto;
+}
+
+.header-content {
+	border:0px;
+	height: 110px;
+	border-bottom:1px solid #ddd;
+}
+
+.body-content {
+	padding-top: 110px;
+}
+
+.name, .subtext {
+
+}
+
+.name {
+	text-align:center;
+	float:left;
+	width:100%;
+}
+
+.subtext {
+	float:right;
+	width:100%;
+	text-align: center;
+}
+
+.description {
+	text-align:center;
+}
+
+.left {
+	padding:5px 0px 0px 0px;
+	display:block;
+	float:left;
+	width:100%;
+	text-align:center;
+}
+
+.right {
+	display:block;
+	float:right;
+	width:100%;
+}
