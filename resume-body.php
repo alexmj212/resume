@@ -84,7 +84,8 @@
             	</span>
                 <h2>Systems Administrator</h2>
                 <b>iEntry, Inc.</b><br>
-                <p>In this position, I take on a varied role with many responsibilities in the company. Not only am I an interface for design and construction of important tools, but I am also a problem-solver and critical thinker in the management of serveral key systems.</p>
+                <p>Perform in a wide variety of roles; design, implement, and maintain important tools; problem-solver and critical thinker in the management and repair of key systems.
+                </p>
                 <b><i>Projects</i></b><br>
                 <i>Author Payment System</i>
                 <ul>
@@ -92,14 +93,14 @@
 					<li>Modification of existing system that replaces manual weekly reports done by hand</li>
 					<li>Gathers and sends reports with payment information via email to 50+ authors</li>
                 	<li>Generates weekly reports containing statistical information</li>
-                </ul>
+                </ul><span style="display:none">
                 <i>Statistical Archive Application</i>
                 <ul>
 					<li>MySql, CakePHP, jQuery</li>
                 	<li>Aggregates information across many company systems</li>
                 	<li>Collects, archives, and caches statistical information from crucial company systems</li>
                 	<li>Used company wide in critical business decisions</li>
-                </ul>
+                </ul></span>
                 <i>Trending Topic Collection Application</i>
                 <ul>
 					<li>MySql, CakePHP, HTML</li>
@@ -107,7 +108,6 @@
                 	<li>Weighted topics listed according to the frequency of appearance</li>
                 	<li>Used by writing staff to target popular article topics resulting in increase of pageviews</li>
                 </ul>
-                <b><i>References available upon request</i></b>
             </div>
             <div class="experience">
             	<span class="date-location">
@@ -116,6 +116,11 @@
             	</span>
             	<h2>Technical Desktop Support</h2>
                 <b>College of Arts and Sciences - University of Kentucky</b><br>
+                <ul>
+                    <li>Implemented migration from Windows XP to Windows 7</li>
+                    <li>Managed servers and desktops for 500+ users</li>
+                    <li>Documenting and repairing faulty systems</li>
+                </ul>
             </div>
             <div class="experience">
             	<span class="date-location">
@@ -124,7 +129,12 @@
             	</span>
             	<h2>IT Co-op</h2>
                 <b>VEGA Americas</b>
+                <uL>
+                    <li>Assisted in documentation and clean-up of legacy software</li>
+                    <li>Performed audits and updates of various systems</li>
+                </ul>
             </div>
+            <b><i>References available upon request</i></b>
         </td>
     </tr>
 </table>

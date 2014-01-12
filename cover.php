@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Alex Johnson - Resume</title>
+	<title>Alex Johnson - Cover Letter</title>
 	<link href="/favicon.ico" type="image/x-icon" rel="icon" />
 	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 	<link href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
 					</td>
 					<td class="subtext">
 						<a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> |
-						<a href="/cover" target="_blank">Cover Letter</a> |
+						<a href="/resume" target="_blank">Resume</a> |
 						<a href="/resume-print" target="_blank">Print</a>
 					</td>
 				</tr>
@@ -56,11 +56,7 @@
 
 <?php
 
-echo file_get_contents('resume-body.php');
-
-echo file_get_contents('resume-links.php');
-
-//echo file_get_contents('resume-cover.php');
+echo file_get_contents('resume-cover.php');
 
 ?>
 		</div>
