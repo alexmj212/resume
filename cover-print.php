@@ -6,8 +6,7 @@
 	<link href="/favicon.ico" type="image/x-icon" rel="icon" />
 	<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 	<link href="http://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="/resume.css" />
-	<link rel="stylesheet" type="text/css" media="only screen and (max-width: 950px), only screen and (max-width: 950px)" href="/resume-mobile.css" />
+	<link rel="stylesheet" type="text/css" href="/resume-print.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script src="/resume.js"></script>
@@ -28,8 +27,6 @@
 	<!-- End Piwik Code -->
 </head>
 <body>
-	<b><div id="effect">
-	</div></b>
 	<div id="header">
 		<div class="header-content">
 			<table class="header-table">
@@ -38,9 +35,9 @@
 						Alex Johnson
 					</td>
 					<td class="subtext">
-						<a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> |
-						<a href="/cover" target="_blank">Cover Letter</a> |
-						<a href="/resume-print" target="_blank">Print Resume</a>
+						<a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> | 
+						<b>859-663-6843</b> | 
+						<b><?php echo date('F dS, Y');?></b>
 					</td>
 				</tr>
 				<tr>
@@ -56,13 +53,22 @@
 
 <?php
 
-echo file_get_contents('resume-body.php');
-
-echo file_get_contents('resume-links.php');
-
-//echo file_get_contents('resume-cover.php');
+echo file_get_contents('resume-cover.php');
 
 ?>
+			<table class="header-table">
+				<tr>
+					<td class="name">
+						
+					</td>
+					<td class="subtext">
+						Alex Johnson | 
+						<a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> | 
+						<b>859-663-6843</b> | 
+						<b><?php echo date('F dS, Y');?></b>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div id="footer">

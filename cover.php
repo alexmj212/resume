@@ -40,7 +40,7 @@
 					<td class="subtext">
 						<a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> |
 						<a href="/resume" target="_blank">Resume</a> |
-						<a href="/resume-print" target="_blank">Print</a>
+						<a href="/cover-print" target="_blank">Print Cover Letter</a>
 					</td>
 				</tr>
 				<tr>

@@ -1,6 +1,6 @@
 $(window).load(function(){
 
-	if(window.location.pathname == "/resume-print"){
+	if(window.location.pathname == "/resume-print" || window.location.pathname == "/cover-print"){
 		$(".body-table tr").show();
 		window.setTimeout(2000);
 		window.print();
