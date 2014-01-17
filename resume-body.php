@@ -7,9 +7,9 @@
         </td>
         <td class="right">
             <ul>
-                <li>My skills extend into many software development fields, with a focus on front-end and back-end web development.</li>
-                <li>Communication is my most important and valuable tool.</li>
-                <li>In this ever-changing field, constant-learning is critical and it is an important focus in my conduct.</li>
+                <li>Diverse skills in several software development fields, with a primary focus on front-end and back-end web development.</li>
+                <li>Adept in proactive communication in team-oriented environments</li>
+                <li>Enthusiastic learner in a dynamic and radily changing field</li>
             </ul>
         </td>
     </tr>
@@ -84,7 +84,7 @@
             	</span>
                 <h2>Systems Administrator</h2>
                 <b>iEntry, Inc.</b><br>
-                <p>Perform in a wide variety of roles; design, implement, and maintain important tools; problem-solver and critical thinker in the management and repair of key systems.
+                <p>Perform in a wide variety of roles; implement and maintain important business and marketing tools; Demonstrate problem-solving and critical thinking in the design and modification of key systems.
                 </p>
                 <b><i>Projects</i></b><br>
                 <i>Author Payment System</i>

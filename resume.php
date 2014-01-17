@@ -45,7 +45,7 @@
 				</tr>
 				<tr>
 					<td class="description" colspan="2">
-						<i>Well-rounded Software Developer seeking a position in Lexington, KY</i>
+						<i>Seeking a Software Developer position in Lexington, KY</i>
 					</td>
 				</tr>
 			</table>
