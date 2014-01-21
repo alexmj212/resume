@@ -43,7 +43,7 @@
                 	<li>Javascript</li>
                 	<li>CSS</li>
                 	<li>Python</li>
-                	<li>SQL</li>
+                	<li>MySQL</li>
                 </ui>
             </div>
             <div class="tech-column">
@@ -53,7 +53,6 @@
                 	<li>CakePHP</li>
                 	<li>Wordpress</li>
                 	<li>Apache/Nginx</li>
-                	<li>MySQL</li>
                 	<li>Amazon EC2</li>
                 </ui>
             </div>
