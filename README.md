@@ -42,7 +42,6 @@ Lexington, KY
 * Version Control
 * Object Orientation
 * Relational Databases
-* Load Distribution
 * User Management
 
 ##Experience
