@@ -93,7 +93,7 @@ Cincinnati, OH
 * Performed audits and updates of various systems
 * References available upon request
 
-***References availabel upon request***
+***References available upon request***
 
 ##Links
 **Email** - [alexmj212@gmail.com](alexmj212@gmail.com)
