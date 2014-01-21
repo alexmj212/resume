@@ -1,6 +1,8 @@
 Alex Johnson
 ============
 
+Seeking a Software Developer position in Lexington, KY
+
 ##Summary
 
 * Diverse skills in several software development fields, with a primary focus on front-end and back-end web development.
