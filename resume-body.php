@@ -63,7 +63,6 @@
                 	<li>Version Control</li>
                 	<li>Object Orientation</li>
                 	<li>Relational Databases</li>
-                    <li>Load Distribution</li>
                 	<li>User Management</li>
                 </ui>
             </div>
