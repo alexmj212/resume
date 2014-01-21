@@ -96,14 +96,14 @@
                 </ul><span style="display:none">
                 <i>Statistical Archive Application</i>
                 <ul>
-					<li>MySql, CakePHP, jQuery</li>
+					<li>MySQL, CakePHP, jQuery</li>
                 	<li>Aggregates information across many company systems</li>
                 	<li>Collects, archives, and caches statistical information from crucial company systems</li>
                 	<li>Used company wide in critical business decisions</li>
                 </ul></span>
                 <i>Trending Topic Collection Application</i>
                 <ul>
-					<li>MySql, CakePHP, HTML</li>
+					<li>MySQL, CakePHP, HTML</li>
 					<li>Modification of existing author tool to collect trending topics from multiple sources (Yahoo, Bing, Google)</li>
                 	<li>Weighted topics listed according to the frequency of appearance</li>
                 	<li>Used by writing staff to target popular article topics resulting in increase of pageviews</li>
