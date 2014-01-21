@@ -79,6 +79,9 @@ Cincinnati, OH
 
 ##Links
 **Email** - [alexmj212@gmail.com](alexmj212@gmail.com)
+
 **LinkedIn** - [http://www.linkedin.com/profile/view?id=229742875](http://www.linkedin.com/profile/view?id=229742875)
+
 **GitHub** - [http://www.github.com/alexmj212](http://www.github.com/alexmj212)
+
 **Personal Site** - [http://winginit.net/](http://winginit.net/)
