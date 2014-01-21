@@ -12,6 +12,10 @@
 				I spent two years in Desktop Support and Technical Helpdesk at the University of Kentucky. In this position, I supported Microsoft Windows (XP, 7, and 8), Mac OSX, and Linux Operating systems. In the position, I gained extensive knowledge of the Microsoft Office Suite and Microsoft Exchange. I helped manage a user base of over 500+ desktops across campus and often worked directly with users via our ticketing system, email, over the phone, and most often in person.
 			</p><br><p>
 				As a student, I worked with a team of 4 to develop a cloud-based application constructed on Amazon Web Services. We used the web framework, Django in concert with MySQL and  MongoDB. This application used API’s to access health data from personal health services. We visualized this data via a jQuery application.
+			</p><br><p>
+				Regards,
+			</p><br><p>
+				Alex Johnson
 			</p>
 		</td>
 	</tr>
