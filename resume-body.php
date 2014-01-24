@@ -40,9 +40,8 @@
         		<h2>Languages</h2>
                 <ul>
                 	<li>PHP</li>
-                	<li>Javascript</li>
-                	<li>CSS</li>
-                	<li>Python</li>
+                	<li>jQuery/Javascript</li>
+                	<li>HTML/CSS</li>
                 	<li>MySQL</li>
                 </ui>
             </div>
@@ -53,7 +52,6 @@
                 	<li>CakePHP</li>
                 	<li>Wordpress</li>
                 	<li>Apache/Nginx</li>
-                	<li>Amazon EC2</li>
                 </ui>
             </div>
             <div class="tech-column">
@@ -63,7 +61,15 @@
                 	<li>Version Control</li>
                 	<li>Object Orientation</li>
                 	<li>Relational Databases</li>
-                	<li>User Management</li>
+                </ui>
+            </div>
+            <div class="tech-column">
+                <h2>Environments</h2>
+                <ul>
+                    <li>Windows</li>
+                    <li>Linux</li>
+                    <li>OS X</li>
+                    <li>Amazon Web Serivces</li>
                 </ui>
             </div>
         </td>

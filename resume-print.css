@@ -51,7 +51,7 @@ b {
 }
 
 .body-content {
-	line-height: 1.15em;
+	line-height: 1.2em;
 	padding-top:0px;
 }
 
@@ -135,7 +135,7 @@ b {
 }
 
 .tech-column {
-	width:30%;
+	width:23%;
 	display:inline-block;
 	vertical-align: top;
 }
