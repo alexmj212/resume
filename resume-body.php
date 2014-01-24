@@ -9,7 +9,7 @@
             <ul>
                 <li>Diverse skills in several software development fields, with a primary focus on front-end and back-end web development.</li>
                 <li>Adept in proactive communication in team-oriented environments</li>
-                <li>Enthusiastic learner in a dynamic and radily changing field</li>
+                <li>Enthusiastic learner in a dynamic and radically changing field</li>
             </ul>
         </td>
     </tr>
@@ -82,7 +82,7 @@
             	</span>
                 <h2>Systems Administrator</h2>
                 <b>iEntry, Inc.</b><br>
-                <p>Perform in a wide variety of roles; implement and maintain important business and marketing tools; Demonstrate problem-solving and critical thinking in the design and modification of key systems.
+                <p>Perform in a wide variety of roles; implement and maintain important business and marketing tools; demonstrate problem-solving and critical thinking in the design and modification of key systems.
                 </p>
                 <b><i>Projects</i></b><br>
                 <i>Author Payment System</i>
