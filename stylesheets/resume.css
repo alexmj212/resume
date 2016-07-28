@@ -7,19 +7,22 @@ body, html, ul, li, h1, h2, h3, h4, h5, p {
 	padding: 0;
 }
 
+body {
+    line-height:1.75;
+	display:none;
+}
+
 ul {
 	padding-left:25px;
 }
 
 h1 {
-	font-size:16pt;
 	font-family: Roboto, Arial, sans-serif;
 	font-weight: 400;
 	width:100%;
 }
 
 h2 {
-	font-size:12pt;
 	font-family: Roboto, Arial, sans-serif;
 	font-weight: 300;
 	width:100%;
@@ -40,33 +43,22 @@ b {
 }
 
 #header {
-	position:fixed;
 	width:100%;
 	padding:0px 0px;
 	text-align: center;
 }
 
 .header-content, .body-content, .footer-content {
-	width:900px;
+	padding: 0px 50px;
+	max-width:900px;
+	margin: auto;
+	font-size: 30px;
 }
 
-.header-content {
-	margin-left:50px;
-	background-color: #fff;
-	border-bottom:1px solid #ddd;
-}
-
-.body-content {
-	padding-left:50px;
-	line-height: 1.5em;
-	padding-top:79px;
-}
-
-.header-table, .body-table {
+.header-content, .body-content {
 	width:100%;
 	margin:auto;
 	font-family: Roboto, Arial, sans-serif;
-	font-size: 10pt;
 	font-weight:300;
 }
 
@@ -75,34 +67,31 @@ b {
 	overflow:hidden;
 	text-align: center;
 	word-wrap:break-word;
-	background-color:#777;
+	background-color:#555;
 	width:35px;
 	height:100%;
 	float:left;
-	font-family: Lucida Console, Courier New, mono;
+	font-family: Lucida Console, Courier New, mono, serif;
 	color:#aaa;
 }
 
-.name, .subtext {
-
-}
-
 .name {
-	text-align:left;
+	text-align:center;
+	float:left;
+	width:100%;
 	font-weight: 700;
 	font-family: Roboto, Arial, sans-serif;
 	text-transform: uppercase;
 	text-shadow:2px 2px 0px #ddd;
-	font-size:30pt;
+	font-size: 80px;
 }
 
 .subtext {
-	text-align: right;
-	font-size:12pt;
+	text-align: center;
 }
 
 .description {
-	text-align: left;
+	text-align: center;
 }
 
 .body-table {
@@ -112,13 +101,14 @@ b {
 #slidein {
 	/*background-color: #aaa;*/
 	border-top:1px solid #ddd;
-	display:none;
 }
 
 .left {
-	vertical-align: top;
-	width:130px;
-	padding:5px 25px 0px 0px;
+	padding:5px 0px 0px 0px;
+	display:block;
+	float:left;
+	width:100%;
+	text-align:center;
 }
 
 .left h1 {
@@ -130,8 +120,9 @@ b {
 }
 
 .right {
-	vertical-align: top;
-	padding: 7px 0px 25px 10px;
+	display:block;
+	float:right;
+	width:100%;
 }
 
 .date-location {
@@ -141,14 +132,18 @@ b {
 }
 
 .tech-column {
-	width:23%;
-	display:inline-block;
-	vertical-align: top;
+    display:flex;
+    width:100%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.tech-column ul {
+    width:100%;
 }
 
 .tech-column h2 {
 	/*border-bottom:1px solid #ddd;*/
-	font-size:10pt;
 	font-family: Roboto, Arial, sans-serif;
 	font-weight:700;
 	margin-bottom:5px;

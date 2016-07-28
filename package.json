@@ -1,0 +1,29 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "Alex Johnson Resume",
+  "main": "\"\"",
+  "scripts": {
+    "test": "\"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmj212/resume.git"
+  },
+  "keywords": [
+    "resume",
+    "alex",
+    "johnson"
+  ],
+  "author": "Alex Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexmj212/resume/issues"
+  },
+  "homepage": "https://github.com/alexmj212/resume#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.2.0"
+  }
+}

@@ -1,5 +1,0 @@
-RewriteEngine On
-RewriteRule ^resume/?$ resume.php [NC,L]
-RewriteRule ^resume-print/?$ resume-print.php [NC,L]
-RewriteRule ^cover/?$ cover.php [NC,L]
-RewriteRule ^cover-print/?$ cover-print.php [NC,L]
