@@ -1,56 +1,41 @@
+$(document).ready(function () {
 
-$(document).ready( function() {
+    $("body").fadeIn(1000);
 
-	if(window.location.hash.indexOf("cover") >= 0){
-		$("#cover").hide();
-		$("#resume").show();
-		getCover();
-	} else {
-		$("#cover").show();
-		$("#resume").hide();
-		getResume();
-	}
+    $.get("cover.html").success(function (data) {
+        $(".body-content").append(data);
+        $(".cover").hide();
+    });
 
-	$("#cover").click(function(){
-		$("#cover").hide();
-		$("#resume").show();
-		getCover()
-	});
-	$("#resume").click(function(){
-		$("#cover").show();
-		$("#resume").hide();
-		getResume()
-	});
+    $.get("resume.html").success(function (data) {
+        $(".body-content").append(data);
+        $("#resume-switch").css({'color':'black','text-decoration':'none'});
+    });
 
-	var opac = 1.0;
-	for(var i = 0; i < 100; i++){
-		if(Math.random() > 0.2){
-			$("#effect").append("<font style=\"opacity:"+opac+"\">"+Math.round(Math.random()));
-		} else {
-			$("#effect").append("<font style=\"opacity:"+opac+"\" color=\"#fff\">"+Math.round(Math.random())+"</font>");
-		}
-		opac -= 0.01;
-	}
+    $("#cover-switch").click(function () {
+        $(".resume").fadeOut('slow', function () {
+            $(".cover").fadeIn();
+        });
+        $("#resume-switch").removeAttr("style");
+        $(this).css({'color':'black','text-decoration':'none'});
+    });
+    $("#resume-switch").click(function () {
+        $(".cover").fadeOut('slow', function () {
+            $(".resume").fadeIn();
+        });
+        $("#cover-switch").removeAttr("style");
+        $(this).css({'color':'black','text-decoration':'none'});
+    });
+
+    var opac = 1.0;
+    for (var i = 0; i < 300; i++) {
+        if (Math.random() > 0.2) {
+            $("#effect").append("<span style=\"opacity:" + opac + "\">" + Math.round(Math.random()));
+        } else {
+            $("#effect").append("<span style=\"opacity:" + opac + "; color:#fff;\">" + Math.round(Math.random()) + "</span>");
+        }
+        opac -= 0.004;
+    }
 
 });
-
-function fade(){
-
-	$("body").fadeIn();
-
-}
-
-function getResume(){
-	$.get( "resume.html", function( data ) {
-		$(".body-content").html(data);
-		fade();
-	});
-}
-
-function getCover(){
-	$.get( "cover.html", function( data ) {
-		$(".body-content").html(data);
-		fade();
-	});
-}
 

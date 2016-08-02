@@ -1,82 +1,93 @@
-body,
-html {
+@accent-color: #37c;
+@gray-color: #aaa;
+
+@bold: 700;
+@normal: 400;
+@light: 300;
+
+@effect-width: 35px;
+@effect-bg: #555;
+
+body, html {
   height: 100%;
+
 }
-body,
-html,
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
+
+body, html, ul, li, h1, h2, h3, h4, h5, p {
   margin: 0;
   padding: 0;
 }
+
 body {
   display: none;
   font-family: 'Roboto', sans-serif;
-  background-color: #aaa;
+  background-color: @gray-color;
 }
+
 main {
   background-color: #fff;
   max-width: 935px;
-  margin: 35px auto;
-  border-left: 35px solid #555;
-  box-shadow: #555 0px 0px 15px;
+  margin: @effect-width auto;
+  border-left: 35px solid @effect-bg;
+  box-shadow: @effect-bg 0px 0px 15px;
   border-radius: 3px;
 }
+
 ul {
   padding-left: 25px;
 }
+
 h1 {
-  font-weight: 300;
-  color: #aaa;
+  font-weight: @light;
+  color: @gray-color;
   text-transform: uppercase;
 }
+
 h2 {
-  font-weight: 400;
+  font-weight: @normal;
 }
+
 a {
-  color: #37c;
+  color: @accent-color;
   text-decoration: underline;
-  font-weight: 700;
+  font-weight: @bold;
 }
+
 b {
-  font-weight: 400;
-  color: #37c;
+  font-weight: @normal;
+  color: @accent-color;
 }
-.header-content,
-.body-content,
-.footer-content {
+
+.header-content, .body-content, .footer-content {
   line-height: 1.75;
   margin: 0px auto;
-  font-weight: 300;
+  font-weight: @light;
 }
+
 .header-content {
-  padding-top: 35px;
+  padding-top: @effect-width;
 }
+
 .links {
   display: flex;
   flex-direction: row;
+  a, a:hover, a:visited {
+    color: @accent-color;
+    font-size: 1em;
+    text-align: center;
+    flex-grow: 1;
+  }
+
 }
-.links a,
-.links a:hover,
-.links a:visited {
-  color: #37c;
-  font-size: 1em;
-  text-align: center;
-  flex-grow: 1;
-}
+
 section {
   border-top: 1px solid #ddd;
-  margin: 0px 35px;
-  padding-bottom: 35px;
+  margin: 0px @effect-width;
+  padding-bottom: @effect-width;
 }
+
 #effect {
-  margin-left: -35px;
+  margin-left: -@effect-width;
   overflow: hidden;
   text-align: center;
   word-wrap: break-word;
@@ -84,42 +95,51 @@ section {
   height: 100%;
   float: left;
   font-family: mono, serif;
-  font-weight: 300;
+  font-weight: @light;
   font-size: 10px;
-  color: #aaa;
+  color: @gray-color;
   line-height: 1;
+
 }
+
 .name {
   text-align: center;
   letter-spacing: 6px;
   width: 100%;
-  font-weight: 700;
+  font-weight: @bold;
   text-transform: uppercase;
-  text-shadow: 3px 3px 0px #aaa;
+  text-shadow: 3px 3px 0px @gray-color;
   font-size: 90px;
   line-height: 1em;
 }
+
 .subtext {
   text-align: center;
 }
+
 .description {
   text-align: center;
 }
+
 .uk {
   height: 1.5em;
   vertical-align: middle;
 }
+
 .projects {
   padding: 0px 50px;
 }
+
 .date-location {
+
   text-align: right;
-  color: #aaa;
+  color: @gray-color;
   font-size: 1em;
 }
+
 .experience {
   padding-bottom: 10px;
-}
-.experience ul {
-  padding-bottom: 10px;
+  ul {
+    padding-bottom: 10px;
+  }
 }
