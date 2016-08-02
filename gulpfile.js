@@ -1,7 +1,21 @@
 var gulp = require('gulp'),
-    connect = require('gulp-connect');
+    connect = require('gulp-connect'),
+    less = require('gulp-less');
 
-gulp.task('connect', function() {
+gulp.task('bower', function(){
+    gulp.src('./bower_components/font-awesome/css/font-awesome.min.css')
+        .pipe(gulp.dest('./stylesheets/'));
+    gulp.src('./bower_components/font-awesome/fonts/*')
+        .pipe(gulp.dest('./fonts/'));
+});
+
+gulp.task('less', function() {
+    return gulp.src('./less/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('./stylesheets'));
+});
+
+gulp.task('connect', function () {
     connect.server({
         root: '.',
         livereload: true
@@ -18,15 +32,17 @@ gulp.task('watch:js', function () {
         .pipe(connect.reload());
 });
 
-gulp.task('watch:css', function () {
-    gulp.src('./stylesheets/*.css')
+gulp.task('watch:less', ['less'], function () {
+    gulp.src('./less/*.less')
         .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
     gulp.watch(['./*.html'], ['watch:html']);
     gulp.watch(['./js/*.js'], ['watch:js']);
-    gulp.watch(['./stylesheets/*.css'], ['watch:css']);
+    gulp.watch(['./less/*.less'], ['watch:less']);
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('default', ['less', 'connect', 'watch']);
+
+gulp.task('build', ['bower', 'less']);
