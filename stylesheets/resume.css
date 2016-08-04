@@ -29,7 +29,7 @@ main {
   border-radius: 3px;
 }
 ul {
-  padding-left: 25px;
+  padding-left: 50px;
 }
 h1 {
   font-weight: 300;
@@ -38,6 +38,9 @@ h1 {
 }
 h2 {
   font-weight: 400;
+}
+p {
+  padding-bottom: 1em;
 }
 a {
   color: #37c;
@@ -48,6 +51,9 @@ b {
   font-weight: 400;
   color: #37c;
 }
+small {
+  color: #aaa;
+}
 .header-content,
 .body-content,
 .footer-content {
@@ -57,6 +63,9 @@ b {
 }
 .header-content {
   padding-top: 35px;
+}
+.cover {
+  display: none;
 }
 .links {
   display: flex;
@@ -109,17 +118,26 @@ section {
   height: 1.5em;
   vertical-align: middle;
 }
+.split-column {
+  display: flex;
+  flex-direction: row;
+}
 .projects {
   padding: 0px 50px;
 }
+.title-company {
+  flex: 1;
+}
 .date-location {
+  flex: 1;
   text-align: right;
   color: #aaa;
   font-size: 1em;
+  line-height: 1.5em;
 }
 .experience {
   padding-bottom: 10px;
 }
-.experience ul {
-  padding-bottom: 10px;
+.fun h2 {
+  text-align: center;
 }

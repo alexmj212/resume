@@ -2,15 +2,11 @@ $(document).ready(function () {
 
     $("body").fadeIn(1000);
 
-    $.get("cover.html").success(function (data) {
-        $(".body-content").append(data);
-        $(".cover").hide();
-    });
 
-    $.get("resume.html").success(function (data) {
-        $(".body-content").append(data);
-        $("#resume-switch").css({'color':'black','text-decoration':'none'});
-    });
+    if (window.location.hash.indexOf("#cover") > -1 ){
+        $(".cover").show();
+        $(".resume").hide();
+    }
 
     $("#cover-switch").click(function () {
         $(".resume").fadeOut('slow', function () {

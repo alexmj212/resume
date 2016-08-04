@@ -34,7 +34,7 @@ main {
 }
 
 ul {
-  padding-left: 25px;
+  padding-left: 50px;
 }
 
 h1 {
@@ -45,6 +45,10 @@ h1 {
 
 h2 {
   font-weight: @normal;
+}
+
+p {
+  padding-bottom: 1em;
 }
 
 a {
@@ -58,6 +62,10 @@ b {
   color: @accent-color;
 }
 
+small {
+  color: @gray-color;
+}
+
 .header-content, .body-content, .footer-content {
   line-height: 1.75;
   margin: 0px auto;
@@ -66,6 +74,10 @@ b {
 
 .header-content {
   padding-top: @effect-width;
+}
+
+.cover {
+  display:none;
 }
 
 .links {
@@ -126,20 +138,33 @@ section {
   vertical-align: middle;
 }
 
+.split-column {
+  display: flex;
+  flex-direction: row;
+}
+
 .projects {
   padding: 0px 50px;
 }
 
-.date-location {
+.title-company {
+  flex: 1;
+}
 
+.date-location {
+  flex: 1;
   text-align: right;
   color: @gray-color;
   font-size: 1em;
+  line-height: 1.5em;
 }
 
 .experience {
   padding-bottom: 10px;
-  ul {
-    padding-bottom: 10px;
+}
+
+.fun {
+  h2 {
+    text-align: center;
   }
 }
