@@ -1,7 +1,5 @@
 Alex Johnson
 ============
 
-TODO: Fix date-location position
-TODO: Rewrite cover.html
-TODO: Additional items in experience
-TODO: Cleanup fun
+TODO: Additional style tweaks to desktop view
+TODO: Mobile styling and responsive collapsing
