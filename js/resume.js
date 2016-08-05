@@ -1,26 +1,34 @@
+/*
+ * Alex Johnson - resume.js
+ * 8/4/2016
+ */
 $(document).ready(function () {
 
     $("body").fadeIn(1000);
 
-
     if (window.location.hash.indexOf("#cover") > -1 ){
         $(".cover").show();
         $(".resume").hide();
+    } else {
     }
 
     $("#cover-switch").click(function () {
         $(".resume").fadeOut('slow', function () {
             $(".cover").fadeIn();
         });
-        $("#resume-switch").removeAttr("style");
-        $(this).css({'color':'black','text-decoration':'none'});
+        $("#resume-switch").removeClass('active');
+        $(this).addClass('active');
     });
     $("#resume-switch").click(function () {
         $(".cover").fadeOut('slow', function () {
             $(".resume").fadeIn();
         });
-        $("#cover-switch").removeAttr("style");
-        $(this).css({'color':'black','text-decoration':'none'});
+        $("#cover-switch").removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $("#prequels-switch").click(function () {
+        $(".prequels").fadeIn();
     });
 
     var opac = 1.0;
