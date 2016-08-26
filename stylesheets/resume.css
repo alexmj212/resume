@@ -184,8 +184,22 @@ section {
     display: block;
   }
 }
+.two-column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.two-column > .tools {
+  margin-bottom: 10px;
+  width: 50%;
+}
+@media (max-width: 450px) {
+  .two-column > .tools {
+    width: 100%;
+  }
+}
 .projects {
-  padding: 0px 50px;
+  padding: 0px 25px;
 }
 @media (max-width: 450px) {
   .projects {
@@ -207,6 +221,12 @@ section {
   .date-location {
     text-align: left;
   }
+}
+.more-info {
+  display: none;
+  background: #f6f6f6;
+  border-radius: 5px;
+  padding: 10px;
 }
 .experience {
   padding-bottom: 10px;

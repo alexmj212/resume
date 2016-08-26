@@ -31,6 +31,10 @@ $(document).ready(function () {
         $(".prequels").fadeIn();
     });
 
+    $(".more-switch").click(function () {
+        $(this).siblings(".more-info").slideDown().fadeIn;
+    });
+
     var opac = 1.0;
     for (var i = 0; i < 300; i++) {
         if (Math.random() > 0.2) {
