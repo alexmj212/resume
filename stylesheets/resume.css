@@ -20,7 +20,6 @@ p {
   padding: 0;
 }
 body {
-  display: none;
   font-family: 'Roboto Slab', sans-serif;
   font-weight: 400;
   background-color: #aaa;
@@ -102,9 +101,8 @@ small a {
 .header-content {
   padding-top: 35px;
 }
-.cover {
-  display: none;
-}
+.cover,
+.portfolio,
 .prequels {
   display: none;
 }
@@ -223,13 +221,24 @@ section {
   }
 }
 .more-info {
-  display: none;
   background: #f6f6f6;
   border-radius: 5px;
   padding: 10px;
 }
+.more-info-hidden {
+  background: #f6f6f6;
+  border-radius: 5px;
+  padding: 10px;
+  display: none;
+}
 .experience {
   padding-bottom: 10px;
+}
+.gallery {
+  text-align: center;
+}
+.gallery img {
+  width: 200px;
 }
 .fun h2 {
   text-align: center;

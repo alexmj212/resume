@@ -24,7 +24,6 @@ body, html, ul, li, h1, h2, h3, h4, h5, p {
 }
 
 body {
-    display: none;
     font-family: 'Roboto Slab', sans-serif;
     font-weight: @normal;
     background-color: @gray-color;
@@ -109,13 +108,9 @@ small {
     padding-top: @effect-width;
 }
 
-.cover {
-    display: none;
-}
-
-.prequels {
-    display: none;
-}
+.cover, .portfolio, .prequels {
+     display: none;
+ }
 
 .links {
     display: flex;
@@ -231,14 +226,25 @@ section {
 }
 
 .more-info {
-    display:none;
     background: lighten(@gray-color, 30%);
     border-radius: 5px;
     padding: 10px;
 }
 
+.more-info-hidden {
+    .more-info;
+    display: none;
+}
+
 .experience {
     padding-bottom: 10px;
+}
+
+.gallery {
+    text-align: center;
+    img {
+        width: 200px;
+    }
 }
 
 .fun {

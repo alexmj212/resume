@@ -4,37 +4,46 @@
  */
 $(document).ready(function () {
 
-    $("body").fadeIn(1000);
-
-    if (window.location.hash.indexOf("#cover") > -1 ){
-        $(".cover").show();
-        $(".resume").hide();
-    } else {
+    //initial page selection
+    if(window.location.hash){
+        $('.section').hide();
+        pager(window.location.hash.substr(1,window.location.hash.length));
     }
 
-    $("#cover-switch").click(function () {
-        $(".resume").fadeOut('slow', function () {
-            $(".cover").fadeIn();
-        });
-        $("#resume-switch").removeClass('active');
-        $(this).addClass('active');
-    });
-    $("#resume-switch").click(function () {
-        $(".cover").fadeOut('slow', function () {
-            $(".resume").fadeIn();
-        });
-        $("#cover-switch").removeClass('active');
+    //display switch
+    $(".switch").click(function () {
+        pager($(this).attr('class').split(' ')[1].split('-')[0]);
         $(this).addClass('active');
     });
 
-    $("#prequels-switch").click(function () {
-        $(".prequels").fadeIn();
-    });
+    function pager(page){
+        $('.switch').removeClass('active');
+        $('.section').fadeOut('slow');
+        switch(page){
+            case 'resume':
+                $('.resume').delay(500).fadeIn();
+                break;
+            case 'cover':
+                $('.cover').delay(500).fadeIn();
+                break;
+            case 'portfolio':
+                $('.portfolio').delay(500).fadeIn();
+                break;
+            case 'prequels':
+                $('.prequels').delay(500).fadeIn();
+                break;
+            default:
+                break;
+        }
+    }
 
+    //project dropdown switch
     $(".more-switch").click(function () {
-        $(this).siblings(".more-info").slideDown().fadeIn;
+        $(this).siblings(".more-info-hidden").slideDown().fadeIn;
     });
 
+
+    //Lefthand sidebar effect
     var opac = 1.0;
     for (var i = 0; i < 300; i++) {
         if (Math.random() > 0.2) {

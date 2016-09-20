@@ -23,13 +23,14 @@
         <div class="subtext">
             <a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> - Lexington, KY - <a href="tel:8596636843">859-663-6843</a>
             <div>
-                <a id="resume-switch" href="#resume" class="active">Resume</a> |
-                <a id="cover-switch" href="#cover">Cover Letter</a>
+                <a class="switch resume-button" href="#resume" class="active">Resume</a> |
+                <a class="switch cover-button" href="#cover">Cover Letter</a> |
+                <a class="switch portfolio-button" href="#portfolio">Portfolio</a>
             </div>
         </div>
     </div>
     <div class="body-content">
-        <div class="resume">
+        <div class="resume section">
             <section>
                 <div class="summary">
                     <h1>
@@ -131,7 +132,7 @@
                         <li>Support and maintenance for existing applications and infrastructure</li>
                         <li>Grails, Drupal, Angular, MySQL, Spring, CentOS, Windows, SQL Server</li>
                         <li class="more-switch"><a href="javascript:void(0);">More...</a></li>
-                        <li class="more-info">
+                        <li class="more-info-hidden">
                             <div class="projects">
                                 <b>Projects</b>
                                 <div><i>Thoroughbred Racing Protective Bureau</i> -
@@ -197,7 +198,7 @@
                         <li>Developed key business delivery systems</li>
                         <li>jQuery, CakePHP, PHP, Wordpress, MySQL, CentOS</li>
                         <li class="more-switch"><a href="javascript:void(0);">More...</a></li>
-                        <li class="more-info">
+                        <li class="more-info-hidden">
                             <div class="projects">
                                 <b>Projects</b>
                                 <div><i>Author Reporting System </i> -
@@ -259,7 +260,7 @@
                 </div>
             </section>
         </div>
-        <div class="cover">
+        <div class="cover section">
             <section>
                 <h1>Cover</h1>
                 <p> At <i>The Jockey Club Technology Services</i>, I have worked on many applications and
@@ -293,7 +294,81 @@
                 <p> Alex Johnson </p>
             </section>
         </div>
-        <div class="prequels">
+        <div class="portfolio section">
+            <section>
+                <h1>Portfolio</h1>
+                <h2>Thoroughbred Racing Protective Bureau</h2>
+                <b>2016 - The Jockey Club Technology Services</b>
+                <p>More info to come...</p>
+                <h2>Horse Racing Officials Accreditation Program (ROAP)</h2>
+                <b>2015 - The Jockey Club Technology Services</b>
+                <p>More info to come...</p>
+                <h2>Thoroughbred Racing Commentary</h2>
+                <b>2014 - The Jockey Club Technology Services</b>
+                <div><strong>Description</strong></div>
+                <p> I was involved in the responsive implementation of the design for this Drupal commentary blog. The blog has a large international audience in the thoroughbred racing industry. The
+                    design goal of the blog was to maintain a clean interface in the mobile view while providing advertisement space and the ease of reading of long form content. Additionally, the
+                    site
+                    incuded a mechanism to view international thoroughbred, jockey, trainer, and owner ratings. This component was a custom page using Angular and Bootstrap.</p>
+                <h2>Trending Topic Collection Application</h2>
+                <b>2013 - iEntry, Inc.</b>
+                <div><strong>Description</strong></div>
+                <p>I was the primary developer for this application. This project is a modification of an existing tool that is used by 50+ staff and contracted authors. Its main function is to keep
+                    track of topics covered by the writers and to gather potential trends. Trends are collected from Yahoo, Bing, and Google in addition to trend related articles. A weight is
+                    calculated
+                    based on the frequency they are seen. The page orders the trends based on their weight; the more popular the trend, the better the target. Over time, if a trend is not seen on
+                    search
+                    engines, it will slowly drop to the bottom of the list as it is no longer relevant. Individuals can claim each trend, the claim is indicated to all other writers.</p>
+                <div><strong>Specs</strong></div>
+                <p>The back-end is a modification of the existing relational database in MySQL. The primary functions are written following CakePHP shell conventions for data creation, updating,
+                    and
+                    deleting. Additional PHP functions are included as needed. The interface primarily uses HTML and CSS following CakePHP conventions for functionality.</p>
+                <div><strong>Screenshots</strong></div>
+                <div class="gallery more-info">
+                    <a href="img/homepage1.png"><img src="img/homepage1.png"/></a>
+                    <a href="img/topics11.png"><img src="img/topics11.png"/></a>
+                    <a href="img/trends11.png"><img src="img/trends11.png"/></a>
+                    <a href="img/trends21.png"><img src="img/trends21.png"/></a>
+                </div>
+                <div><strong>Results</strong></div>
+                <p>The implementation of this project directly resulted in a long-term increase in page views for the blog. The back-end systems were optimized to accommodate an increase
+                    in the number
+                    of
+                    writers. The system is extensible and modifiable to include additional trend sources. Functions were built-in to maintain a small database footprint and clean old data
+                    resulting in
+                    faster look-ups and an overall more efficient application.</p>
+                <h2>Author Payment System</h2>
+                <b>2013 - iEntry, Inc.</b>
+                <div><strong>Description</strong></div>
+                <p>I was the primary developer for this application. This is a modification of an existing system that replaces manual weekly reports done by hand for 50+ authors. The
+                    reporting system
+                    collects relevant data from the database article records and generates a personalized email for each author Each author needs to confirm his or her report via email
+                    or via the
+                    interface. These reports are saved into a database for moderation. Totals are also calculated to provide an overview of that weeks report. Previous reports can be
+                    accessed via the
+                    pagination functions at the top of the page.</p>
+                <div><strong>Specs</strong></div>
+                <p>The backend is constructed in MySQL. The functions follow CakePHP shell convention including utilization of the built-in email functionality. The interface also
+                    follows CakePHP
+                    convention and was modified as needed.</p>
+                <div><strong>Screenshots</strong></div>
+                <div class="gallery more-info">
+                    <a href="img/Payment11.png"><img src="img/Payment11.png"/></a>
+                </div>
+                <div><strong>Results</strong></div>
+                <p>Before this system was implemented, reports were calculated and collected by hand and manually confirmed with each of the 50+ authors. With this system
+                    handling all report
+                    generation
+                    and confirmation, hours of manual weekly reports are reduced to a minimum. In addition, this system can scale to handle additional authors as needed without
+                    increasing
+                    workload.</p>
+                <h2>Health Data Aggregation Application (<a href="https://sites.google.com/site/lexemedhealth20/home">Pivott</a>)</h2>
+                <p>As a student, I worked with a team of 4 to develop a cloud-based application constructed on Amazon Web Services. We used the web framework, Django in concert
+                    with MySQL and MongoDB.
+                    This application used API’s to access health data from personal health services. We visualized this data via a jQuery application.</p>
+            </section>
+        </div>
+        <div class="prequels section">
             <section>
                 <h1 id="prequels">No, really, they were okay.</h1>
                 <p> Everyone gets so upset about them like they've ruined Star Wars but
@@ -356,9 +431,10 @@
                 </h1>
             </div>
             <div class="date-location">
-                <small>Alex Johnson - <a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> - Lexington, KY - <a href="tel:8596636843">859-663-6843</a> 
-                </small><br>
-                <small><i>The Star Wars prequels were <a id="prequels-switch" href="#prequels">okay.</a></i></small>
+                <small>Alex Johnson - <a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a> - Lexington, KY - <a href="tel:8596636843">859-663-6843</a>
+                </small>
+                <br>
+                <small><i>The Star Wars prequels were <a class="switch prequels-button" href="#prequels">okay.</a></i></small>
             </div>
         </section>
 
@@ -368,13 +444,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="js/resume.js"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-53468044-5', 'auto');
-  ga('send', 'pageview');
+    ga('create', 'UA-53468044-5', 'auto');
+    ga('send', 'pageview');
 
 </script>
 </body>
