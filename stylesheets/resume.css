@@ -238,7 +238,9 @@ section {
   text-align: center;
 }
 .gallery img {
-  width: 200px;
+  max-width: 200px;
+  max-height: 200px;
+  padding: 10px;
 }
 .fun h2 {
   text-align: center;
