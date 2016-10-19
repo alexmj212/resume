@@ -4,6 +4,7 @@
   */
 body,
 html {
+  color: #222;
   height: 100%;
 }
 body,
@@ -71,13 +72,14 @@ a {
   font-weight: 700;
 }
 a:hover {
+  color: #222;
   text-decoration: underline;
 }
 a.active,
 a.active:hover {
   cursor: default;
   text-decoration: none;
-  color: #000;
+  color: #222;
 }
 b {
   font-weight: 400;
@@ -106,17 +108,15 @@ small a {
 .prequels {
   display: none;
 }
-.links {
-  display: flex;
-  flex-direction: row;
-}
 .links a,
-.links a:hover,
 .links a:visited {
   color: #37c;
   font-size: 1em;
   text-align: center;
   flex-grow: 1;
+}
+.links a:hover {
+  color: #222;
 }
 section {
   border-top: 1px solid #ddd;
@@ -182,18 +182,28 @@ section {
     display: block;
   }
 }
-.two-column {
+.tools {
+  padding-bottom: 20px;
+}
+.tools:nth-last-child {
+  padding-bottom: 0px;
+}
+.tools p {
+  text-align: left;
+}
+.three-column {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
-.two-column > .tools {
-  margin-bottom: 10px;
-  width: 50%;
+.three-column ul {
+  width: 33%;
 }
 @media (max-width: 450px) {
-  .two-column > .tools {
-    width: 100%;
+  .three-column {
+    display: initial;
+  }
+  .three-column ul {
+    width: 95%;
   }
 }
 .projects {
@@ -224,12 +234,8 @@ section {
   background: #f6f6f6;
   border-radius: 5px;
   padding: 10px;
-}
-.more-info-hidden {
-  background: #f6f6f6;
-  border-radius: 5px;
-  padding: 10px;
-  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
 }
 .experience {
   padding-bottom: 10px;

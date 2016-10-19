@@ -37,12 +37,6 @@ $(document).ready(function () {
         }
     }
 
-    //project dropdown switch
-    $(".more-switch").click(function () {
-        $(this).siblings(".more-info-hidden").slideDown().fadeIn;
-    });
-
-
     //Lefthand sidebar effect
     var opac = 1.0;
     for (var i = 0; i < 300; i++) {
