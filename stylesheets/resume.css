@@ -272,7 +272,7 @@ section {
   }
 }
 .more-info {
-  background: #c3c3c3;
+  background: #f7f7f7;
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
@@ -280,9 +280,6 @@ section {
 }
 .experience {
   padding-bottom: 10px;
-}
-.experience .more-info {
-  display: none;
 }
 .gallery {
   text-align: center;
