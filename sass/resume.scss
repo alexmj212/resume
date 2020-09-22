@@ -1,0 +1,305 @@
+$accent-color: #37c;
+$gray-color: #777;
+
+$bold: 700;
+$normal: 400;
+$light: 300;
+
+$effect-width: 35px;
+$effect-bg: #555;
+
+$drop-shadow-color: #ddd;
+$drop-shadow: 0 2px 3px $drop-shadow-color;
+
+$border-radius: 10px;
+
+$base-font: 1em;
+$small-font: 0.8em;
+$serif-font: "Roboto Slab", serif;
+$sans-font: "Roboto", sans-serif;
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    font-family: $serif-font;
+    font-weight: $normal;
+    color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $sans-font;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: $gray-color;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+p {
+    padding-bottom: 1em;
+    text-align: justify;
+}
+
+a {
+    word-break: keep-all;
+    color: $accent-color;
+    text-decoration: none;
+    font-weight: $bold;
+    &:hover {
+        color: #222;
+        text-decoration: underline;
+    }
+    &.active,
+    &.active:hover {
+        cursor: default;
+        text-decoration: none;
+        color: #222;
+    }
+}
+
+b {
+    font-weight: $bold;
+    color: $accent-color;
+}
+
+small {
+    color: $gray-color;
+    font-family: "Roboto", sans-serif;
+    a {
+        font-weight: $normal;
+        color: $gray-color;
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0 inherit;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    max-width: 935px;
+    margin: $effect-width auto;
+    box-shadow: 0px 0px 15px $drop-shadow-color;
+    border-radius: $border-radius;
+    @media (max-width: 935px) {
+        margin: $effect-width 15px;
+    }
+    @media (max-width: 768px) {
+        border-left: 0px;
+        margin: 0;
+        box-shadow: none;
+    }
+    @media print {
+        margin: 0;
+        box-shadow: none;
+    }
+
+    header,
+    .body-content,
+    footer {
+        line-height: 1.5;
+        @media print {
+            line-height: 1.25;
+            font-size: 13px;
+        }
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        @media print {
+            padding-top: 0px;
+        }
+        @media (max-width: 450px) {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name {
+            text-align: left;
+            letter-spacing: -4px;
+            font-weight: $bold;
+            text-transform: uppercase;
+            color: #000;
+            text-shadow: 3px 3px 0px $gray-color;
+            font-size: 4em;
+            line-height: 1em;
+            padding: $effect-width;
+            @media (max-width: 450px) {
+                padding: 10px;
+            }
+            @media (max-width: 450px) {
+                font-size: 2.5em;
+                letter-spacing: normal;
+            }
+            @media print {
+                font-size: 35px;
+            }
+        }
+
+        nav {
+            padding: $effect-width;
+            @media (max-width: 450px) {
+                padding: 10px;
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    text-align: right;
+                    font-size: $small-font;
+                    @media (max-width: 450px) {
+                        text-align: center;
+                        font-size: $base-font;
+                    }
+                }
+            }
+
+            .links {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                @media (max-width: 450px) {
+                    justify-content: center;
+                }
+
+                li {
+                    flex-basis: 30px;
+                }
+            }
+        }
+    }
+
+    section {
+        border-top: 1px solid #ddd;
+        margin: 0px $effect-width;
+        padding-bottom: $effect-width;
+        @media (max-width: 450px) {
+            margin: 0px 15px;
+        }
+        @media print {
+            margin: 0px 0px;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+#effect {
+    overflow: hidden;
+    text-align: center;
+    word-wrap: break-word;
+    width: 35px;
+    height: 100%;
+    float: left;
+    font-family: mono, serif;
+    font-weight: $light;
+    font-size: 10px;
+    color: $gray-color;
+    line-height: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    pointer-events: none;
+    @media (max-width: 768px) {
+        display: none;
+    }
+
+    pre {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.uk {
+    height: 1.5em;
+    vertical-align: middle;
+}
+
+.split-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    @media (max-width: 450px) {
+        display: block;
+    }
+}
+
+.tools {
+    padding-bottom: 15px;
+    &:nth-last-child {
+        padding-bottom: 0px;
+    }
+    p {
+        text-align: left;
+    }
+    @media print {
+        padding-bottom: 0px;
+    }
+}
+
+.three-column {
+    display: flex;
+    flex-direction: row;
+    ul {
+        width: 33%;
+    }
+    @media (max-width: 450px) {
+        display: initial;
+        ul {
+            width: 95%;
+        }
+    }
+}
+
+.title-company {
+    flex: 1 0 auto;
+}
+
+.date-location {
+    flex: 0 1 auto;
+    text-align: right;
+    color: $gray-color;
+    font-family: "Roboto", sans-serif;
+    font-size: $small-font;
+    padding-top: 10px;
+    @media (max-width: 450px) {
+        text-align: left;
+    }
+}
+
+.more-info {
+    background: lighten($gray-color, 50%);
+    border-radius: $border-radius;
+    box-shadow: $drop-shadow;
+    padding: 20px $effect-width;
+    margin: 10px $effect-width ;
+    font-size: $small-font;
+    @media(max-width:490px) {
+        display: none;
+    }
+}
+
+.gallery {
+    text-align: center;
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        padding: 10px;
+    }
+}

@@ -1,48 +1,31 @@
-var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    less = require('gulp-less');
+const { src, dest, watch } = require("gulp");
 
-gulp.task('bower', function () {
-    gulp.src('./bower_components/font-awesome/css/font-awesome.min.css')
-        .pipe(gulp.dest('./stylesheets/'));
-    gulp.src('./bower_components/font-awesome/fonts/*')
-        .pipe(gulp.dest('./fonts/'));
-});
+const sass = require('gulp-sass');
+const sync = require("browser-sync").create();
 
-gulp.task('css', function () {
-    gulp.src('./less/*.less')
-        .pipe(less())
-        .pipe(gulp.dest('./stylesheets'));
-});
 
-gulp.task('connect', function () {
-    connect.server({
-        root: '.',
-        livereload: true
+function generateCSS(cb) {
+    src('./sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(dest('css'))
+        .pipe(sync.stream());
+    cb();
+}
+
+function syncBrowser(cb) {
+    sync.init({
+        open: false,
+        server: {
+            baseDir: "./"
+        }
     });
-});
 
-gulp.task('watch:html', function () {
-    gulp.src('./*.html')
-        .pipe(connect.reload());
-});
+    watch('sass/**.scss', generateCSS);
+    watch("*.html").on('change', sync.reload);
+    watch("js/**.js").on('change', sync.reload);
+}
 
-gulp.task('watch:js', function () {
-    gulp.src('./js/*.js')
-        .pipe(connect.reload());
-});
+exports.build = generateCSS;
+exports.watch = syncBrowser;
 
-gulp.task('watch:less', ['css'], function () {
-    gulp.src('./less/*.less')
-        .pipe(connect.reload());
-});
-
-gulp.task('watch', function () {
-    gulp.watch(['./*.html'], ['watch:html']);
-    gulp.watch(['./js/*.js'], ['watch:js']);
-    gulp.watch(['./less/*.less'], ['watch:less']);
-});
-
-gulp.task('default', ['css', 'connect', 'watch']);
-
-gulp.task('build', ['bower', 'css']);
+exports.default = syncBrowser;

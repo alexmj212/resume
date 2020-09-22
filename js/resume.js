@@ -39,15 +39,15 @@ $(document).ready(function () {
 
     //Lefthand sidebar effect
 
-    // var opac = 1.0;
-    // for (var i = 0; i < 300; i++) {
-    //     if (Math.random() > 0.2) {
-    //         $("#effect").append("<span style=\"opacity:" + opac + "\">" + Math.round(Math.random()));
-    //     } else {
-    //         $("#effect").append("<span style=\"opacity:" + opac + "; color:#fff;\">" + Math.round(Math.random()) + "</span>");
-    //     }
-    //     opac -= 0.004;
-    // }
+    var opac = 1.0;
+    for (var i = 0; i < 300; i++) {
+        if (Math.random() > 0.2) {
+            $("#effect").append("<pre style=\"opacity:" + opac + "\">" + Math.round(Math.random()));
+        } else {
+            $("#effect").append("<pre style=\"opacity:" + opac + "; color:#fff;\">" + Math.round(Math.random()) + "</pre>");
+        }
+        opac -= 0.004;
+    }
 
 });
 
