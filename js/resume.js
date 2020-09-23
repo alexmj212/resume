@@ -1,53 +1,19 @@
-/*
- * Alex Johnson - resume.js
- * 8/4/2016
- */
-$(document).ready(function () {
+var parser = new DOMParser();
 
-    //initial page selection
-    if(window.location.hash){
-        $('.section').hide();
-        pager(window.location.hash.substr(1,window.location.hash.length));
+customElements.define('resume-footer', class extends HTMLElement {
+    async connectedCallback() {
+        let res = await fetch( 'components/footer.html' );
+        //this.appendChild(parser.parseFromString(await res.text(), 'text/html').getElementsByTagName('footer'));
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('footer').forEach(element => {
+            this.appendChild(element);
+        });;
     }
-
-    //display switch
-    $(".switch").click(function () {
-        pager($(this).attr('class').split(' ')[1].split('-')[0]);
-        $(this).addClass('active');
-    });
-
-    function pager(page){
-        $('.switch').removeClass('active');
-        $('.section').fadeOut('slow');
-        switch(page){
-            case 'resume':
-                $('.resume').delay(500).fadeIn();
-                break;
-            case 'cover':
-                $('.cover').delay(500).fadeIn();
-                break;
-            case 'portfolio':
-                $('.portfolio').delay(500).fadeIn();
-                break;
-            case 'prequels':
-                $('.prequels').delay(500).fadeIn();
-                break;
-            default:
-                break;
-        }
-    }
-
-    //Lefthand sidebar effect
-
-    var opac = 1.0;
-    for (var i = 0; i < 300; i++) {
-        if (Math.random() > 0.2) {
-            $("#effect").append("<pre style=\"opacity:" + opac + "\">" + Math.round(Math.random()));
-        } else {
-            $("#effect").append("<pre style=\"opacity:" + opac + "; color:#fff;\">" + Math.round(Math.random()) + "</pre>");
-        }
-        opac -= 0.004;
-    }
-
 });
 
+window.addEventListener("scroll", ($event) => {
+    const percent = ((window.scrollY*0.02));
+    const percent2 = ((window.scrollY*0.005));
+    document.body.style.setProperty("--bg-size-x", percent+100+"%");
+    document.body.style.setProperty("--bg-size-y", percent+100+"%");
+    document.body.style.setProperty("--rx-offset-x", percent2+(-10)+"em");
+});

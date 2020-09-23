@@ -1,22 +1,11 @@
-$accent-color: #37c;
-$gray-color: #777;
+@import "vars";
 
-$bold: 700;
-$normal: 400;
-$light: 300;
+@import "sidebar";
 
-$effect-width: 35px;
-$effect-bg: #555;
-
-$drop-shadow-color: #ddd;
-$drop-shadow: 0 2px 3px $drop-shadow-color;
-
-$border-radius: 10px;
-
-$base-font: 1em;
-$small-font: 0.8em;
-$serif-font: "Roboto Slab", serif;
-$sans-font: "Roboto", sans-serif;
+:root {
+    --bg-size-x: 100%;
+    --bg-size-y: 100%;
+}
 
 body,
 html {
@@ -24,9 +13,31 @@ html {
 }
 
 body {
-    font-family: $serif-font;
-    font-weight: $normal;
-    color: #222;
+    font-family: $body-font;
+    font-weight: $bold;
+    color: $base-color;
+    background-color: $base-background;
+    line-height: 1.15em;
+    letter-spacing: -0.05em;
+
+    &::before {
+        opacity: 0.1;
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: $base-background;
+        background-image: url('/img/comic-book-action.png');
+        background-size: var(--bg-size-x) var(--bg-size-y);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-blend-mode: darken;
+    }
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,8 +47,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-    color: $gray-color;
-    font-weight: 300;
+    font-family: $light-font;
+    font-weight: 500;
+    font-size: 2em;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+    line-height: 1em;
+}
+
+h3 {
+    font-family: $heavy-font;
+    font-weight: $bold;
     text-transform: uppercase;
 }
 
@@ -49,30 +70,26 @@ p {
 a {
     word-break: keep-all;
     color: $accent-color;
-    text-decoration: none;
     font-weight: $bold;
+    transition: color 250ms ease-out;
     &:hover {
-        color: #222;
-        text-decoration: underline;
+        color: $hover-color;
     }
     &.active,
     &.active:hover {
         cursor: default;
         text-decoration: none;
-        color: #222;
+        color: $hover-color;
     }
-}
-
-b {
-    font-weight: $bold;
-    color: $accent-color;
 }
 
 small {
     color: $gray-color;
     font-family: "Roboto", sans-serif;
+    font-weight: $normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     a {
-        font-weight: $normal;
         color: $gray-color;
     }
 }
@@ -85,31 +102,15 @@ ul {
 main {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    max-width: 935px;
-    margin: $effect-width auto;
-    box-shadow: 0px 0px 15px $drop-shadow-color;
-    border-radius: $border-radius;
-    @media (max-width: 935px) {
-        margin: $effect-width 15px;
-    }
-    @media (max-width: 768px) {
-        border-left: 0px;
-        margin: 0;
-        box-shadow: none;
-    }
-    @media print {
-        margin: 0;
-        box-shadow: none;
-    }
+    width: 935px;
+    margin-left: 0px;
 
-    header,
-    .body-content,
-    footer {
-        line-height: 1.5;
-        @media print {
-            line-height: 1.25;
-            font-size: 13px;
+    article {
+        display: flex;
+        flex-direction: row;
+
+        aside {
+            border-right: $divider-border;
         }
     }
 
@@ -118,80 +119,53 @@ main {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        @media print {
-            padding-top: 0px;
-        }
-        @media (max-width: 450px) {
-            flex-direction: column;
-            justify-content: center;
+    }
+
+    .section section {
+        padding: $effect-width $effect-width;
+        border-right: $divider-border;
+        border-bottom: $divider-border;
+        background-color: #f0f0f0;
+
+        &:first-child {
+            border-top: $divider-border;
+            margin-top: 75px;
+            padding-top: $effect-width;
         }
 
-        .name {
-            text-align: left;
-            letter-spacing: -4px;
-            font-weight: $bold;
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .date-location {
+            flex: 0 1 auto;
+            text-align: right;
+            color: $gray-color;
+            font-family: "Roboto", sans-serif;
+            font-size: $small-font;
+            font-weight: $light;
             text-transform: uppercase;
-            color: #000;
-            text-shadow: 3px 3px 0px $gray-color;
-            font-size: 4em;
-            line-height: 1em;
-            padding: $effect-width;
-            @media (max-width: 450px) {
-                padding: 10px;
-            }
-            @media (max-width: 450px) {
-                font-size: 2.5em;
-                letter-spacing: normal;
-            }
-            @media print {
-                font-size: 35px;
-            }
-        }
-
-        nav {
-            padding: $effect-width;
-            @media (max-width: 450px) {
-                padding: 10px;
-            }
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                li {
-                    text-align: right;
-                    font-size: $small-font;
-                    @media (max-width: 450px) {
-                        text-align: center;
-                        font-size: $base-font;
-                    }
-                }
-            }
-
-            .links {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                @media (max-width: 450px) {
-                    justify-content: center;
-                }
-
-                li {
-                    flex-basis: 30px;
-                }
-            }
         }
     }
 
-    section {
-        border-top: 1px solid #ddd;
-        margin: 0px $effect-width;
-        padding-bottom: $effect-width;
-        @media (max-width: 450px) {
-            margin: 0px 15px;
+    footer {
+        padding: 10px $effect-width;
+        border-top: $divider-border;
+        margin-bottom: 200px;
+
+        section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
-        @media print {
-            margin: 0px 0px;
-            padding-bottom: 5px;
+
+        h2 {
+            margin: 0;
+            padding: 0;
+            i {
+                font-size: 90%;
+            }
         }
     }
 }
@@ -215,9 +189,6 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     pointer-events: none;
-    @media (max-width: 768px) {
-        display: none;
-    }
 
     pre {
         margin: 0;
@@ -235,9 +206,6 @@ main {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    @media (max-width: 450px) {
-        display: block;
-    }
 }
 
 .tools {
@@ -248,9 +216,6 @@ main {
     p {
         text-align: left;
     }
-    @media print {
-        padding-bottom: 0px;
-    }
 }
 
 .three-column {
@@ -259,39 +224,19 @@ main {
     ul {
         width: 33%;
     }
-    @media (max-width: 450px) {
-        display: initial;
-        ul {
-            width: 95%;
-        }
-    }
 }
 
 .title-company {
     flex: 1 0 auto;
 }
 
-.date-location {
-    flex: 0 1 auto;
-    text-align: right;
-    color: $gray-color;
-    font-family: "Roboto", sans-serif;
-    font-size: $small-font;
-    padding-top: 10px;
-    @media (max-width: 450px) {
-        text-align: left;
-    }
-}
-
 .more-info {
-    background: lighten($gray-color, 50%);
-    border-radius: $border-radius;
-    box-shadow: $drop-shadow;
-    padding: 20px $effect-width;
-    margin: 10px $effect-width ;
+    margin: $effect-width 0 $effect-width $effect-width;
+    font-weight: $normal;
     font-size: $small-font;
-    @media(max-width:490px) {
-        display: none;
+    text-align: justify;
+    li {
+        letter-spacing: 0.02em;
     }
 }
 

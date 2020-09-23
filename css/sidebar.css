@@ -1,0 +1,59 @@
+:root {
+  --rx-offset-x: -10em;
+  --rx-offset-y: -2em; }
+
+.sidebar {
+  position: relative;
+  opacity: 1; }
+  .sidebar::before {
+    opacity: 0.03;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("/img/halftone-fade.jpg");
+    background-color: #e8e8e8;
+    background-size: contain;
+    background-repeat: repeat-y;
+    background-position: top right;
+    background-blend-mode: darken; }
+  .sidebar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("/img/rx-78-2.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: right var(--rx-offset-x) bottom var(--rx-offset-y); }
+  .sidebar .name {
+    padding: 100px 25px 0 25px;
+    text-align: right;
+    font-family: "Teko", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 4em;
+    line-height: 0.8em; }
+  .sidebar nav {
+    padding-right: 25px; }
+    .sidebar nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .sidebar nav ul li {
+        text-align: right;
+        margin-bottom: 5px; }
+    .sidebar nav .links {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end; }
+      .sidebar nav .links li {
+        flex-basis: 30px; }
+        .sidebar nav .links li i {
+          font-size: 1.5em; }

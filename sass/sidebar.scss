@@ -1,0 +1,82 @@
+@import "vars";
+
+:root {
+    --rx-offset-x: -10em;
+    --rx-offset-y: -2em;
+}
+
+.sidebar {
+    position: relative;
+    opacity: 1;
+
+    &::before {
+        opacity: 0.03;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('/img/halftone-fade.jpg');
+        background-color: $base-background;
+        background-size: contain;
+        background-repeat: repeat-y;
+        background-position: top right;
+        background-blend-mode: darken;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('/img/rx-78-2.png');
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position: right var(--rx-offset-x) bottom var(--rx-offset-y);
+    }
+
+    .name {
+        padding: 100px $effect-width 0 $effect-width;
+        text-align: right;
+        font-family: $heavy-font;
+        font-weight: $bold;
+        text-transform: uppercase;
+        font-size: 4em;
+        line-height: 0.8em;
+        // $offset: 0;
+        // text-shadow:
+        //     #{$offset+1}px #{$offset+1}px 0 $accent-color2,
+        //     #{$offset*2+3}px #{$offset*2+3}px 0 $accent-color1,
+        //     #{$offset*3+5}px #{$offset*3+5}px 0 $accent-color3;
+    }
+
+    nav {
+        padding-right: $effect-width;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                text-align: right;
+                margin-bottom: 5px;
+            }
+        }
+
+        .links {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            li {
+                flex-basis: 30px;
+                i {
+                    font-size: 1.5em
+                }
+            }
+        }
+    }
+}
