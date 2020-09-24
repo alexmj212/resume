@@ -6,13 +6,11 @@
     <title>Alex Johnson - Resume</title>
     <link href="favicon.ico" type="image/x-icon" rel="icon" />
     <link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Teko:wght@700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@900&family=Open+Sans+Condensed:wght@300&family=Work+Sans&family=Roboto+Condensed:wght@700&family=Teko:wght@700&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/resume.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/resume.css" />
 
 
 </head>
@@ -20,110 +18,25 @@
 <body>
     <main>
         <header class="header-content">
-
         </header>
         <article>
-            <aside class="sidebar">
-                <h1 class="name">
-                    Alex Johnson
-                </h1>
-                <nav>
-                    <ul class="summary">
-                        <li><a href="mailto:alexmj212@gmail.com">alexmj212@gmail.com</a></li>
-                        <li>Lexington, KY</li>
-                        <li><a href="tel:8596636843">859-663-6843</a></li>
-                    </ul>
-                    <ul class="links">
-                        <li><a href="mailto:alexmj212@gmail.com" title="Email"><i class="fa fa-envelope"
-                                    aria-hidden="true"></i></a></li>
-                        <li><a href="http://www.linkedin.com/profile/view?id=229742875" title="LinkedIn"
-                                target="_blank">
-                                <i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                        <li><a href="http://www.github.com/alexmj212" title="GitHub: alexmj212" target="_blank"><i
-                                    class="fa fa-github" aria-hidden="true"></i></a></li>
-                    </ul>
-                    <!-- <div>
-                    <a class="switch resume-button active" href="#resume">Resume</a> |
-                    <a class="switch cover-button" href="#cover">Cover Letter</a> |
-                    <a class="switch portfolio-button" href="#portfolio">Portfolio</a>
-                </div> -->
-                </nav>
-            </aside>
+            <resume-sidebar></resume-sidebar>
             <section>
-                <div class="body-content">
-                    <div class="resume section">
-                        <section>
-                            <div class="summary">
-                                <h2>
-                                    Summary
-                                </h2>
-                                <ul>
-                                    <li>7 years experience with front-end and back-end technologies</li>
-                                    <li>Experience with delivering mobile-focused web design and products</li>
-                                    <li>Skilled communicator that excels in an engaging environment</li>
-                                </ul>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="education">
-                                <h2>
-                                    Education
-                                </h2>
-                                <div class="split-column">
-                                    <div class="title-company">
-                                        <h3>B.S. in Computer Science</h3>
-                                        <b>University of Kentucky</b><img class="uk" src="img/UK.png" />
-
-                                    </div>
-                                    <div class="date-location">
-                                        <div>May 2013</div>
-                                        <div>Lexington, KY</div>
-                                    </div>
+                <div class="resume">
+                    <section class="panel image">
+                    </section>
+                    <section class="panel">
+                        <h2>Experience<div class="fill"></div>
+                        </h2>
+                        <div class="experience">
+                            <div class="date-location">2017</div>
+                            <div class="information">
+                                <div class="title-company">
+                                    <h3>Software Engineer</h3>
+                                    <h4>TwinSpires.com</h4>
+                                    <small>Angular, JavaScript, SASS, Node</small>
                                 </div>
-                            </div>
-                        </section>
-                        <section>
-                            <h2>Toolbox</h2>
-                            <div class="tools">
-                                <div class="three-column">
-                                    <ul>
-                                        <li>AngularJS</li>
-                                        <li>Angular v2+</li>
-                                        <li>Bootstrap</li>
-                                        <li>NPM</li>
-                                    </ul>
-                                    <ul>
-                                        <li>Grunt/Gulp</li>
-                                        <li>RESTful web services</li>
-                                        <li>Stateless security design (JWT)</li>
-                                    </ul>
-                                    <ul>
-                                        <li>Responsive Design</li>
-                                        <li>HTML5</li>
-                                        <li>Javascript</li>
-                                        <li>CSS Pre-processors</li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                        <section>
-                            <div class="experience">
-                                <h2>
-                                    Experience
-                                </h2>
-                                <div class="split-column">
-                                    <div class="title-company">
-                                        <h3>Software Engineer</h3>
-                                        <h4>TwinSpires.com</h4>
-                                        <small>Angular v2+, JavaScript, SASS, Node</small>
-                                    </div>
-                                    <div class="date-location">
-                                        <div>April 2017 - Present</div>
-                                        <div>Lexington, KY</div>
-                                    </div>
-                                </div>
-                                <ul>
+                                <ul class="summary">
                                     <li>Work on several delivery teams for various web-based products</li>
                                     <li>Facilitate inter-team communication and encourage best practices</li>
                                     <li>Support for legacy products and administrative applications</li>
@@ -167,19 +80,18 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="split-column">
-                                    <div class="title-company">
-                                        <h3>Software Engineer</h3>
-                                        <h4>The Jockey Club Technology Services</h4>
-                                        <small>AngularJS, Bootstrap, Drupal, Grails, Spring
-                                        </small>
-                                    </div>
-                                    <div class="date-location">
-                                        <div>Mar 2014 - April 2017</div>
-                                        <div>Lexington, KY</div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div class="experience">
+                            <div class="date-location">2014</div>
+                            <div class="information">
+                                <div class="title-company">
+                                    <h3>Software Engineer</h3>
+                                    <h4>The Jockey Club Technology Services</h4>
+                                    <small>AngularJS, Bootstrap, Drupal, Grails, Spring
+                                    </small>
                                 </div>
-                                <ul>
+                                <ul class="summary">
                                     <li>Created and deployed user interfaces and server infrastructure</li>
                                     <li>Lead the management of remote resources to achieve project goals</li>
                                     <li>Communicated proactively among team members and clients</li>
@@ -224,19 +136,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="experience">
-                                <div class="split-column">
-                                    <div class="title-company">
-                                        <h3>System Administrator (Developer)</h3>
-                                        <h4>iEntry, Inc.</h4>
-                                        <small>jQuery, CakePHP, PHP, Wordpress</small>
-                                    </div>
-                                    <div class="date-location">
-                                        <div>Jul 2013 - Mar 2014</div>
-                                        <div>Lexington, KY</div>
-                                    </div>
+                        </div>
+                        <div class="experience">
+                            <div class="date-location">2013</div>
+                            <div class="information">
+                                <div class="title-company">
+                                    <h3>System Administrator (Developer)</h3>
+                                    <h4>iEntry, Inc.</h4>
+                                    <small>jQuery, CakePHP, PHP, Wordpress</small>
                                 </div>
-                                <ul>
+                                <ul class="summary">
                                     <li>Developed critical data and server infrastructure software</li>
                                     <li>Implemented business and marketing web-based tools to identify subscriber
                                         audience
@@ -266,20 +175,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="experience">
-                                <div class="split-column">
-                                    <div class="title-company">
-                                        <h3>Technical Desktop Support</h3>
-                                        <h4>College of Arts and Sciences - University of Kentucky</h4>
-                                    </div>
-                                    <div class="date-location">
-                                        <div>Aug 2011 - Jul 2013</div>
-                                        <div>Lexington, KY</div>
-                                    </div>
+                        </div>
+                        <div class="experience">
+                            <div class="date-location">2011</div>
+                            <div class="information">
+                                <div class="title-company">
+                                    <h3>Technical Desktop Support</h3>
+                                    <h4>College of Arts and Sciences - University of Kentucky</h4>
                                 </div>
                             </div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                 </div>
             </section>
         </article>

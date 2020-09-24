@@ -7,7 +7,7 @@ const sync = require("browser-sync").create();
 function generateCSS(cb) {
     src('./sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(dest('css'))
+        .pipe(dest('dist/css'))
         .pipe(sync.stream());
     cb();
 }
@@ -21,7 +21,7 @@ function syncBrowser(cb) {
     });
 
     watch('sass/**.scss', generateCSS);
-    watch("*.html").on('change', sync.reload);
+    watch("**/*.html").on('change', sync.reload);
     watch("js/**.js").on('change', sync.reload);
 }
 

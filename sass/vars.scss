@@ -1,4 +1,15 @@
-$base-color: #181818;
+:root {
+    --bg-size-x: 100%;
+    --bg-size-y: 100%;
+    --panel-pan: 0px;
+    --panel-pan2: -100px;
+    --panel-scale: 100%;
+    --panel-scale2: 150%;
+    --rx-offset-x: -10em;
+    --rx-offset-y: -2em;
+}
+
+$base-color: #444444;
 $accent-color: $base-color;
 $accent-color1: #35b;
 $accent-color2: #fc3;
@@ -7,26 +18,29 @@ $gray-color: #777;
 
 $hover-color: $accent-color3;
 
-$base-background: #e8e8e8;
+$base-background: #f0f0f0;
+$panel-background: #e8e8e4;
 
+$thicc: 900;
 $bold: 700;
 $normal: 500;
 $light: 400;
 
-$effect-width: 25px;
+$base-margin: 25px;
 $effect-bg: #555;
 
-$drop-shadow-color: #000;
+$drop-shadow-color: $base-color;
 $drop-shadow: 0 2px 3px $drop-shadow-color;
 
 $border-radius: 10px;
-$divider-border: 3px solid $base-color;
+$divider-border-width: 2px;
+$divider-border: $divider-border-width solid $base-color;
 
+$huge-font: 4em;
+$big-font: 2em;
 $base-font: 1em;
 $small-font: 0.8em;
-$serif-font: "Roboto Slab", serif;
-$sans-font: "Roboto", sans-serif;
+$serif-font: "Playfair Display SC", serif;
+$sans-font: "Roboto Condensed", sans-serif;
 $heavy-font: "Teko", sans-serif;
-$light-font: "Open Sans Condensed", sans-serif;
-
-$body-font: 'Work Sans', sans-serif;
+$body-font: "Work Sans", sans-serif;

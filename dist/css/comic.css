@@ -1,0 +1,91 @@
+:root {
+  --bg-size-x: 100%;
+  --bg-size-y: 100%;
+  --panel-pan: 0px;
+  --panel-pan2: -100px;
+  --panel-scale: 100%;
+  --panel-scale2: 150%;
+  --rx-offset-x: -10em;
+  --rx-offset-y: -2em; }
+
+:root {
+  --panel-pan: 0px;
+  --panel-scale: 100%; }
+
+main .section section.panel::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #444444;
+  background-color: #e8e8e4; }
+
+main .section section.panel:nth-child(1) {
+  border-top: 2px solid #444444;
+  margin-right: 40px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  transform: skew(0deg, 2deg);
+  border-top: 0; }
+  main .section section.panel:nth-child(1) > *, main .section section.panel:nth-child(1)::after {
+    transform: skew(0deg, -2deg); }
+  main .section section.panel:nth-child(1)::after {
+    top: -11px;
+    left: -2px;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+
+main .section section.panel:nth-child(2), main .section section.panel.image {
+  border-bottom: 0;
+  margin-left: 75px;
+  margin-right: 75px;
+  transform: skew(0deg, 2deg); }
+  main .section section.panel:nth-child(2) > *, main .section section.panel.image > * {
+    transform: skew(0deg, -2deg); }
+  main .section section.panel:nth-child(2)::after, main .section section.panel.image::after {
+    bottom: -15px;
+    left: -2px;
+    transform: skew(0deg, -3deg);
+    border: 2px solid #444444;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
+
+main .section section.panel:nth-child(3) {
+  margin-top: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+  transform: skew(0deg, 1deg);
+  border-top: 0; }
+  main .section section.panel:nth-child(3) > * {
+    transform: skew(0deg, -1deg); }
+  main .section section.panel:nth-child(3)::after {
+    transform: skew(0deg, -2deg);
+    top: -11px;
+    left: -2px;
+    border: 2px solid #444444;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0; }
+
+main .section section.panel:last-child {
+  border-left: none;
+  border-bottom: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+  border-radius: 0;
+  border-top-right-radius: 5px; }
+  main .section section.panel:last-child::after {
+    display: none !important; }
+
+main .section section.panel.image {
+  margin-left: 40px;
+  margin-right: 50px;
+  transform: skew(0deg, 1deg); }
+  main .section section.panel.image::after {
+    bottom: 0;
+    transform: skew(0deg, 0deg);
+    background: none; }
