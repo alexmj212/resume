@@ -1,41 +1,95 @@
+'use strict';
+
 var parser = new DOMParser();
 
 customElements.define('resume-footer', class extends HTMLElement {
     async connectedCallback() {
-        let res = await fetch( 'components/footer.html' );
+        let res = await fetch('components/footer.html');
         //this.appendChild(parser.parseFromString(await res.text(), 'text/html').getElementsByTagName('footer'));
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('footer').forEach(element => {
             this.appendChild(element);
-        });;
+        });
     }
 });
 customElements.define('resume-sidebar', class extends HTMLElement {
     async connectedCallback() {
-        let res = await fetch( 'components/sidebar.html' );
+        let res = await fetch('components/sidebar.html');
         //this.appendChild(parser.parseFromString(await res.text(), 'text/html').getElementsByTagName('footer'));
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('aside').forEach(element => {
             this.appendChild(element);
-        });;
+        });
+        generateSkills();
     }
 });
 
-window.addEventListener("scroll", ($event) => {
-    calcPositions();
-});
+const skills = [
+    {
+        "skill": "Angular (v2+)",
+        "level": 9
+    },
+    {
+        "skill": "TypeScript",
+        "level": 8
+    },
+    {
+        "skill": "JavaScript (ES5+)",
+        "level": 8
+    },
+    {
+        "skill": "NodeJS",
+        "level": 6
+    },
+    {
+        "skill": "Responsive / Mobile Design",
+        "level": 9
+    },
+    {
+        "skill": "HTML5",
+        "level": 7
+    },
+    {
+        "skill": "LESS / SASS / CSS3",
+        "level": 9
+    },
+    {
+        "skill": "Grunt / Gulp / NPM",
+        "level": 7
+    },
+    {
+        "skill": "Git / GitHub",
+        "level": 8
+    },
+    {
+        "skill": "REST-ful web services",
+        "level": 7
+    }
+];
 
-function calcPositions() {
-    const scrollPercent = (window.scrollY/window.innerHeight)*1000;
+function generateSkills() {
+    skills.forEach(skill => {
+        let listItem = document.querySelector('div.tools ul').appendChild(document.createElement('li'));
 
-    const mediumScale = scrollPercent*0.1;
-    const smallScale = scrollPercent*0.01;
-    const tinyScale = scrollPercent*0.005;
-    document.body.style.setProperty("--bg-size-x", mediumScale+100+"%");
-    document.body.style.setProperty("--bg-size-y", mediumScale+100+"%");
-    document.body.style.setProperty("--rx-offset-x", tinyScale-10+"em");
-    document.body.style.setProperty("--panel-pan", smallScale*8*-1+"px");
-    document.body.style.setProperty("--panel-pan2", smallScale*40+10+"px");
-    document.body.style.setProperty("--panel-scale", smallScale+100+"%");
-    document.body.style.setProperty("--panel-scale2", smallScale*-1+120+"%");
+        let tool = document.createElement('div');
+        tool.classList.add('tool');
+        tool.textContent = skill.skill;
+
+        let skillList = document.createElement('div');
+        skillList.classList.add('skill-level');
+
+        Array.apply(null, Array(10)).forEach((v, index) => {
+            let pip = document.createElement('div');
+            pip.classList.add('pip');
+            if (index < skill.level) {
+                pip.classList.add('filled');
+            }
+            skillList.appendChild(pip);
+        });
+
+        listItem.appendChild(tool);
+        listItem.appendChild(skillList);
+    });
+
 }
+
 
 calcPositions();

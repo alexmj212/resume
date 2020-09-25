@@ -1,3 +1,136 @@
+:root {
+  --rx-offset-x: -10em;
+  --rx-offset-y: -2em; }
+
+.sidebar {
+  position: relative;
+  height: 100%;
+  opacity: 1;
+  z-index: 1;
+  background-color: #e8e8e4;
+  padding: 0 15px;
+  min-width: 225px; }
+  .sidebar .panel {
+    margin: 15px 0 15px; }
+  .sidebar::before {
+    opacity: 0.1;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("../img/halftone-fade.jpg");
+    background-color: #e8e8e4;
+    background-size: 40%;
+    background-repeat: repeat-y;
+    background-position: top right;
+    background-blend-mode: darken; }
+  .sidebar .name {
+    padding-top: 50px;
+    text-align: left;
+    font-family: "Teko", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 400%;
+    line-height: 0.8em;
+    position: relative; }
+  .sidebar .career-title {
+    white-space: nowrap;
+    text-align: center;
+    border-top: 2px solid #444444;
+    border-bottom: 2px solid #444444;
+    padding: 5px 0 2px;
+    font-family: "Teko", sans-serif;
+    font-size: 110%;
+    text-transform: uppercase;
+    letter-spacing: 0; }
+  .sidebar nav {
+    margin: 25px 0 10px; }
+    .sidebar nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+      .sidebar nav ul li {
+        text-align: left;
+        padding-bottom: 6px;
+        margin-bottom: 6px; }
+        .sidebar nav ul li i {
+          width: 20px;
+          margin-right: 3px; }
+  .sidebar .tools ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
+    .sidebar .tools ul li {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      user-select: none; }
+      .sidebar .tools ul li:last-child {
+        margin-bottom: 10px; }
+      .sidebar .tools ul li:hover .tool {
+        color: #c12; }
+      .sidebar .tools ul li:hover .skill-level .pip.filled {
+        background-color: #c12; }
+        .sidebar .tools ul li:hover .skill-level .pip.filled:first-child::after, .sidebar .tools ul li:hover .skill-level .pip.filled:last-child::after {
+          background-color: #c12; }
+      .sidebar .tools ul li .tool {
+        flex: 1 0 100%;
+        white-space: nowrap;
+        margin-bottom: 5px;
+        transition: all 250ms ease-out; }
+      .sidebar .tools ul li .skill-level {
+        flex: 1 0 100%;
+        padding: 0 3px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        .sidebar .tools ul li .skill-level .pip,
+        .sidebar .tools ul li .skill-level .pip::after {
+          transform: skewX(-30deg);
+          width: 8.5%;
+          height: 5px;
+          background-color: #c4c4c4;
+          transition: all 250ms ease-out; }
+        .sidebar .tools ul li .skill-level .pip {
+          z-index: 1;
+          position: relative; }
+          .sidebar .tools ul li .skill-level .pip.filled {
+            background-color: #444444; }
+            .sidebar .tools ul li .skill-level .pip.filled:first-child::after, .sidebar .tools ul li .skill-level .pip.filled:last-child::after {
+              background-color: #444444; }
+          .sidebar .tools ul li .skill-level .pip:first-child::after, .sidebar .tools ul li .skill-level .pip:last-child::after {
+            content: "";
+            width: 14px;
+            z-index: 2;
+            position: absolute;
+            left: -3px;
+            background-color: #c4c4c4;
+            transform: skewX(30deg); }
+          .sidebar .tools ul li .skill-level .pip:first-child, .sidebar .tools ul li .skill-level .pip:first-child::after {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px; }
+          .sidebar .tools ul li .skill-level .pip:last-child, .sidebar .tools ul li .skill-level .pip:last-child::after {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px; }
+          .sidebar .tools ul li .skill-level .pip:last-child::after {
+            right: -3px;
+            left: initial; }
+
+main footer {
+  padding: 10px 15px;
+  border-top: 2px solid #444444;
+  margin-bottom: 100px; }
+  main footer ul {
+    display: flex;
+    flex-direction: row; }
+    main footer ul li:first-child {
+      list-style: none; }
+    main footer ul li:not(:first-child) {
+      margin-left: 15px; }
+
 body,
 html {
   height: 100%; }
@@ -210,3 +343,38 @@ main {
                 font-size: 90%; }
             main .resume section .experience .information .more-info small {
               color: #c12; }
+
+@media (max-width: 450px) {
+  a {
+    text-decoration: underline; }
+  main {
+    width: auto; }
+    main article {
+      flex-direction: column; }
+      main article .sidebar {
+        border: 0; }
+        main article .sidebar::before {
+          display: none; }
+        main article .sidebar .name {
+          font-size: 5em;
+          text-align: center;
+          padding-top: 15px; }
+      main article .panel h2 {
+        font-size: 200% !important; }
+        main article .panel h2 .fill {
+          height: 15px; }
+          main article .panel h2 .fill::before {
+            display: none !important; }
+      main article .panel.image {
+        margin: 20px 0;
+        border-right: 0;
+        height: 200px; }
+    main footer {
+      margin-bottom: 20px; }
+      main footer ul {
+        flex-direction: column;
+        justify-content: center; }
+        main footer ul li {
+          text-align: center;
+          margin: 0 !important;
+          list-style: none; } }

@@ -1,0 +1,34 @@
+@media (max-width: 450px) {
+  a {
+    text-decoration: underline; }
+  main {
+    width: auto; }
+    main article {
+      flex-direction: column; }
+      main article .sidebar {
+        border: 0; }
+        main article .sidebar::before {
+          display: none; }
+        main article .sidebar .name {
+          font-size: 5em;
+          text-align: center;
+          padding-top: 15px; }
+      main article .panel h2 {
+        font-size: 200% !important; }
+        main article .panel h2 .fill {
+          height: 15px; }
+          main article .panel h2 .fill::before {
+            display: none !important; }
+      main article .panel.image {
+        margin: 20px 0;
+        border-right: 0;
+        height: 200px; }
+    main footer {
+      margin-bottom: 20px; }
+      main footer ul {
+        flex-direction: column;
+        justify-content: center; }
+        main footer ul li {
+          text-align: center;
+          margin: 0 !important;
+          list-style: none; } }

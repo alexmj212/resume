@@ -11,24 +11,15 @@
     opacity: 1;
     z-index: 1;
     background-color: $panel-background;
-
-    h2 {
-        font-size: 1.5em;
-        border-bottom: $divider-border;
-        padding-bottom: 7px;
-        margin-bottom: 10px;
-        .fill {
-            //margin-top: -4px;
-            height: 0.4em;
-        }
-    }
+    padding: 0 $base-margin;
+    min-width: 225px;
 
     .panel {
-        margin: $base-margin;
+        margin: $base-margin 0 $base-margin;
     }
 
     &::before {
-        opacity: 0.2;
+        opacity: 0.1;
         content: "";
         position: absolute;
         left: 0;
@@ -43,45 +34,47 @@
         background-position: top right;
         background-blend-mode: darken;
     }
-    &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        background-image: url("../img/rx-78-2.png");
-        background-color: $base-background;
-        background-size: 90%;
-        background-repeat: no-repeat;
-        background-position: center bottom 10px;
-        background-blend-mode: multiply;
-    }
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: -2;
+    //     background-image: url("../img/rx-78-2.png");
+    //     background-color: $base-background;
+    //     background-size: 90%;
+    //     background-repeat: no-repeat;
+    //     background-position: center bottom 10px;
+    //     background-blend-mode: multiply;
+    // }
 
     .name {
-        padding: 50px $base-margin 10px $base-margin;
+        padding-top: 50px;
         text-align: left;
         font-family: $heavy-font;
         font-weight: $bold;
         text-transform: uppercase;
         font-size: $huge-font;
         line-height: 0.8em;
-        transition: all 500ms ease-out;
         position: relative;
-        $offset: 0;
-        text-shadow: #{$offset + 1}px #{$offset + 1}px 0 $accent-color2;
+    }
 
-        // &:hover {
-        //     margin: -2px 2px 2px -2px;
-        //     text-shadow: #{$offset + 1}px #{$offset + 1}px 0 $accent-color2,
-        //         #{$offset * 2+4}px #{$offset * 2+4}px 0 $accent-color1;
-        //     //#{$offset*3+6}px #{$offset*3+6}px 0 $accent-color3;
-        // }
+    .career-title {
+        white-space: nowrap;
+        text-align: center;
+        border-top: $divider-border;
+        border-bottom: $divider-border;
+        padding: 5px 0 2px;
+        font-family: $heavy-font;
+        font-size: 110%;
+        text-transform: uppercase;
+        letter-spacing: 0;
     }
 
     nav {
-        margin: 20px $base-margin 10px;
+        margin: 25px 0 10px;
 
         ul {
             list-style: none;
@@ -91,27 +84,110 @@
                 text-align: left;
                 padding-bottom: 6px;
                 margin-bottom: 6px;
-                a {
-                    text-decoration: none;
-
-                }
                 i {
                     width: 20px;
+                    margin-right: 3px;
                 }
             }
         }
+    }
 
-        .links {
+    .tools {
+        ul {
+            list-style: none;
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
+            flex-direction: column;
 
             li {
-                flex-basis: 30px;
-                i {
-                    font-size: 1.5em;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                user-select: none;
+
+                &:last-child {
+                    margin-bottom: 10px;
+                }
+
+                &:hover {
+                    .tool {
+                        color: $accent-color3;
+                    }
+                    .skill-level {
+                        .pip.filled {
+                            background-color: $accent-color3;
+                            &:first-child::after,
+                            &:last-child::after {
+                                background-color: $accent-color3;
+                            }
+                        }
+                    }
+                }
+
+                .tool {
+                    flex: 1 0 100%;
+                    white-space: nowrap;
+                    margin-bottom: 5px;
+                    transition: $base-transition;
+                }
+                .skill-level {
+                    flex: 1 0 100%;
+                    padding: 0 3px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .pip,
+                    .pip::after {
+                        transform: skewX(-30deg);
+                        width: 8.5%;
+                        height: 5px;
+                        background-color: $base-color-lighter;
+                        transition: $base-transition;
+                    }
+
+                    .pip {
+                        z-index: 1;
+                        position: relative;
+                        &.filled {
+                            background-color: $base-color;
+
+                            &:first-child::after,
+                            &:last-child::after {
+                                background-color: $base-color;
+                            }
+                        }
+                        &:first-child::after,
+                        &:last-child::after {
+                            content: "";
+                            width: 14px;
+                            z-index: 2;
+                            position: absolute;
+                            left: -3px;
+                            background-color: $base-color-lighter;
+                            transform: skewX(30deg);
+                        }
+
+                        $pip-border-radius: 5px;
+
+                        &:first-child, &:first-child::after {
+                            border-top-left-radius: $pip-border-radius;
+                            border-bottom-left-radius: $pip-border-radius;
+                        }
+
+                        &:last-child, &:last-child::after {
+                            border-top-right-radius: $pip-border-radius;
+                            border-bottom-right-radius: $pip-border-radius;
+                        }
+
+                        &:last-child::after {
+                            right: -3px;
+                            left: initial;
+                        }
+                    }
                 }
             }
+        }
+        .tool {
         }
     }
 }

@@ -1,24 +1,16 @@
-:root {
-    --bg-size-x: 100%;
-    --bg-size-y: 100%;
-    --panel-pan: 0px;
-    --panel-pan2: -100px;
-    --panel-scale: 100%;
-    --panel-scale2: 150%;
-    --rx-offset-x: -10em;
-    --rx-offset-y: -2em;
-}
-
 $base-color: #444444;
+$base-color-light: lighten($base-color, 30%);
+$base-color-lighter: lighten($base-color, 50%);
 $accent-color: $base-color;
 $accent-color1: #35b;
 $accent-color2: #fc3;
 $accent-color3: #c12;
-$gray-color: #777;
+
 
 $hover-color: $accent-color3;
 
-$base-background: #f0f0f0;
+// $base-background: #f0f0f0;
+$base-background:#e8e8e4;
 $panel-background: #e8e8e4;
 
 $thicc: 900;
@@ -26,21 +18,25 @@ $bold: 700;
 $normal: 500;
 $light: 400;
 
-$base-margin: 25px;
+$base-margin: 15px;
 $effect-bg: #555;
 
-$drop-shadow-color: $base-color;
+$drop-shadow-color: $base-color-light;
 $drop-shadow: 0 2px 3px $drop-shadow-color;
 
 $border-radius: 10px;
 $divider-border-width: 2px;
 $divider-border: $divider-border-width solid $base-color;
 
-$huge-font: 4em;
-$big-font: 2em;
+$base-transition: all 250ms ease-out;
+$long-transition: all 1s ease-out;
+
+$huge-font: 400%;
+$big-font: 200%;
 $base-font: 1em;
-$small-font: 0.8em;
+$small-font: 80%;
 $serif-font: "Playfair Display SC", serif;
 $sans-font: "Roboto Condensed", sans-serif;
 $heavy-font: "Teko", sans-serif;
+$script-font: "Permanent Marker", sans-serif;
 $body-font: "Work Sans", sans-serif;

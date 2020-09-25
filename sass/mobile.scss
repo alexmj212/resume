@@ -1,0 +1,57 @@
+@import "vars";
+
+@media (max-width: 450px) {
+    a {
+        text-decoration: underline;
+    }
+    main {
+        width: auto;
+        article {
+            flex-direction: column;
+
+            .sidebar {
+                border: 0;
+                &::before {
+                    display: none;
+                }
+                .name {
+                    font-size: 5em;
+                    text-align: center;
+                    padding-top: $base-margin;
+                }
+            }
+
+            .panel {
+                h2 {
+                    font-size: $big-font !important;
+                    .fill {
+                        height: 15px;
+                        &::before {
+                            display: none !important;
+                        }
+                    }
+                }
+                &.image {
+                    //display: none;
+                    margin: 20px 0;
+                    border-right: 0;
+                    height: 200px;
+                }
+            }
+        }
+
+        footer {
+            margin-bottom: 20px;
+            ul {
+                flex-direction: column;
+                justify-content: center;
+
+                li {
+                    text-align: center;
+                    margin: 0 !important;
+                    list-style: none;
+                }
+            }
+        }
+    }
+}

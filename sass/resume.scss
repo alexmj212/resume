@@ -1,7 +1,5 @@
 @import "vars";
 
-@import "sidebar";
-
 body,
 html {
     height: 100%;
@@ -11,7 +9,7 @@ body {
     font-family: $body-font;
     font-weight: $bold;
     color: $base-color;
-    background-color: $base-background;
+    background-color: $panel-background;
     line-height: 1.15em;
     letter-spacing: -0.05em;
 }
@@ -30,9 +28,9 @@ h6 {
 h2 {
     font-family: $serif-font;
     font-weight: $thicc;
-    font-size: 3em;
+    font-size: $big-font;
     text-transform: uppercase;
-    padding-bottom: 15px;
+    margin-bottom: $base-margin;
     letter-spacing: -2px;
     line-height: 1em;
     display: flex;
@@ -42,8 +40,8 @@ h2 {
         margin-top: 3px;
         margin-left: 10px;
         flex: 1 1 auto;
-        height: 20px;
-        background-color: $gray-color;
+        height: 0.8em;
+        background-color: $base-color;
         width: 100%;
     }
 }
@@ -52,7 +50,8 @@ h3 {
     font-family: $heavy-font;
     font-weight: $bold;
     text-transform: uppercase;
-    color: $accent-color1;
+    font-size: 150%;
+    letter-spacing: -1px;
 }
 
 p {
@@ -64,21 +63,27 @@ a {
     word-break: keep-all;
     color: $accent-color;
     font-weight: $bold;
-    transition: color 250ms ease-out;
+    transition: $base-transition;
+    text-decoration: none;
     &:hover {
         color: $hover-color;
+        text-decoration: underline;
     }
-    &.active,
-    &.active:hover {
+    &.active {
         cursor: default;
-        text-decoration: none;
+
         color: $hover-color;
     }
+}
+
+b {
+    font-weight: $thicc;
 }
 
 small {
     font-family: $sans-font;
     font-weight: $light;
+    font-size: $small-font;
     text-transform: uppercase;
     letter-spacing: 0.01em;
 }
@@ -94,6 +99,7 @@ ul {
 .uk {
     height: 1.5em;
     vertical-align: middle;
+    filter: grayscale(1);
 }
 
 main {
@@ -120,30 +126,27 @@ main {
     }
 
     .resume {
-        margin-top: 45px;
+        margin-top: -2px;
         margin-bottom: 10px;
 
         section {
-            padding: 10px 15px;
-            margin: 0 0 10px 0px;
-            transition: transform 500ms ease-out;
+            padding: $base-margin;
 
             &.image {
-                background-image: url("../img/msgorigin.jpg");
-                background-size: var(--panel-scale);
-                background-position: 0px var(--panel-pan);
+                background-position: left -20px top;
+                background-size: 120%;
+                background-image: url("../img/msgorigin2.jpg");
                 background-color: $base-background;
                 background-blend-mode: darken;
-                height: 200px;
+                height: 300px;
                 position: relative;
                 border: $divider-border;
                 border-left: 0;
-
-                &:first-child {
-                    background-position: bottom var(--panel-pan2);
-                    background-size: var(--panel-scale2);
-                    background-image: url("../img/msgorigin2.jpg");
-                }
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                transition: $long-transition;
+                filter: grayscale(1);
 
                 &::before {
                     opacity: 0.2;
@@ -153,12 +156,70 @@ main {
                     top: 0;
                     width: 100%;
                     height: 100%;
-                    z-index: 10;
+                    z-index: 1;
                     background-image: url("../img/comic-book-action.png");
                     background-size: 100% 100%;
                     background-repeat: repeat-x;
                     background-position: center center;
                     background-blend-mode: darken;
+                }
+
+                &:hover {
+                    background-size: 125%;
+                    background-position: left -30px top;
+                    filter: grayscale(0.5);
+
+                }
+
+                .bubble {
+                    $bubble-color: darken($base-color, 10%);
+                    z-index: 2;
+                    position: relative;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 50%;
+                    height: 87%;
+                    margin-left: 10px;
+                    padding: 0px 20px;
+                    font-family: $script-font;
+                    font-size: 1.2em;
+                    line-height: 1em;
+                    letter-spacing: 1px;
+                    color: $bubble-color;
+                    border: 2px solid $bubble-color;
+                    background-color: $base-background;
+                    text-transform: uppercase;
+                    transform-origin: center;
+                    transition: $long-transition;
+                    user-select: none;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+
+                    // &::after, &::before {
+                    //     content: "";
+                    //     z-index: 3;
+                    //     position: absolute;
+                    //     top: 10px;
+                    //     right: 5px;
+                    //     width: 30px;
+                    //     height: 5px;
+                    //     background: linear-gradient(90deg, #e8e8e4 0%, #e8e8e4 60%, rgba(232,232,228,0) 100%);
+                    //     border-top: 2px solid $bubble-color;
+                    //     border-bottom: 2px solid $bubble-color;
+                    //     transform: rotate(-70deg);
+                    //     transform-origin: center;
+                    // }
+
+                    // &::before {
+                    //     top: initial;
+                    //     right: initial;
+                    //     bottom: 10px;
+                    //     left: 5px;
+                    //     transform: rotate(110deg);
+                    // }
                 }
             }
 
@@ -174,32 +235,6 @@ main {
                 align-items: flex-start;
             }
 
-            .three-column {
-                display: flex;
-                flex-direction: row;
-                margin-right: -10px;
-
-                ul {
-                    flex: 0 1 auto;
-                    list-style: none;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    &:not(:first-child) {
-                        border-left: $divider-border;
-                    }
-
-                    li {
-                        position: relative;
-                        flex: 0 1 auto;
-                        padding-right: 10px;
-                        height: 1.52em;
-                        white-space: nowrap;
-                        letter-spacing: -1px;
-                    }
-                }
-            }
-
             .experience {
                 margin-bottom: $base-margin;
                 border-radius: 1px;
@@ -211,13 +246,14 @@ main {
                 }
 
                 .date-location {
-                    flex: 0 0 120px;
+                    flex: 0 0 65px;
                     text-align: right;
                     font-family: $heavy-font;
-                    font-size: $huge-font;
+                    font-size: $big-font;
                     font-weight: $light;
-                    margin-top: 17px;
                     text-transform: uppercase;
+                    line-height: 0.8em;
+                    letter-spacing: -1px;
                 }
 
                 .information {
@@ -247,37 +283,13 @@ main {
                             list-style: none;
                             li {
                                 letter-spacing: 0.02em;
+                                font-size: 90%;
                             }
                         }
                         small {
                             color: $accent-color3;
                         }
                     }
-                }
-            }
-        }
-    }
-
-    footer {
-        padding: 10px $base-margin;
-        border-top: $divider-border;
-        margin-bottom: 100px;
-
-        section {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .links {
-            h2 {
-                font-family: $heavy-font;
-                margin: 0;
-                padding: 0;
-                a {
-                    font-size: 80%;
-                    padding: 0 5px;
                 }
             }
         }

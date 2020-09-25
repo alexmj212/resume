@@ -1,0 +1,21 @@
+@import "vars";
+main {
+    footer {
+        padding: 10px $base-margin;
+        border-top: $divider-border;
+        margin-bottom: 100px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            li {
+                &:first-child {
+                    list-style: none;
+                }
+                &:not(:first-child) {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+}
