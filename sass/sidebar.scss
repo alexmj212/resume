@@ -85,8 +85,9 @@
                 padding-bottom: 6px;
                 margin-bottom: 6px;
                 i {
+                    text-align: center;
                     width: 20px;
-                    margin-right: 3px;
+                    margin-right: 5px;
                 }
             }
         }
@@ -129,8 +130,9 @@
                     margin-bottom: 5px;
                     transition: $base-transition;
                     i {
+                        text-align: center;
                         width: 20px;
-                        margin-right: 3px;
+                        margin-right: 5px;
                     }
                 }
                 .skill-level {

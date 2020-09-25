@@ -57,8 +57,9 @@
         padding-bottom: 6px;
         margin-bottom: 6px; }
         .sidebar nav ul li i {
+          text-align: center;
           width: 20px;
-          margin-right: 3px; }
+          margin-right: 5px; }
   .sidebar .tools ul {
     list-style: none;
     display: flex;
@@ -82,8 +83,9 @@
         margin-bottom: 5px;
         transition: all 250ms ease-out; }
         .sidebar .tools ul li .tool i {
+          text-align: center;
           width: 20px;
-          margin-right: 3px; }
+          margin-right: 5px; }
       .sidebar .tools ul li .skill-level {
         flex: 1 0 100%;
         padding: 0 3px;
