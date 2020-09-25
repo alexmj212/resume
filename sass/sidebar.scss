@@ -128,6 +128,10 @@
                     white-space: nowrap;
                     margin-bottom: 5px;
                     transition: $base-transition;
+                    i {
+                        width: 20px;
+                        margin-right: 3px;
+                    }
                 }
                 .skill-level {
                     flex: 1 0 100%;
