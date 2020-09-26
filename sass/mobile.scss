@@ -1,65 +1,35 @@
 @media (max-width: 767px) {
     main {
-        width: auto;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: var(--base-margin) var(--base-margin);
         article {
-            flex-direction: column;
+            @include flex(column, inherit, center);
+
+            resume-sidebar {
+                width: 100%;
+
+                .sidebar {
+                    @include flex(column, inherit, center);
+                    padding: 0;
+                    width: 100%;
+
+                    .name {
+                        text-align: center;
+                    }
+
+                    .career-title {
+                        font-size: var(--medium-font);
+                    }
+
+                    section {
+                        width: 100%;
+                    }
+                }
+            }
 
             .resume {
-                border: 0;
-            }
-
-            .sidebar {
-                border: 0;
-                &::before {
-                    display: none;
-                }
-                .name {
-                    font-size: 5em;
-                    text-align: center;
-                    padding-top: var(--base-margin);
-                }
-
-                .career-title {
-                    font-size: 130%;
-                }
-            }
-
-            .panel {
-                h2 {
-                    font-size: var(--big-font) !important;
-                    .fill {
-                        margin-top: 5px;
-                    }
-                }
-                &.image {
-                    margin: 20px 0;
-                    border-left: 0;
-                    border-right: 0;
-                    height: 175px;
-                }
-
-                .experience .information {
-                    .title-company {
-                        margin-top: 0;
-                        h3 {
-                            line-height: 0.8em;
-                        }
-                    }
-                }
-            }
-        }
-
-        footer {
-            margin-bottom: 20px;
-            ul {
-                flex-direction: column;
-                justify-content: center;
-
-                li {
-                    text-align: center;
-                    margin: 0 !important;
-                    list-style: none;
-                }
+                padding: 0;
             }
         }
     }

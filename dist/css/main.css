@@ -26,6 +26,7 @@
   --pip-border-radius: 5px;
   --base-transition: all 250ms ease-out;
   --long-transition: all 1s ease-out;
+  --skew-horizontal: skewX(-10deg);
   --huge-font: 400%;
   --big-font: 200%;
   --medium-font: 150%;
@@ -42,15 +43,8 @@
   --rx-offset-y: -2em; }
 
 .sidebar {
-  position: relative;
-  height: 100%;
-  opacity: 1;
-  z-index: 1;
-  background-color: var(--panel-background);
   padding: 0 var(--base-margin);
-  min-width: 225px; }
-  .sidebar .panel {
-    margin: var(--base-margin) 0 var(--base-margin); }
+  width: 225px; }
   .sidebar .name {
     padding-top: var(--base-margin);
     text-align: left;
@@ -59,16 +53,18 @@
     text-transform: uppercase;
     font-size: var(--huge-font);
     line-height: 0.8em;
-    position: relative; }
+    position: relative;
+    letter-spacing: -3px; }
   .sidebar .career-title {
-    white-space: nowrap;
     text-align: center;
+    box-shadow: 2px 2px 0 var(--base-color);
     border: 2px solid var(--base-color);
-    box-shadow: 3px 3px 0 0 var(--base-color);
     padding: 5px 5px 2px;
     font-family: var(--heavy-font);
+    font-size: var(--medium-font);
+    line-height: 1em;
     text-transform: uppercase;
-    letter-spacing: 0; }
+    transform: var(--skew-horizontal); }
   .sidebar nav {
     margin: 25px 0 10px; }
     .sidebar nav ul {
@@ -83,47 +79,54 @@
           text-align: center;
           width: 20px;
           margin-right: 5px; }
-  .sidebar .tools ul {
+  .sidebar section .tools ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    flex-direction: column; }
-    .sidebar .tools ul li {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: inherit; }
+    .sidebar section .tools ul li {
       margin-bottom: 20px;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
+      align-items: inherit;
       user-select: none; }
-      .sidebar .tools ul li:last-child {
+      .sidebar section .tools ul li:last-child {
         margin-bottom: 10px; }
-      .sidebar .tools ul li .tool {
+      .sidebar section .tools ul li .tool {
         flex: 1 0 100%;
         white-space: nowrap;
         margin-bottom: 5px;
         transition: var(--base-transition); }
-        .sidebar .tools ul li .tool i {
+        .sidebar section .tools ul li .tool i {
           text-align: center;
           width: 20px;
           margin-right: 5px; }
-      .sidebar .tools ul li .skill-level {
+      .sidebar section .tools ul li .skill-level {
         flex: 1 0 100%;
         padding: 0 3px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between; }
-        .sidebar .tools ul li .skill-level .pip,
-        .sidebar .tools ul li .skill-level .pip::after {
+        justify-content: space-between;
+        align-items: flex-start; }
+        .sidebar section .tools ul li .skill-level .pip,
+        .sidebar section .tools ul li .skill-level .pip::after {
           transform: skewX(-30deg);
           width: 9.5%;
           height: 5px;
           background-color: var(--base-color-light);
           transition: var(--base-transition); }
-        .sidebar .tools ul li .skill-level .pip {
+        .sidebar section .tools ul li .skill-level .pip {
           z-index: 1;
           position: relative; }
-          .sidebar .tools ul li .skill-level .pip.filled {
+          .sidebar section .tools ul li .skill-level .pip.filled {
             background-color: var(--base-color); }
-            .sidebar .tools ul li .skill-level .pip.filled:first-child::after, .sidebar .tools ul li .skill-level .pip.filled:last-child::after {
+            .sidebar section .tools ul li .skill-level .pip.filled:first-child::after, .sidebar section .tools ul li .skill-level .pip.filled:last-child::after {
               background-color: var(--base-color); }
-          .sidebar .tools ul li .skill-level .pip:first-child::after, .sidebar .tools ul li .skill-level .pip:last-child::after {
+          .sidebar section .tools ul li .skill-level .pip:first-child::after, .sidebar section .tools ul li .skill-level .pip:last-child::after {
             content: "";
             width: 14px;
             z-index: 2;
@@ -131,13 +134,13 @@
             left: -3px;
             background-color: var(--base-color-light);
             transform: skewX(30deg); }
-          .sidebar .tools ul li .skill-level .pip:first-child, .sidebar .tools ul li .skill-level .pip:first-child::after {
+          .sidebar section .tools ul li .skill-level .pip:first-child, .sidebar section .tools ul li .skill-level .pip:first-child::after {
             border-top-left-radius: var(--pip-border-radius);
             border-bottom-left-radius: var(--pip-border-radius); }
-          .sidebar .tools ul li .skill-level .pip:last-child, .sidebar .tools ul li .skill-level .pip:last-child::after {
+          .sidebar section .tools ul li .skill-level .pip:last-child, .sidebar section .tools ul li .skill-level .pip:last-child::after {
             border-top-right-radius: var(--pip-border-radius);
             border-bottom-right-radius: var(--pip-border-radius); }
-          .sidebar .tools ul li .skill-level .pip:last-child::after {
+          .sidebar section .tools ul li .skill-level .pip:last-child::after {
             right: -3px;
             left: initial; }
 
@@ -146,7 +149,9 @@ main footer {
   border-top: var(--divider-border); }
   main footer ul {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start; }
     main footer ul li:first-child {
       list-style: none; }
     main footer ul li:not(:first-child) {
@@ -177,41 +182,53 @@ h6 {
 h2 {
   font-family: var(--heavy-font);
   font-weight: var(--thicc);
-  font-size: 250%;
+  font-size: var(--big-font);
   text-transform: uppercase;
-  margin-top: 10px;
-  margin-bottom: var(--base-margin);
-  letter-spacing: -2px;
+  margin: var(--base-margin) 0;
   line-height: 1em;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-bottom: 3px;
   color: var(--base-background);
   -webkit-text-stroke: 2px var(--base-color);
   text-shadow: 3px 3px 0 var(--base-color);
+  position: relative;
   transform: skewX(-10deg);
   position: relative; }
+  h2::after {
+    opacity: 1;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("../img/halftone.png");
+    background-size: auto 10%;
+    background-position: top 3px left 7px;
+    background-blend-mode: darken; }
   h2 span::first-letter {
     display: block;
     font-size: 150% !important; }
   h2::after {
-    opacity: 1;
-    content: "";
+    box-shadow: 2px 2px 0 var(--base-color);
+    border: 2px solid var(--base-color);
+    background: none;
     width: calc(100% - 4px);
     height: 1px;
     position: absolute;
     top: 1em;
-    left: 0;
-    box-shadow: 2px 2px 0 var(--base-color);
-    border: 2px solid var(--base-color); }
+    left: 0; }
   h2 .fill {
-    margin-top: 7px;
+    margin-top: 6px;
     margin-left: 10px;
     flex: 1 1 auto;
     box-shadow: 2px 2px 0 var(--base-color);
     border: 2px solid var(--base-color);
     position: relative;
-    height: 0.62em; }
+    height: 0.58em; }
     h2 .fill::after {
       opacity: 0.8;
       content: "";
@@ -262,11 +279,9 @@ small {
   letter-spacing: 0.01em; }
 
 ul {
+  list-style-type: circle;
   margin: 0;
-  padding: 0 inherit;
-  list-style: inside;
-  margin-left: 0;
-  padding-left: 0; }
+  padding-inline-start: var(--base-margin); }
 
 .uk {
   height: 1.5em;
@@ -276,24 +291,20 @@ ul {
 main {
   display: flex;
   flex-direction: column;
-  max-width: var(--main-width);
+  justify-content: flex-start;
+  align-items: flex-start;
   position: relative;
   padding: var(--base-margin) 0; }
   main article {
     display: flex;
-    flex-direction: row; }
-  main header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; }
-  main .resume {
-    margin-top: -2px;
-    margin-bottom: 10px; }
-    main .resume section {
-      padding: var(--base-margin); }
-      main .resume section.image {
-        margin: var(--base-margin);
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start; }
+    main article .resume {
+      max-width: 500px;
+      padding: 0 var(--base-margin); }
+      main article .resume section.image {
+        margin: var(--base-margin) auto;
         margin-bottom: 0;
         background-position: left -20px top;
         background-size: 120%;
@@ -302,15 +313,30 @@ main {
         background-repeat: no-repeat;
         background-blend-mode: hard-light;
         height: 200px;
+        max-width: 500px;
         position: relative;
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         transition: var(--long-transition);
+        box-shadow: 2px 2px 0 var(--base-color);
         border: 2px solid var(--base-color);
-        box-shadow: 3px 3px 0 0 var(--base-color);
+        position: relative;
         filter: grayscale(1); }
-        main .resume section.image::before {
+        main article .resume section.image::after {
+          opacity: 1;
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url("../img/halftone.png");
+          background-size: auto 10%;
+          background-position: top 3px left 7px;
+          background-blend-mode: darken; }
+        main article .resume section.image::before {
           opacity: 0.2;
           content: "";
           position: absolute;
@@ -324,7 +350,7 @@ main {
           background-repeat: repeat-x;
           background-position: center center;
           background-blend-mode: darken; }
-        main .resume section.image::after {
+        main article .resume section.image::after {
           opacity: 0.2;
           content: "";
           position: absolute;
@@ -332,20 +358,18 @@ main {
           top: 0px;
           width: 100%;
           height: 100%;
-          z-index: 0;
-          background-image: url("../img/halftone.png");
-          background-size: 6%;
-          background-repeat: repeat;
-          background-position: center center; }
-        main .resume section.image:hover, main .resume section.image:active {
+          z-index: 0; }
+        main article .resume section.image:hover, main article .resume section.image:active {
           background-size: 125%;
           background-position: left -30px top;
           filter: grayscale(0.5); }
-        main .resume section.image .bubble {
+        main article .resume section.image .bubble {
           z-index: 2;
           position: relative;
           text-align: center;
           display: flex;
+          flex-direction: row;
+          justify-content: center;
           align-items: center;
           border-radius: 50%;
           height: 87%;
@@ -362,24 +386,26 @@ main {
           transform-origin: center;
           transition: var(--long-transition);
           user-select: none; }
-          main .resume section.image .bubble:hover, main .resume section.image .bubble:active {
+          main article .resume section.image .bubble:hover, main article .resume section.image .bubble:active {
             transform: scale(1.1); }
-      main .resume section .uk {
+      main article .resume section .uk {
         height: 1.5em;
         vertical-align: middle; }
-      main .resume section .split-column {
+      main article .resume section .split-column {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start; }
-      main .resume section .experience {
+      main article .resume section .experience {
         margin-bottom: var(--base-margin);
         border-radius: 1px;
         display: flex;
-        flex-direction: row; }
-        main .resume section .experience:last-child {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start; }
+        main article .resume section .experience:last-child {
           border-bottom: 0; }
-        main .resume section .experience .date-location {
+        main article .resume section .experience .date-location {
           flex: 0 0 65px;
           text-align: right;
           font-family: var(--heavy-font);
@@ -388,70 +414,59 @@ main {
           text-transform: uppercase;
           line-height: 0.8em;
           letter-spacing: -1px; }
-        main .resume section .experience .information {
+        main article .resume section .experience .information {
           flex: 1 1 auto;
           border-left: var(--divider-border);
           margin-left: 10px;
           padding-left: 10px; }
-          main .resume section .experience .information ul.summary {
-            margin: 10px 0;
+          main article .resume section .experience .information .title-company h3 {
+            font-size: var(--big-font);
+            line-height: 0.8em; }
+          main article .resume section .experience .information .title-company h4 {
+            margin-bottom: 10px; }
+          main article .resume section .experience .information .summary {
+            margin-bottom: 10px; }
+          main article .resume section .experience .information .more-info {
             font-size: var(--small-font); }
-          main .resume section .experience .information .title-company {
-            flex: 1 0 auto;
-            margin-top: 4px; }
-            main .resume section .experience .information .title-company h3 {
-              font-size: var(--big-font); }
-          main .resume section .experience .information .more-info {
-            font-weight: var(--normal);
-            font-size: var(--small-font); }
-            main .resume section .experience .information .more-info .project-name {
+            main article .resume section .experience .information .more-info .project-name {
               margin-top: 10px;
               font-weight: var(--bold); }
-            main .resume section .experience .information .more-info ul {
+            main article .resume section .experience .information .more-info ul {
               margin: 0;
               list-style: none; }
-              main .resume section .experience .information .more-info ul li {
-                letter-spacing: 0.02em;
-                font-size: 90%; }
-            main .resume section .experience .information .more-info small {
-              color: var(--accent-color) 3; }
+              main article .resume section .experience .information .more-info ul li {
+                font-weight: var(--normal); }
+  main header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; }
 
 @media (max-width: 767px) {
   main {
-    width: auto; }
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--base-margin) var(--base-margin); }
     main article {
-      flex-direction: column; }
+      display: flex;
+      flex-direction: column;
+      justify-content: inherit;
+      align-items: center; }
+      main article resume-sidebar {
+        width: 100%; }
+        main article resume-sidebar .sidebar {
+          display: flex;
+          flex-direction: column;
+          justify-content: inherit;
+          align-items: center;
+          padding: 0;
+          width: 100%; }
+          main article resume-sidebar .sidebar .name {
+            text-align: center; }
+          main article resume-sidebar .sidebar .career-title {
+            font-size: var(--medium-font); }
+          main article resume-sidebar .sidebar section {
+            width: 100%; }
       main article .resume {
-        border: 0; }
-      main article .sidebar {
-        border: 0; }
-        main article .sidebar::before {
-          display: none; }
-        main article .sidebar .name {
-          font-size: 5em;
-          text-align: center;
-          padding-top: var(--base-margin); }
-        main article .sidebar .career-title {
-          font-size: 130%; }
-      main article .panel h2 {
-        font-size: var(--big-font) !important; }
-        main article .panel h2 .fill {
-          margin-top: 5px; }
-      main article .panel.image {
-        margin: 20px 0;
-        border-left: 0;
-        border-right: 0;
-        height: 175px; }
-      main article .panel .experience .information .title-company {
-        margin-top: 0; }
-        main article .panel .experience .information .title-company h3 {
-          line-height: 0.8em; }
-    main footer {
-      margin-bottom: 20px; }
-      main footer ul {
-        flex-direction: column;
-        justify-content: center; }
-        main footer ul li {
-          text-align: center;
-          margin: 0 !important;
-          list-style: none; } }
+        padding: 0; } }

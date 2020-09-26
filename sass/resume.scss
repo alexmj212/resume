@@ -26,18 +26,14 @@ h6 {
 h2 {
     font-family: var(--heavy-font);
     font-weight: var(--thicc);
-    font-size: 250%;
+    font-size: var(--big-font);
     text-transform: uppercase;
-    margin-top: 10px;
-    margin-bottom: var(--base-margin);
-    letter-spacing: -2px;
+    margin: var(--base-margin) 0;
     line-height: 1em;
-    display: flex;
-    flex-direction: row;
+    @include flex(row, flex-start, flex-start);
     padding-bottom: 3px;
-    color: var(--base-background);
-    -webkit-text-stroke: 2px var(--base-color);
-    text-shadow: 3px 3px 0 var(--base-color);
+    @include text-outline-shadow;
+    @include halftone-overlay;
     transform: skewX(-10deg);
     position: relative;
 
@@ -45,31 +41,24 @@ h2 {
         display: block;
         font-size: 150% !important;
     }
+
     &::after {
-        opacity: 1;
-        content: "";
+        @include box-outline-shadow;
+        background: none;
         width: calc(100% - 4px);
         height: 1px;
         position: absolute;
         top: 1em;
         left: 0;
-        // background-image: url("../img/halftone.png");
-        // background-size: auto 10%;
-        // background-position: top 3px left 7px;
-        // background-blend-mode: darken;
-        box-shadow: 2px 2px 0 var(--base-color);
-        border: 2px solid var(--base-color);
     }
 
     .fill {
-        //display:none;
-        margin-top: 7px;
+        margin-top: 6px;
         margin-left: 10px;
         flex: 1 1 auto;
-        box-shadow: 2px 2px 0 var(--base-color);
-        border: 2px solid var(--base-color);
+        @include box-outline-shadow;
         position: relative;
-        height: 0.62em;
+        height: 0.58em;
 
         &::after {
             opacity: 0.8;
@@ -133,11 +122,9 @@ small {
 }
 
 ul {
+    list-style-type: circle;
     margin: 0;
-    padding: 0 inherit;
-    list-style: inside;
-    margin-left: 0;
-    padding-left: 0;
+    padding-inline-start: var(--base-margin);
 }
 
 .uk {
@@ -147,214 +134,170 @@ ul {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    max-width: var(--main-width);
+    @include flex(column, flex-start, flex-start);
     position: relative;
     padding: var(--base-margin) 0;
 
     article {
-        display: flex;
-        flex-direction: row;
-    }
+        @include flex(row, flex-start, flex-start);
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+        .resume {
+            max-width: 500px;
+            padding: 0 var(--base-margin);
 
-    .resume {
-        margin-top: -2px;
-        margin-bottom: 10px;
+            section {
 
-        section {
-            padding: var(--base-margin);
-
-            &.image {
-                margin: var(--base-margin);
-                margin-bottom: 0;
-                background-position: left -20px top;
-                background-size: 120%;
-                background-image: url("../img/msgorigin2.jpg");
-                background-color: var(--comic-background);
-                background-repeat: no-repeat;
-                background-blend-mode: hard-light;
-                height: 200px;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                transition: var(--long-transition);
-                border: 2px solid var(--base-color);
-                box-shadow: 3px 3px 0 0 var(--base-color);
-                filter: grayscale(1);
-                //display: none;
-
-                &::before {
-                    opacity: 0.2;
-                    content: "";
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 1;
-                    background-image: url("../img/comic-book-action.png");
-                    background-size: 100% 100%;
-                    background-repeat: repeat-x;
-                    background-position: center center;
-                    background-blend-mode: darken;
-                }
-
-                &::after {
-                    opacity: 0.2;
-                    content: "";
-                    position: absolute;
-                    left: 0px;
-                    top: 0px;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 0;
-                    background-image: url("../img/halftone.png");
-                    background-size: 6%;
-                    background-repeat: repeat;
-                    background-position: center center;
-                }
-
-                &:hover,
-                &:active {
-                    background-size: 125%;
-                    background-position: left -30px top;
-                    filter: grayscale(0.5);
-                }
-
-                .bubble {
-                    z-index: 2;
+                &.image {
+                    margin: var(--base-margin) auto;
+                    margin-bottom: 0;
+                    background-position: left -20px top;
+                    background-size: 120%;
+                    background-image: url("../img/msgorigin2.jpg");
+                    background-color: var(--comic-background);
+                    background-repeat: no-repeat;
+                    background-blend-mode: hard-light;
+                    height: 200px;
+                    max-width: 500px;
                     position: relative;
-                    text-align: center;
-                    display: flex;
-                    align-items: center;
-                    border-radius: 50%;
-                    height: 87%;
-                    margin-left: 10px;
-                    padding: 0px 15px;
-                    font-family: var(--script-font);
-                    font-size: 1.2em;
-                    line-height: 1em;
-                    letter-spacing: 1px;
-                    color: var(--comic-color);
-                    border: 2px solid var(--bubble-color);
-                    background-color: var(--base-background);
-                    text-transform: uppercase;
-                    transform-origin: center;
+                    @include flex(column, center, flex-start);
                     transition: var(--long-transition);
-                    user-select: none;
+                    @include box-outline-shadow;
+                    @include halftone-overlay;
+                    filter: grayscale(1);
+
+                    &::before {
+                        opacity: 0.2;
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 1;
+                        background-image: url("../img/comic-book-action.png");
+                        background-size: 100% 100%;
+                        background-repeat: repeat-x;
+                        background-position: center center;
+                        background-blend-mode: darken;
+                    }
+
+                    &::after {
+                        opacity: 0.2;
+                        content: "";
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 0;
+                    }
 
                     &:hover,
                     &:active {
-                        transform: scale(1.1);
+                        background-size: 125%;
+                        background-position: left -30px top;
+                        filter: grayscale(0.5);
                     }
 
-                    // &::after, &::before {
-                    //     content: "";
-                    //     z-index: 3;
-                    //     position: absolute;
-                    //     top: 10px;
-                    //     right: 5px;
-                    //     width: 30px;
-                    //     height: 5px;
-                    //     background: linear-gradient(90deg, #e8e8e4 0%, #e8e8e4 60%, rgba(232,232,228,0) 100%);
-                    //     border-top: 2px solid var(--bubble-color);
-                    //     border-bottom: 2px solid var(--bubble-color);
-                    //     transform: rotate(-70deg);
-                    //     transform-origin: center;
-                    // }
+                    .bubble {
+                        z-index: 2;
+                        position: relative;
+                        text-align: center;
+                        @include flex(row, center, center);
+                        border-radius: 50%;
+                        height: 87%;
+                        margin-left: 10px;
+                        padding: 0px 15px;
+                        font-family: var(--script-font);
+                        font-size: 1.2em;
+                        line-height: 1em;
+                        letter-spacing: 1px;
+                        color: var(--comic-color);
+                        border: 2px solid var(--bubble-color);
+                        background-color: var(--base-background);
+                        text-transform: uppercase;
+                        transform-origin: center;
+                        transition: var(--long-transition);
+                        user-select: none;
 
-                    // &::before {
-                    //     top: initial;
-                    //     right: initial;
-                    //     bottom: 10px;
-                    //     left: 5px;
-                    //     transform: rotate(110deg);
-                    // }
-                }
-            }
-
-            .uk {
-                height: 1.5em;
-                vertical-align: middle;
-            }
-
-            .split-column {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-            .experience {
-                margin-bottom: var(--base-margin);
-                border-radius: 1px;
-                display: flex;
-                flex-direction: row;
-
-                &:last-child {
-                    border-bottom: 0;
-                }
-
-                .date-location {
-                    flex: 0 0 65px;
-                    text-align: right;
-                    font-family: var(--heavy-font);
-                    font-size: var(--big-font);
-                    font-weight: var(--light);
-                    text-transform: uppercase;
-                    line-height: 0.8em;
-                    letter-spacing: -1px;
-                }
-
-                .information {
-                    flex: 1 1 auto;
-                    border-left: var(--divider-border);
-                    margin-left: 10px;
-                    padding-left: 10px;
-
-                    ul.summary {
-                        margin: 10px 0;
-                        font-size: var(--small-font);
-                    }
-
-                    .title-company {
-                        flex: 1 0 auto;
-                        margin-top: 4px;
-                        h3 {
-                            font-size: var(--big-font);
+                        &:hover,
+                        &:active {
+                            transform: scale(1.1);
                         }
                     }
+                }
 
-                    .more-info {
-                        font-weight: var(--normal);
-                        font-size: var(--small-font);
-                        .project-name {
-                            margin-top: 10px;
-                            font-weight: var(--bold);
-                        }
-                        ul {
-                            margin: 0;
-                            list-style: none;
-                            li {
-                                letter-spacing: 0.02em;
-                                font-size: 90%;
+                .uk {
+                    height: 1.5em;
+                    vertical-align: middle;
+                }
+
+                .split-column {
+                    @include flex(row, space-between, flex-start);
+                }
+
+                .experience {
+                    margin-bottom: var(--base-margin);
+                    border-radius: 1px;
+                    @include flex(row, flex-start, flex-start);
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+
+                    .date-location {
+                        flex: 0 0 65px;
+                        text-align: right;
+                        font-family: var(--heavy-font);
+                        font-size: var(--big-font);
+                        font-weight: var(--light);
+                        text-transform: uppercase;
+                        line-height: 0.8em;
+                        letter-spacing: -1px;
+                    }
+
+                    .information {
+                        flex: 1 1 auto;
+                        border-left: var(--divider-border);
+                        margin-left: 10px;
+                        padding-left: 10px;
+
+                        .title-company {
+                            h3 {
+                                font-size: var(--big-font);
+                                line-height: 0.8em;
+                            }
+                            h4 {
+                                margin-bottom: 10px;;
                             }
                         }
-                        small {
-                            color: var(--accent-color) 3;
+
+                        .summary {
+                            margin-bottom: 10px;
+                        }
+
+                        .more-info {
+                            font-size: var(--small-font);
+                            .project-name {
+                                margin-top: 10px;
+                                font-weight: var(--bold);
+                            }
+                            ul {
+                                margin: 0;
+                                list-style: none;
+                                li {
+                                    font-weight: var(--normal);
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    header {
+        @include flex(row, space-between, center);
+        width: 100%;
     }
 }

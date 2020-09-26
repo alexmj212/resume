@@ -4,8 +4,7 @@ main {
         border-top: var(--divider-border);
 
         ul {
-            display: flex;
-            flex-direction: row;
+            @include flex(row, flex-start, flex-start);
             li {
                 &:first-child {
                     list-style: none;
