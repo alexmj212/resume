@@ -1,9 +1,7 @@
-@import "vars";
 main {
     footer {
-        padding: 10px $base-margin;
-        border-top: $divider-border;
-        margin-bottom: 100px;
+        padding: 10px var(--base-margin);
+        border-top: var(--divider-border);
 
         ul {
             display: flex;

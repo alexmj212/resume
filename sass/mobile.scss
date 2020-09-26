@@ -1,13 +1,12 @@
-@import "vars";
-
-@media (max-width: 450px) {
-    a {
-        text-decoration: underline;
-    }
+@media (max-width: 767px) {
     main {
         width: auto;
         article {
             flex-direction: column;
+
+            .resume {
+                border: 0;
+            }
 
             .sidebar {
                 border: 0;
@@ -17,25 +16,35 @@
                 .name {
                     font-size: 5em;
                     text-align: center;
-                    padding-top: $base-margin;
+                    padding-top: var(--base-margin);
+                }
+
+                .career-title {
+                    font-size: 130%;
                 }
             }
 
             .panel {
                 h2 {
-                    font-size: $big-font !important;
+                    font-size: var(--big-font) !important;
                     .fill {
-                        height: 15px;
-                        &::before {
-                            display: none !important;
-                        }
+                        margin-top: 5px;
                     }
                 }
                 &.image {
-                    //display: none;
                     margin: 20px 0;
+                    border-left: 0;
                     border-right: 0;
-                    height: 200px;
+                    height: 175px;
+                }
+
+                .experience .information {
+                    .title-company {
+                        margin-top: 0;
+                        h3 {
+                            line-height: 0.8em;
+                        }
+                    }
                 }
             }
         }

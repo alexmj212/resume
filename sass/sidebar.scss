@@ -1,5 +1,3 @@
-@import "vars";
-
 :root {
     --rx-offset-x: -10em;
     --rx-offset-y: -2em;
@@ -10,30 +8,30 @@
     height: 100%;
     opacity: 1;
     z-index: 1;
-    background-color: $panel-background;
-    padding: 0 $base-margin;
+    background-color: var(--panel-background);
+    padding: 0 var(--base-margin);
     min-width: 225px;
 
     .panel {
-        margin: $base-margin 0 $base-margin;
+        margin: var(--base-margin) 0 var(--base-margin);
     }
 
-    &::before {
-        opacity: 0.1;
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-image: url("../img/halftone-fade.jpg");
-        background-color: $base-background;
-        background-size: 40%;
-        background-repeat: repeat-y;
-        background-position: top right;
-        background-blend-mode: darken;
-    }
+    // &::before {
+    //     opacity: 0.1;
+    //     content: "";
+    //     position: absolute;
+    //     left: 0;
+    //     bottom: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     z-index: -1;
+    //     background-image: url("../img/halftone-fade.jpg");
+    //     background-color: var(--base-background);
+    //     background-size: 40%;
+    //     background-repeat: repeat-y;
+    //     background-position: top right;
+    //     background-blend-mode: darken;
+    // }
     // &::after {
     //     content: "";
     //     position: absolute;
@@ -43,7 +41,7 @@
     //     height: 100%;
     //     z-index: -2;
     //     background-image: url("../img/rx-78-2.png");
-    //     background-color: $base-background;
+    //     background-color: var(--base-background);
     //     background-size: 90%;
     //     background-repeat: no-repeat;
     //     background-position: center bottom 10px;
@@ -51,12 +49,12 @@
     // }
 
     .name {
-        padding-top: 50px;
+        padding-top: var(--base-margin);
         text-align: left;
-        font-family: $heavy-font;
-        font-weight: $bold;
+        font-family: var(--heavy-font);
+        font-weight: var(--bold);
         text-transform: uppercase;
-        font-size: $huge-font;
+        font-size: var(--huge-font);
         line-height: 0.8em;
         position: relative;
     }
@@ -64,11 +62,10 @@
     .career-title {
         white-space: nowrap;
         text-align: center;
-        border-top: $divider-border;
-        border-bottom: $divider-border;
-        padding: 5px 0 2px;
-        font-family: $heavy-font;
-        font-size: 110%;
+        border: 2px solid var(--base-color);
+        box-shadow: 3px 3px 0 0 var(--base-color);
+        padding: 5px 5px 2px;
+        font-family: var(--heavy-font);
         text-transform: uppercase;
         letter-spacing: 0;
     }
@@ -109,26 +106,26 @@
                     margin-bottom: 10px;
                 }
 
-                &:hover {
-                    .tool {
-                        color: $accent-color3;
-                    }
-                    .skill-level {
-                        .pip.filled {
-                            background-color: $accent-color3;
-                            &:first-child::after,
-                            &:last-child::after {
-                                background-color: $accent-color3;
-                            }
-                        }
-                    }
-                }
+                // &:hover {
+                //     .tool {
+                //         color: var(--accent-color)3;
+                //     }
+                //     .skill-level {
+                //         .pip.filled {
+                //             background-color: var(--accent-color)3;
+                //             &:first-child::after,
+                //             &:last-child::after {
+                //                 background-color: var(--accent-color)3;
+                //             }
+                //         }
+                //     }
+                // }
 
                 .tool {
                     flex: 1 0 100%;
                     white-space: nowrap;
                     margin-bottom: 5px;
-                    transition: $base-transition;
+                    transition: var(--base-transition);
                     i {
                         text-align: center;
                         width: 20px;
@@ -145,21 +142,21 @@
                     .pip,
                     .pip::after {
                         transform: skewX(-30deg);
-                        width: 8.5%;
+                        width: 9.5%;
                         height: 5px;
-                        background-color: $base-color-lighter;
-                        transition: $base-transition;
+                        background-color: var(--base-color-light);
+                        transition: var(--base-transition);
                     }
 
                     .pip {
                         z-index: 1;
                         position: relative;
                         &.filled {
-                            background-color: $base-color;
+                            background-color: var(--base-color);
 
                             &:first-child::after,
                             &:last-child::after {
-                                background-color: $base-color;
+                                background-color: var(--base-color);
                             }
                         }
                         &:first-child::after,
@@ -169,20 +166,18 @@
                             z-index: 2;
                             position: absolute;
                             left: -3px;
-                            background-color: $base-color-lighter;
+                            background-color: var(--base-color-light);
                             transform: skewX(30deg);
                         }
 
-                        $pip-border-radius: 5px;
-
                         &:first-child, &:first-child::after {
-                            border-top-left-radius: $pip-border-radius;
-                            border-bottom-left-radius: $pip-border-radius;
+                            border-top-left-radius: var(--pip-border-radius);
+                            border-bottom-left-radius: var(--pip-border-radius);
                         }
 
                         &:last-child, &:last-child::after {
-                            border-top-right-radius: $pip-border-radius;
-                            border-bottom-right-radius: $pip-border-radius;
+                            border-top-right-radius: var(--pip-border-radius);
+                            border-bottom-right-radius: var(--pip-border-radius);
                         }
 
                         &:last-child::after {
@@ -192,8 +187,6 @@
                     }
                 }
             }
-        }
-        .tool {
         }
     }
 }

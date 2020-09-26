@@ -5,7 +5,7 @@ const sync = require("browser-sync").create();
 
 
 function generateCSS(cb) {
-    src('./sass/**/*.scss')
+    src('./sass/**/main.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(dest('dist/css'))
         .pipe(sync.stream());

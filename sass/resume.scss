@@ -1,15 +1,13 @@
-@import "vars";
-
 body,
 html {
     height: 100%;
 }
 
 body {
-    font-family: $body-font;
-    font-weight: $bold;
-    color: $base-color;
-    background-color: $panel-background;
+    font-family: var(--body-font);
+    font-weight: var(--bold);
+    color: var(--base-color);
+    background-color: var(--panel-background);
     line-height: 1.15em;
     letter-spacing: -0.05em;
 }
@@ -20,38 +18,85 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: $sans-font;
+    font-family: var(--sans-font);
     margin: 0;
     padding: 0;
 }
 
 h2 {
-    font-family: $serif-font;
-    font-weight: $thicc;
-    font-size: $big-font;
+    font-family: var(--heavy-font);
+    font-weight: var(--thicc);
+    font-size: 250%;
     text-transform: uppercase;
-    margin-bottom: $base-margin;
+    margin-top: 10px;
+    margin-bottom: var(--base-margin);
     letter-spacing: -2px;
     line-height: 1em;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    padding-bottom: 3px;
+    color: var(--base-background);
+    -webkit-text-stroke: 2px var(--base-color);
+    text-shadow: 3px 3px 0 var(--base-color);
+    transform: skewX(-10deg);
+    position: relative;
+
+    span::first-letter {
+        display: block;
+        font-size: 150% !important;
+    }
+    &::after {
+        opacity: 1;
+        content: "";
+        width: calc(100% - 4px);
+        height: 1px;
+        position: absolute;
+        top: 1em;
+        left: 0;
+        // background-image: url("../img/halftone.png");
+        // background-size: auto 10%;
+        // background-position: top 3px left 7px;
+        // background-blend-mode: darken;
+        box-shadow: 2px 2px 0 var(--base-color);
+        border: 2px solid var(--base-color);
+    }
+
     .fill {
-        margin-top: 3px;
+        //display:none;
+        margin-top: 7px;
         margin-left: 10px;
         flex: 1 1 auto;
-        height: 0.8em;
-        background-color: $base-color;
-        width: 100%;
+        box-shadow: 2px 2px 0 var(--base-color);
+        border: 2px solid var(--base-color);
+        position: relative;
+        height: 0.62em;
+
+        &::after {
+            opacity: 0.8;
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url("../img/halftone.png");
+            background-size: auto 95%;
+            background-position: top 3px left 7px;
+            background-blend-mode: darken;
+        }
     }
 }
 
 h3 {
-    font-family: $heavy-font;
-    font-weight: $bold;
+    font-family: var(--heavy-font);
+    font-weight: var(--bold);
     text-transform: uppercase;
     font-size: 150%;
     letter-spacing: -1px;
+}
+
+h4 {
+    letter-spacing: 0.05em;
 }
 
 p {
@@ -61,29 +106,28 @@ p {
 
 a {
     word-break: keep-all;
-    color: $accent-color;
-    font-weight: $bold;
-    transition: $base-transition;
-    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: var(--bold);
+    transition: var(--base-transition);
     &:hover {
-        color: $hover-color;
+        color: var(--hover-color);
         text-decoration: underline;
     }
     &.active {
         cursor: default;
 
-        color: $hover-color;
+        color: var(--hover-color);
     }
 }
 
 b {
-    font-weight: $thicc;
+    font-weight: var(--thicc);
 }
 
 small {
-    font-family: $sans-font;
-    font-weight: $light;
-    font-size: $small-font;
+    font-family: var(--sans-font);
+    font-weight: var(--light);
+    font-size: var(--small-font);
     text-transform: uppercase;
     letter-spacing: 0.01em;
 }
@@ -105,17 +149,13 @@ ul {
 main {
     display: flex;
     flex-direction: column;
-    width: 850px;
-    margin-left: 0px;
+    max-width: var(--main-width);
     position: relative;
+    padding: var(--base-margin) 0;
 
     article {
         display: flex;
         flex-direction: row;
-
-        aside {
-            border-right: $divider-border;
-        }
     }
 
     header {
@@ -130,23 +170,27 @@ main {
         margin-bottom: 10px;
 
         section {
-            padding: $base-margin;
+            padding: var(--base-margin);
 
             &.image {
+                margin: var(--base-margin);
+                margin-bottom: 0;
                 background-position: left -20px top;
                 background-size: 120%;
                 background-image: url("../img/msgorigin2.jpg");
-                background-color: $base-background;
-                background-blend-mode: darken;
-                height: 300px;
+                background-color: var(--comic-background);
+                background-repeat: no-repeat;
+                background-blend-mode: hard-light;
+                height: 200px;
                 position: relative;
-                border: $divider-border;
-                border-left: 0;
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
-                transition: $long-transition;
+                transition: var(--long-transition);
+                border: 2px solid var(--base-color);
+                box-shadow: 3px 3px 0 0 var(--base-color);
                 filter: grayscale(1);
+                //display: none;
 
                 &::before {
                     opacity: 0.2;
@@ -164,15 +208,29 @@ main {
                     background-blend-mode: darken;
                 }
 
-                &:hover {
+                &::after {
+                    opacity: 0.2;
+                    content: "";
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                    background-image: url("../img/halftone.png");
+                    background-size: 6%;
+                    background-repeat: repeat;
+                    background-position: center center;
+                }
+
+                &:hover,
+                &:active {
                     background-size: 125%;
                     background-position: left -30px top;
                     filter: grayscale(0.5);
-
                 }
 
                 .bubble {
-                    $bubble-color: darken($base-color, 10%);
                     z-index: 2;
                     position: relative;
                     text-align: center;
@@ -181,20 +239,21 @@ main {
                     border-radius: 50%;
                     height: 87%;
                     margin-left: 10px;
-                    padding: 0px 20px;
-                    font-family: $script-font;
+                    padding: 0px 15px;
+                    font-family: var(--script-font);
                     font-size: 1.2em;
                     line-height: 1em;
                     letter-spacing: 1px;
-                    color: $bubble-color;
-                    border: 2px solid $bubble-color;
-                    background-color: $base-background;
+                    color: var(--comic-color);
+                    border: 2px solid var(--bubble-color);
+                    background-color: var(--base-background);
                     text-transform: uppercase;
                     transform-origin: center;
-                    transition: $long-transition;
+                    transition: var(--long-transition);
                     user-select: none;
 
-                    &:hover {
+                    &:hover,
+                    &:active {
                         transform: scale(1.1);
                     }
 
@@ -207,8 +266,8 @@ main {
                     //     width: 30px;
                     //     height: 5px;
                     //     background: linear-gradient(90deg, #e8e8e4 0%, #e8e8e4 60%, rgba(232,232,228,0) 100%);
-                    //     border-top: 2px solid $bubble-color;
-                    //     border-bottom: 2px solid $bubble-color;
+                    //     border-top: 2px solid var(--bubble-color);
+                    //     border-bottom: 2px solid var(--bubble-color);
                     //     transform: rotate(-70deg);
                     //     transform-origin: center;
                     // }
@@ -236,7 +295,7 @@ main {
             }
 
             .experience {
-                margin-bottom: $base-margin;
+                margin-bottom: var(--base-margin);
                 border-radius: 1px;
                 display: flex;
                 flex-direction: row;
@@ -248,9 +307,9 @@ main {
                 .date-location {
                     flex: 0 0 65px;
                     text-align: right;
-                    font-family: $heavy-font;
-                    font-size: $big-font;
-                    font-weight: $light;
+                    font-family: var(--heavy-font);
+                    font-size: var(--big-font);
+                    font-weight: var(--light);
                     text-transform: uppercase;
                     line-height: 0.8em;
                     letter-spacing: -1px;
@@ -258,25 +317,29 @@ main {
 
                 .information {
                     flex: 1 1 auto;
-                    border-left: $divider-border;
+                    border-left: var(--divider-border);
                     margin-left: 10px;
                     padding-left: 10px;
 
                     ul.summary {
                         margin: 10px 0;
-                        font-size: $small-font;
+                        font-size: var(--small-font);
                     }
 
                     .title-company {
                         flex: 1 0 auto;
+                        margin-top: 4px;
+                        h3 {
+                            font-size: var(--big-font);
+                        }
                     }
 
                     .more-info {
-                        font-weight: $normal;
-                        font-size: $small-font;
+                        font-weight: var(--normal);
+                        font-size: var(--small-font);
                         .project-name {
                             margin-top: 10px;
-                            font-weight: $bold;
+                            font-weight: var(--bold);
                         }
                         ul {
                             margin: 0;
@@ -287,7 +350,7 @@ main {
                             }
                         }
                         small {
-                            color: $accent-color3;
+                            color: var(--accent-color) 3;
                         }
                     }
                 }
