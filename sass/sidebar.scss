@@ -31,21 +31,21 @@
     }
 
     nav {
-        margin: 25px 0 10px;
+        margin: var(--base-margin) 0 var(--base-margin);
+    }
 
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            li {
-                text-align: left;
-                padding-bottom: 6px;
-                margin-bottom: 6px;
-                i {
-                    text-align: center;
-                    width: 20px;
-                    margin-right: 5px;
-                }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            text-align: left;
+            padding-bottom: 6px;
+            margin-bottom: 6px;
+            i {
+                text-align: center;
+                width: 20px;
+                margin-right: 5px;
             }
         }
     }
@@ -86,10 +86,11 @@
                         .pip,
                         .pip::after {
                             transform: skewX(-30deg);
-                            width: 9.5%;
-                            height: 5px;
+                            width: 7.5%;
+                            height: 3px;
                             background-color: var(--base-color-light);
                             transition: var(--base-transition);
+                            border: 2px solid var(--base-color);
                         }
 
                         .pip {
@@ -109,7 +110,8 @@
                                 width: 14px;
                                 z-index: 2;
                                 position: absolute;
-                                left: -3px;
+                                left: -5px;
+                                top: -2px;
                                 background-color: var(--base-color-light);
                                 transform: skewX(30deg);
                             }
@@ -126,8 +128,13 @@
                                 border-bottom-right-radius: var(--pip-border-radius);
                             }
 
+                            &:first-child::after {
+                                border-right: 0;
+                            }
+
                             &:last-child::after {
-                                right: -3px;
+                                border-left: 0;
+                                right: -5px;
                                 left: initial;
                             }
                         }

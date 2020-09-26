@@ -58,7 +58,7 @@ h2 {
         flex: 1 1 auto;
         @include box-outline-shadow;
         position: relative;
-        height: 0.58em;
+        height: 0.54em;
 
         &::after {
             opacity: 0.8;
@@ -149,14 +149,14 @@ main {
 
                 &.image {
                     margin: var(--base-margin) auto;
-                    margin-bottom: 0;
+                    margin-bottom: 25px;
                     background-position: left -20px top;
                     background-size: 120%;
                     background-image: url("../img/msgorigin2.jpg");
                     background-color: var(--comic-background);
                     background-repeat: no-repeat;
                     background-blend-mode: hard-light;
-                    height: 200px;
+                    height: 225px;
                     max-width: 500px;
                     position: relative;
                     @include flex(column, center, flex-start);
@@ -246,10 +246,10 @@ main {
                     }
 
                     .date-location {
-                        flex: 0 0 65px;
+                        flex: 0 0 50px;
                         text-align: right;
                         font-family: var(--heavy-font);
-                        font-size: var(--big-font);
+                        font-size: var(--medium-font);
                         font-weight: var(--light);
                         text-transform: uppercase;
                         line-height: 0.8em;
@@ -264,7 +264,7 @@ main {
 
                         .title-company {
                             h3 {
-                                font-size: var(--big-font);
+                                font-size: var(--medium-font);
                                 line-height: 0.8em;
                             }
                             h4 {
