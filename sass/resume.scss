@@ -137,9 +137,12 @@ main {
     @include flex(column, flex-start, flex-start);
     position: relative;
     padding: var(--base-margin) 0;
+    margin: 0 auto;
+    width: 100%;
 
     article {
         @include flex(row, flex-start, flex-start);
+        margin: 0 auto;
 
         .resume {
             max-width: 500px;
@@ -164,6 +167,7 @@ main {
                     @include box-outline-shadow;
                     @include halftone-overlay;
                     filter: grayscale(1);
+                    //display: none;
 
                     &::before {
                         opacity: 0.2;

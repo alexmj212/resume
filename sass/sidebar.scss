@@ -61,7 +61,6 @@
                 li {
                     margin-bottom: 20px;
                     @include flex(column, flex-start, inherit);
-                    user-select: none;
 
                     &:last-child {
                         margin-bottom: 10px;

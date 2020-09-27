@@ -1,4 +1,4 @@
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     main {
         max-width: 500px;
         margin: 0 auto;
@@ -6,29 +6,25 @@
         article {
             @include flex(column, inherit, center);
 
-            resume-sidebar {
+            .sidebar {
+                @include flex(column, inherit, center);
+                padding: 0;
                 width: 100%;
 
-                .sidebar {
-                    @include flex(column, inherit, center);
-                    padding: 0;
+                .name {
+                    text-align: center;
+                }
+
+                .career-title {
+                    font-size: var(--medium-font);
+                }
+
+                nav {
+                    margin-bottom: 0;
+                }
+
+                section {
                     width: 100%;
-
-                    .name {
-                        text-align: center;
-                    }
-
-                    .career-title {
-                        font-size: var(--medium-font);
-                    }
-
-                    nav {
-                        margin-bottom: 0;
-                    }
-
-                    section {
-                        width: 100%;
-                    }
                 }
             }
 

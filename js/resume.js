@@ -1,27 +1,5 @@
 'use strict';
 
-var parser = new DOMParser();
-
-customElements.define('resume-footer', class extends HTMLElement {
-    async connectedCallback() {
-        let res = await fetch('components/footer.html');
-        //this.appendChild(parser.parseFromString(await res.text(), 'text/html').getElementsByTagName('footer'));
-        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('footer').forEach(element => {
-            this.appendChild(element);
-        });
-    }
-});
-customElements.define('resume-sidebar', class extends HTMLElement {
-    async connectedCallback() {
-        let res = await fetch('components/sidebar.html');
-        //this.appendChild(parser.parseFromString(await res.text(), 'text/html').getElementsByTagName('footer'));
-        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('aside').forEach(element => {
-            this.appendChild(element);
-        });
-        generateSkills();
-    }
-});
-
 const skills = [
     {
         "skill": "Angular (v2+)",
@@ -103,3 +81,5 @@ function generateSkills() {
     });
 
 }
+
+generateSkills();
