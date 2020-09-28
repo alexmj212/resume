@@ -22,19 +22,19 @@ const skills = [
         "level": 6
     },
     {
-        "skill": "Responsive / Mobile Design",
+        "skill": "Responsive Design",
         "icon": "fa fa-mobile-alt",
+        "level": 9
+    },
+    {
+        "skill": "LESS / SASS / CSS3",
+        "icon": "fab fa-css3",
         "level": 9
     },
     {
         "skill": "HTML5",
         "icon": "fab fa-html5",
         "level": 7
-    },
-    {
-        "skill": "LESS / SASS / CSS3",
-        "icon": "fab fa-css3",
-        "level": 9
     },
     {
         "skill": "Grunt / Gulp / NPM",
@@ -47,9 +47,29 @@ const skills = [
         "level": 8
     },
     {
-        "skill": "REST-ful web services",
-        "icon": "fa fa-code",
-        "level": 7
+        "skill": "PHP",
+        "icon": "fab fa-php",
+        "level": 6
+    },
+    {
+        "skill": "Java",
+        "icon": "fab fa-java",
+        "level": 4
+    },
+    {
+        "skill": "Amazon (AWS)",
+        "icon": "fab fa-aws",
+        "level": 5
+    },
+    {
+        "skill": "NoSQL Databases",
+        "icon": "far fa-file-code",
+        "level": 4
+    },
+    {
+        "skill": "Relational SQL Databases",
+        "icon": "fa fa-database",
+        "level": 4
     }
 ];
 

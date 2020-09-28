@@ -1,9 +1,19 @@
+@function encodecolor($string) {
+    @if type-of($string) == "color" and str-index(#{$string}, "#") == 1 {
+        $hex: str-slice(ie-hex-str($string), 4);
+        $string: unquote("#{$hex}");
+
+        @return "%23" + $string;
+    }
+
+    @return $string;
+}
+
 $base-color: #444;
 $background-color: #e8e8e4;
 $base-margin: 15;
 
 :root {
-
     --main-width: #{768 - $base-margin}px;
 
     --base-color: #{$base-color};
@@ -32,8 +42,11 @@ $base-margin: 15;
     --drop-shadow-color: var(--base-color-light);
     --drop-shadow: 0 2px 3px var(--drop-shadow-color);
 
+    --border-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='220px' viewBox='0 0 100 220' version='1.1' id='svg8'%3E%3Cg id='layer2'%3E%3Crect style='fill:#{encodecolor($base-color)};fill-rule:evenodd;stroke-width:0.253319' id='rect41' width='100' height='220' x='7.1054274e-15' y='-1.4210855e-14' /%3E%3C/g%3E%3Cg id='layer1' transform='translate(73.327385,-93.738098)'%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15' width='100' height='40' x='-73.327385' y='93.738098' /%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15-8' width='100' height='40' x='-73.327385' y='173.7381' /%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15-7' width='100' height='60' x='-73.571426' y='253.7381' /%3E%3C/g%3E%3C/svg%3E");
+
     --border-radius: 10px;
     --divider-border-width: 4px;
+    --divider-border-width-offset: -4px;
     --divider-border: var(--divider-border-width) solid var(--base-color);
 
     --pip-border-radius: 5px;
