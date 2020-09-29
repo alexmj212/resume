@@ -161,7 +161,7 @@ ul {
 }
 
 main {
-    @include flex(column, flex-start, flex-start);
+    @include flex(column, flex-start, center);
     position: relative;
     padding: var(--base-margin) 0;
     margin: 0 auto;
@@ -174,87 +174,7 @@ main {
             max-width: 500px;
             padding: 0 var(--base-margin);
 
-            section {
-                &.image {
-                    margin: var(--base-margin) auto;
-                    margin-bottom: 25px;
-                    background-position: left 40% top 15%;
-                    background-size: 250%;
-                    background-image: url("../img/msgorigin2.jpg");
-                    background-color: var(--comic-background);
-                    background-repeat: no-repeat;
-                    background-blend-mode: hard-light;
-                    height: 225px;
-                    max-width: 500px;
-                    position: relative;
-                    @include flex(column, center, flex-start);
-                    transition: var(--long-transition);
-                    @include box-outline-shadow;
-                    @include halftone-overlay;
-                    filter: grayscale(1);
-                    display: none;
-
-                    &::before {
-                        opacity: 0.2;
-                        content: "";
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        z-index: 1;
-                        background-image: url("../img/comic-book-action.png");
-                        background-size: 100% 100%;
-                        background-repeat: repeat-x;
-                        background-position: center center;
-                        background-blend-mode: darken;
-                    }
-
-                    &::after {
-                        opacity: 0.2;
-                        content: "";
-                        position: absolute;
-                        left: 0px;
-                        top: 0px;
-                        width: 100%;
-                        height: 100%;
-                        z-index: 0;
-                    }
-
-                    &:hover,
-                    &:active {
-                        background-size: 125%;
-                        background-position: left -30px top;
-                        filter: grayscale(0.5);
-                    }
-
-                    .bubble {
-                        z-index: 2;
-                        position: relative;
-                        text-align: center;
-                        @include flex(row, center, center);
-                        border-radius: 50%;
-                        height: 87%;
-                        margin-left: 10px;
-                        padding: 0px 15px;
-                        font-family: var(--script-font);
-                        font-size: 1.2em;
-                        line-height: 1em;
-                        letter-spacing: 1px;
-                        color: var(--comic-color);
-                        border: 2px solid var(--bubble-color);
-                        background-color: var(--base-background);
-                        text-transform: uppercase;
-                        transform-origin: center;
-                        transition: var(--long-transition);
-                        user-select: none;
-
-                        &:hover,
-                        &:active {
-                            transform: scale(1.1);
-                        }
-                    }
-                }
+            .panel {
 
                 .uk {
                     height: 1.5em;
@@ -321,6 +241,95 @@ main {
                             }
                         }
                     }
+                }
+            }
+        }
+
+        &.landing {
+            min-width: 500px;
+            @include flex(column, center, center);
+
+            .panel {
+                width: 100%;
+            }
+        }
+
+        .image {
+            margin: var(--base-margin) auto;
+            margin-bottom: 25px;
+            background-position: left 10% top 15%;
+            background-size: 110%;
+            background-image: url("../img/msgorigin2.jpg");
+            background-color: var(--comic-background);
+            background-repeat: no-repeat;
+            background-blend-mode: hard-light;
+            width: 100%;
+            height: 225px;
+            max-width: 500px;
+            @include flex(column, center, flex-start);
+            transition: var(--long-transition);
+            @include box-outline-shadow;
+            @include halftone-overlay;
+            filter: grayscale(1);
+
+            &::before {
+                opacity: 0.2;
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                background-image: url("../img/comic-book-action.png");
+                background-size: 100% 100%;
+                background-repeat: repeat-x;
+                background-position: center center;
+                background-blend-mode: darken;
+            }
+
+            &::after {
+                opacity: 0.2;
+                content: "";
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            &:hover,
+            &:active {
+                background-size: 125%;
+                background-position: left -30px top;
+                filter: grayscale(0.5);
+            }
+
+            .bubble {
+                z-index: 2;
+                position: relative;
+                text-align: center;
+                @include flex(row, center, center);
+                border-radius: 50%;
+                height: 87%;
+                margin-left: 10px;
+                padding: 0px 15px;
+                font-family: var(--script-font);
+                font-size: 1.2em;
+                line-height: 1em;
+                letter-spacing: 1px;
+                color: var(--comic-color);
+                border: 2px solid var(--bubble-color);
+                background-color: var(--base-background);
+                text-transform: uppercase;
+                transform-origin: center;
+                transition: var(--long-transition);
+                user-select: none;
+
+                &:hover,
+                &:active {
+                    transform: scale(1.1);
                 }
             }
         }

@@ -1,0 +1,21 @@
+.landing {
+    min-width: 500px;
+    @include flex(column, center, center);
+
+    h2 {
+        @include flex(row, center, center);
+        font-size: 500%;
+        text-align: center;
+        @include halftone-overlay;
+        &::after {
+            z-index: -1;
+            background-size: 4%;
+            top: 6px;
+            height: 80%;
+        }
+    }
+
+    .panel {
+        width: 100%;
+    }
+}

@@ -35,6 +35,21 @@
             .resume {
                 padding: 0;
             }
+
+            .image {
+                height: 150px;
+            }
+
+            .landing {
+                width: auto;
+                min-width: initial;
+                h2 {
+                    font-size: 300%;
+                    &::after {
+                        top: 0;
+                    }
+                }
+            }
         }
     }
 }

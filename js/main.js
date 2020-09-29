@@ -73,6 +73,8 @@ const skills = [
     }
 ];
 
+var parser = new DOMParser();
+
 function generateSkills() {
     skills.forEach(skill => {
         let listItem = document.querySelector('div.tools ul').appendChild(document.createElement('li'));
@@ -102,4 +104,48 @@ function generateSkills() {
 
 }
 
-generateSkills();
+function selectPage() {
+    switch (location.hash) {
+        case "#resume":
+            document.getElementsByTagName('landing-page')[0].style.display = 'none';
+            document.getElementsByTagName('resume-page')[0].style.display = 'initial';
+            break;
+        default:
+            document.getElementsByTagName('resume-page')[0].style.display = 'none';
+            document.getElementsByTagName('landing-page')[0].style.display = 'initial';
+            break;
+    }
+}
+
+class resumePage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/resume.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('article').forEach(element => {
+            this.appendChild(element);
+        });
+        generateSkills();
+    }
+}
+
+class landingPage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/landing.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('article').forEach(element => {
+            this.appendChild(element);
+        });
+    }
+}
+
+window.customElements.define('resume-page', resumePage);
+window.customElements.define('landing-page', landingPage);
+
+window.addEventListener('hashchange', () => {
+    selectPage();
+});
+selectPage();

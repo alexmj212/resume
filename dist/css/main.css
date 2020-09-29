@@ -27,7 +27,7 @@
   --divider-border: var(--divider-border-width) solid var(--base-color);
   --pip-border-radius: 5px;
   --base-transition: all 250ms ease-out;
-  --long-transition: all 1s ease-out;
+  --long-transition: all 500ms ease-in-out;
   --skew-horizontal: skewX(-10deg);
   --huge-font: 400%;
   --big-font: 200%;
@@ -137,6 +137,40 @@
             border-left: 0;
             right: -5px;
             left: initial; }
+
+.landing {
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .landing h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 500%;
+    text-align: center;
+    position: relative; }
+    .landing h2::after {
+      opacity: 1;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("../img/halftone.png");
+      background-size: auto 10%;
+      background-position: top 3px left 7px;
+      background-blend-mode: darken; }
+    .landing h2::after {
+      z-index: -1;
+      background-size: 4%;
+      top: 6px;
+      height: 80%; }
+  .landing .panel {
+    width: 100%; }
 
 body,
 html {
@@ -292,7 +326,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   padding: var(--base-margin) 0;
   margin: 0 auto; }
@@ -305,110 +339,24 @@ main {
     main article .resume {
       max-width: 500px;
       padding: 0 var(--base-margin); }
-      main article .resume section.image {
-        margin: var(--base-margin) auto;
-        margin-bottom: 25px;
-        background-position: left 40% top 15%;
-        background-size: 250%;
-        background-image: url("../img/msgorigin2.jpg");
-        background-color: var(--comic-background);
-        background-repeat: no-repeat;
-        background-blend-mode: hard-light;
-        height: 225px;
-        max-width: 500px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        transition: var(--long-transition);
-        box-shadow: 3px 3px 0 var(--base-color);
-        border: 2px solid var(--base-color);
-        position: relative;
-        filter: grayscale(1);
-        display: none; }
-        main article .resume section.image::after {
-          opacity: 1;
-          content: "";
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          background-image: url("../img/halftone.png");
-          background-size: auto 10%;
-          background-position: top 3px left 7px;
-          background-blend-mode: darken; }
-        main article .resume section.image::before {
-          opacity: 0.2;
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-          background-image: url("../img/comic-book-action.png");
-          background-size: 100% 100%;
-          background-repeat: repeat-x;
-          background-position: center center;
-          background-blend-mode: darken; }
-        main article .resume section.image::after {
-          opacity: 0.2;
-          content: "";
-          position: absolute;
-          left: 0px;
-          top: 0px;
-          width: 100%;
-          height: 100%;
-          z-index: 0; }
-        main article .resume section.image:hover, main article .resume section.image:active {
-          background-size: 125%;
-          background-position: left -30px top;
-          filter: grayscale(0.5); }
-        main article .resume section.image .bubble {
-          z-index: 2;
-          position: relative;
-          text-align: center;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          border-radius: 50%;
-          height: 87%;
-          margin-left: 10px;
-          padding: 0px 15px;
-          font-family: var(--script-font);
-          font-size: 1.2em;
-          line-height: 1em;
-          letter-spacing: 1px;
-          color: var(--comic-color);
-          border: 2px solid var(--bubble-color);
-          background-color: var(--base-background);
-          text-transform: uppercase;
-          transform-origin: center;
-          transition: var(--long-transition);
-          user-select: none; }
-          main article .resume section.image .bubble:hover, main article .resume section.image .bubble:active {
-            transform: scale(1.1); }
-      main article .resume section .uk {
+      main article .resume .panel .uk {
         height: 1.5em;
         vertical-align: middle; }
-      main article .resume section .split-column {
+      main article .resume .panel .split-column {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start; }
-      main article .resume section .experience {
+      main article .resume .panel .experience {
         margin-bottom: var(--base-margin);
         border-radius: 1px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start; }
-        main article .resume section .experience:last-child {
+        main article .resume .panel .experience:last-child {
           border-bottom: 0; }
-        main article .resume section .experience .date-location {
+        main article .resume .panel .experience .date-location {
           flex: 0 0 50px;
           text-align: right;
           font-family: var(--heavy-font);
@@ -417,13 +365,13 @@ main {
           text-transform: uppercase;
           line-height: 0.8em;
           letter-spacing: -1px; }
-        main article .resume section .experience .information {
+        main article .resume .panel .experience .information {
           flex: 1 1 auto;
           border-left: var(--divider-border);
           position: relative;
           margin-left: 10px;
           padding-left: 10px; }
-          main article .resume section .experience .information::after {
+          main article .resume .panel .experience .information::after {
             opacity: 1;
             content: "";
             width: var(--divider-border-width);
@@ -435,23 +383,116 @@ main {
             background-size: auto 15%;
             background-position: bottom -6px left -1px;
             background-repeat: no-repeat; }
-          main article .resume section .experience .information .title-company h3 {
+          main article .resume .panel .experience .information .title-company h3 {
             font-size: var(--medium-font);
             line-height: 0.8em; }
-          main article .resume section .experience .information .title-company h4 {
+          main article .resume .panel .experience .information .title-company h4 {
             margin-bottom: 10px; }
-          main article .resume section .experience .information .summary {
+          main article .resume .panel .experience .information .summary {
             margin-bottom: 10px; }
-          main article .resume section .experience .information .more-info {
+          main article .resume .panel .experience .information .more-info {
             font-size: var(--small-font); }
-            main article .resume section .experience .information .more-info .project-name {
+            main article .resume .panel .experience .information .more-info .project-name {
               margin-top: 10px;
               font-weight: var(--bold); }
-            main article .resume section .experience .information .more-info ul {
+            main article .resume .panel .experience .information .more-info ul {
               margin: 0;
               list-style: none; }
-              main article .resume section .experience .information .more-info ul li {
+              main article .resume .panel .experience .information .more-info ul li {
                 font-weight: var(--normal); }
+    main article.landing {
+      min-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      main article.landing .panel {
+        width: 100%; }
+    main article .image {
+      margin: var(--base-margin) auto;
+      margin-bottom: 25px;
+      background-position: left 10% top 15%;
+      background-size: 110%;
+      background-image: url("../img/msgorigin2.jpg");
+      background-color: var(--comic-background);
+      background-repeat: no-repeat;
+      background-blend-mode: hard-light;
+      width: 100%;
+      height: 225px;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      transition: var(--long-transition);
+      box-shadow: 3px 3px 0 var(--base-color);
+      border: 2px solid var(--base-color);
+      position: relative;
+      filter: grayscale(1); }
+      main article .image::after {
+        opacity: 1;
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url("../img/halftone.png");
+        background-size: auto 10%;
+        background-position: top 3px left 7px;
+        background-blend-mode: darken; }
+      main article .image::before {
+        opacity: 0.2;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-image: url("../img/comic-book-action.png");
+        background-size: 100% 100%;
+        background-repeat: repeat-x;
+        background-position: center center;
+        background-blend-mode: darken; }
+      main article .image::after {
+        opacity: 0.2;
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 0; }
+      main article .image:hover, main article .image:active {
+        background-size: 125%;
+        background-position: left -30px top;
+        filter: grayscale(0.5); }
+      main article .image .bubble {
+        z-index: 2;
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 87%;
+        margin-left: 10px;
+        padding: 0px 15px;
+        font-family: var(--script-font);
+        font-size: 1.2em;
+        line-height: 1em;
+        letter-spacing: 1px;
+        color: var(--comic-color);
+        border: 2px solid var(--bubble-color);
+        background-color: var(--base-background);
+        text-transform: uppercase;
+        transform-origin: center;
+        transition: var(--long-transition);
+        user-select: none; }
+        main article .image .bubble:hover, main article .image .bubble:active {
+          transform: scale(1.1); }
   main header {
     display: flex;
     flex-direction: row;
@@ -487,4 +528,13 @@ main {
         main article .sidebar .tools {
           padding: 0 40px; }
       main article .resume {
-        padding: 0; } }
+        padding: 0; }
+      main article .image {
+        height: 150px; }
+      main article .landing {
+        width: auto;
+        min-width: initial; }
+        main article .landing h2 {
+          font-size: 300%; }
+          main article .landing h2::after {
+            top: 0; } }
