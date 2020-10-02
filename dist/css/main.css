@@ -105,7 +105,7 @@
         .sidebar section .tools ul li .skill-level .pip::after {
           transform: skewX(-30deg);
           width: 7.5%;
-          height: 3px;
+          height: 5px;
           background-color: var(--base-color-light);
           transition: var(--base-transition);
           border: 2px solid var(--base-color); }
