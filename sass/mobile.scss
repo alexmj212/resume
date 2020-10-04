@@ -3,6 +3,19 @@
         max-width: 500px;
         margin: 0 auto;
         padding: var(--base-margin) var(--base-margin);
+        header-page {
+            width: 100%;
+            @include flex(column, center, center);
+            header {
+                padding: 0;
+                h1 {
+                    font-size: 350%;
+                    &::after {
+                        top: 0;
+                    }
+                }
+            }
+        }
         article {
             @include flex(column, inherit, center);
 
@@ -34,21 +47,17 @@
 
             .resume {
                 padding: 0;
-            }
 
-            .image {
-                height: 150px;
-            }
-
-            .landing {
-                width: auto;
-                min-width: initial;
-                h2 {
-                    font-size: 300%;
-                    &::after {
-                        top: 0;
-                    }
+                p {
+                    padding-left: var(--base-margin);
+                    padding-right: var(--base-margin);
+                    text-indent: 2em;
+                    line-height: 1.25em;
                 }
+            }
+
+            .landing .panel.image {
+                height: 150px;
             }
         }
     }

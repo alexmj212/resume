@@ -76,32 +76,35 @@ const skills = [
 var parser = new DOMParser();
 
 function generateSkills() {
-    skills.forEach(skill => {
-        let listItem = document.querySelector('div.tools ul').appendChild(document.createElement('li'));
+    let list = document.querySelector('div.tools ul');
+    if (list) {
+        list.innerHTML = "";
+        skills.forEach(skill => {
+            let listItem = list.appendChild(document.createElement('li'));
 
-        let tool = document.createElement('div');
-        tool.className = 'tool';
-        let icon = document.createElement('i');
-        icon.className = skill.icon;
-        tool.appendChild(icon);
-        tool.appendChild(document.createTextNode(skill.skill));
+            let tool = document.createElement('div');
+            tool.className = 'tool';
+            let icon = document.createElement('i');
+            icon.className = skill.icon;
+            tool.appendChild(icon);
+            tool.appendChild(document.createTextNode(skill.skill));
 
-        let skillList = document.createElement('div');
-        skillList.className = 'skill-level';
+            let skillList = document.createElement('div');
+            skillList.className = 'skill-level';
 
-        Array.apply(null, Array(10)).forEach((v, index) => {
-            let pip = document.createElement('div');
-            pip.className = 'pip';
-            if (index < skill.level) {
-                pip.classList.add('filled');
-            }
-            skillList.appendChild(pip);
+            Array.apply(null, Array(10)).forEach((v, index) => {
+                let pip = document.createElement('div');
+                pip.className = 'pip';
+                if (index < skill.level) {
+                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 75);
+                }
+                skillList.appendChild(pip);
+            });
+
+            listItem.appendChild(tool);
+            listItem.appendChild(skillList);
         });
-
-        listItem.appendChild(tool);
-        listItem.appendChild(skillList);
-    });
-
+    }
 }
 
 function selectPage() {
@@ -109,11 +112,24 @@ function selectPage() {
         case "#resume":
             document.getElementsByTagName('landing-page')[0].style.display = 'none';
             document.getElementsByTagName('resume-page')[0].style.display = 'initial';
+            generateSkills();
             break;
         default:
             document.getElementsByTagName('resume-page')[0].style.display = 'none';
             document.getElementsByTagName('landing-page')[0].style.display = 'initial';
             break;
+    }
+}
+
+class headerPage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/header.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('header').forEach(element => {
+            this.appendChild(element);
+        });
     }
 }
 
@@ -142,6 +158,7 @@ class landingPage extends HTMLElement {
     }
 }
 
+window.customElements.define('header-page', headerPage);
 window.customElements.define('resume-page', resumePage);
 window.customElements.define('landing-page', landingPage);
 

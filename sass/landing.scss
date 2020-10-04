@@ -1,21 +1,24 @@
-.landing {
-    min-width: 500px;
-    @include flex(column, center, center);
-
-    h2 {
-        @include flex(row, center, center);
-        font-size: 500%;
-        text-align: center;
-        @include halftone-overlay;
-        &::after {
-            z-index: -1;
-            background-size: 4%;
-            top: 6px;
-            height: 80%;
+landing-page {
+    width: 100%;
+    article {
+        main & {
+            width: 100%;
+            @include flex(column, center, center);
         }
-    }
+        .landing {
+            flex: 1 0 100%;
+            width: calc(100% - 100px);
+            @include flex(column, center, center);
 
-    .panel {
-        width: 100%;
+            .panel {
+                width: 100%;
+
+                &.image {
+                    max-width: 100%;
+                    width: 100%;
+                    height: 400px;
+                }
+            }
+        }
     }
 }
