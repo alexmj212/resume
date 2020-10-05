@@ -8,11 +8,17 @@
             @include flex(column, center, center);
             header {
                 padding: 0;
+                @include flex(column, center, center);
+                flex-direction: column;
                 h1 {
-                    font-size: 350%;
+                    font-size: 300%;
                     &::after {
                         top: 0;
                     }
+                }
+                aside {
+                    flex-basis: auto;
+                    margin-top: 25px;
                 }
             }
         }
@@ -23,10 +29,6 @@
                 @include flex(column, inherit, center);
                 padding: 0;
                 width: 100%;
-
-                .name {
-                    text-align: center;
-                }
 
                 .career-title {
                     font-size: var(--medium-font);
@@ -55,10 +57,9 @@
                     line-height: 1.25em;
                 }
             }
-
-            .landing .panel.image {
-                height: 150px;
-            }
+        }
+        .landing .panel.image {
+            height: 150px;
         }
     }
 }

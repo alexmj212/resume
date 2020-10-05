@@ -108,17 +108,17 @@ function generateSkills() {
 }
 
 function selectPage() {
-    switch (location.hash) {
-        case "#resume":
-            document.getElementsByTagName('landing-page')[0].style.display = 'none';
-            document.getElementsByTagName('resume-page')[0].style.display = 'initial';
-            generateSkills();
-            break;
-        default:
-            document.getElementsByTagName('resume-page')[0].style.display = 'none';
-            document.getElementsByTagName('landing-page')[0].style.display = 'initial';
-            break;
-    }
+    // switch (location.hash) {
+    //     case "#resume":
+    //         document.getElementsByTagName('landing-page')[0].style.display = 'none';
+    //         document.getElementsByTagName('resume-page')[0].style.display = 'initial';
+    //         generateSkills();
+    //         break;
+    //     default:
+    //         document.getElementsByTagName('resume-page')[0].style.display = 'none';
+    //         document.getElementsByTagName('landing-page')[0].style.display = 'initial';
+    //         break;
+    // }
 }
 
 class headerPage extends HTMLElement {

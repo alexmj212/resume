@@ -29,6 +29,7 @@
   --base-transition: all 150ms ease-out;
   --long-transition: all 500ms ease-in-out;
   --skew-horizontal: skewX(-10deg);
+  --skew-horizontal-reverse: skewX(10deg);
   --huge-font: 400%;
   --big-font: 200%;
   --medium-font: 150%;
@@ -51,109 +52,72 @@
   position: relative;
   letter-spacing: -3px; }
 
-.sidebar {
-  padding: 0 var(--base-margin);
-  flex: 0 0 225px; }
-  .sidebar .career-title {
-    text-align: center;
-    box-shadow: 3px 3px 0 var(--base-color);
-    border: 2px solid var(--base-color);
-    padding: 5px 5px 2px;
-    font-family: var(--heavy-font);
-    font-size: var(--medium-font);
-    line-height: 1em;
-    text-transform: uppercase;
-    transform: var(--skew-horizontal); }
-  .sidebar nav {
-    margin: var(--base-margin) 0 var(--base-margin); }
-  .sidebar section .tools ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+section .tools ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: inherit; }
+  section .tools ul li {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: inherit; }
-    .sidebar section .tools ul li {
-      margin-bottom: 20px;
+    section .tools ul li:last-child {
+      margin-bottom: 10px; }
+    section .tools ul li .tool {
+      flex: 1 0 100%;
+      white-space: nowrap;
+      margin-bottom: 5px; }
+      section .tools ul li .tool i {
+        text-align: center;
+        width: 20px;
+        margin-right: 5px; }
+    section .tools ul li .skill-level {
+      flex: 1 0 100%;
+      padding: 0 3px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: inherit; }
-      .sidebar section .tools ul li:last-child {
-        margin-bottom: 10px; }
-      .sidebar section .tools ul li .tool {
-        flex: 1 0 100%;
-        white-space: nowrap;
-        margin-bottom: 5px; }
-        .sidebar section .tools ul li .tool i {
-          text-align: center;
-          width: 20px;
-          margin-right: 5px; }
-      .sidebar section .tools ul li .skill-level {
-        flex: 1 0 100%;
-        padding: 0 3px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start; }
-        .sidebar section .tools ul li .skill-level .pip,
-        .sidebar section .tools ul li .skill-level .pip::after {
-          transform: skewX(-30deg);
-          width: 7.5%;
-          height: 5px;
-          background-color: var(--base-color-light);
-          border: 2px solid var(--base-color); }
-        .sidebar section .tools ul li .skill-level .pip {
-          z-index: 1;
-          position: relative; }
-          .sidebar section .tools ul li .skill-level .pip.filled {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start; }
+      section .tools ul li .skill-level .pip,
+      section .tools ul li .skill-level .pip::after {
+        transform: skewX(-30deg);
+        width: 7.5%;
+        height: 5px;
+        background-color: var(--base-color-light);
+        border: 2px solid var(--base-color); }
+      section .tools ul li .skill-level .pip {
+        z-index: 1;
+        position: relative; }
+        section .tools ul li .skill-level .pip.filled {
+          background-color: var(--base-color); }
+          section .tools ul li .skill-level .pip.filled:first-child::after, section .tools ul li .skill-level .pip.filled:last-child::after {
             background-color: var(--base-color); }
-            .sidebar section .tools ul li .skill-level .pip.filled:first-child::after, .sidebar section .tools ul li .skill-level .pip.filled:last-child::after {
-              background-color: var(--base-color); }
-          .sidebar section .tools ul li .skill-level .pip:first-child::after, .sidebar section .tools ul li .skill-level .pip:last-child::after {
-            content: "";
-            width: 14px;
-            z-index: 2;
-            position: absolute;
-            left: -5px;
-            top: -2px;
-            background-color: var(--base-color-light);
-            transform: skewX(30deg); }
-          .sidebar section .tools ul li .skill-level .pip:first-child, .sidebar section .tools ul li .skill-level .pip:first-child::after {
-            border-top-left-radius: var(--pip-border-radius);
-            border-bottom-left-radius: var(--pip-border-radius); }
-          .sidebar section .tools ul li .skill-level .pip:last-child, .sidebar section .tools ul li .skill-level .pip:last-child::after {
-            border-top-right-radius: var(--pip-border-radius);
-            border-bottom-right-radius: var(--pip-border-radius); }
-          .sidebar section .tools ul li .skill-level .pip:first-child::after {
-            border-right: 0; }
-          .sidebar section .tools ul li .skill-level .pip:last-child::after {
-            border-left: 0;
-            right: -5px;
-            left: initial; }
-
-landing-page {
-  width: 100%; }
-  main landing-page article {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-  landing-page article .landing {
-    flex: 1 0 100%;
-    width: calc(100% - 100px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    landing-page article .landing .panel {
-      width: 100%; }
-      landing-page article .landing .panel.image {
-        max-width: 100%;
-        width: 100%;
-        height: 400px; }
+        section .tools ul li .skill-level .pip:first-child::after, section .tools ul li .skill-level .pip:last-child::after {
+          content: "";
+          width: 14px;
+          z-index: 2;
+          position: absolute;
+          left: -5px;
+          top: -2px;
+          background-color: var(--base-color-light);
+          transform: skewX(30deg); }
+        section .tools ul li .skill-level .pip:first-child, section .tools ul li .skill-level .pip:first-child::after {
+          border-top-left-radius: var(--pip-border-radius);
+          border-bottom-left-radius: var(--pip-border-radius); }
+        section .tools ul li .skill-level .pip:last-child, section .tools ul li .skill-level .pip:last-child::after {
+          border-top-right-radius: var(--pip-border-radius);
+          border-bottom-right-radius: var(--pip-border-radius); }
+        section .tools ul li .skill-level .pip:first-child::after {
+          border-right: 0; }
+        section .tools ul li .skill-level .pip:last-child::after {
+          border-left: 0;
+          right: -5px;
+          left: initial; }
 
 body,
 html {
@@ -191,7 +155,6 @@ main header h1 {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-bottom: 3px;
   color: var(--base-background);
   -webkit-text-stroke: 2px var(--base-color);
   text-shadow: 3px 3px 0 var(--base-color);
@@ -288,8 +251,7 @@ ul {
   ul li {
     text-align: left;
     padding-left: 25px;
-    padding-bottom: 6px;
-    margin-bottom: 6px;
+    margin-bottom: var(--base-margin);
     position: relative; }
     ul li::before {
       content: "\27A2";
@@ -313,22 +275,44 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   position: relative;
   padding: var(--base-margin) 0;
   margin: 0 auto;
   max-width: 1000px; }
+  main .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  main .landing {
+    width: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    main .landing .panel.image {
+      max-width: 100%;
+      width: 100%;
+      height: 400px; }
   main header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex: 1 0 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding-left: var(--base-margin); }
     main header h1 {
-      font-size: 500%;
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      font-size: 550%;
       text-align: center;
-      position: relative; }
+      position: relative;
+      margin: 0; }
       main header h1::after {
         opacity: 1;
         content: "";
@@ -342,14 +326,52 @@ main {
         background-position: top 3px left 7px;
         background-blend-mode: darken; }
       main header h1::after {
+        height: 1em;
         z-index: -1;
-        background-size: 4%;
-        top: 6px;
-        height: 80%; }
+        background-size: auto 20%; }
+    main header aside {
+      flex: 0 1 350px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 3px 3px 0 var(--base-color);
+      border: 2px solid var(--base-color);
+      padding: 5px 5px 2px;
+      margin: 0 var(--base-margin);
+      transform: var(--skew-horizontal);
+      position: relative;
+      top: -3px; }
+      main header aside .career-title {
+        text-align: center;
+        box-shadow: 3px 3px 0 var(--base-color);
+        border: 2px solid var(--base-color);
+        height: 80%;
+        padding: 5px 5px 2px;
+        font-family: var(--heavy-font);
+        font-size: var(--medium-font);
+        line-height: 1em;
+        text-transform: uppercase;
+        transform: var(--skew-horizontal);
+        margin-bottom: 10px; }
+      main header aside ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 100%; }
+        main header aside ul li {
+          margin-left: 10px;
+          margin-bottom: 0;
+          transform: var(--skew-horizontal-reverse); }
+    main header .panel {
+      flex: 1 0 100%; }
   main article {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     margin: 0 auto; }
     main article .resume {
@@ -416,62 +438,61 @@ main {
               list-style: none; }
               main article .resume .panel .experience .information .more-info ul li {
                 font-weight: var(--normal); }
-    main article .image {
-      margin: var(--base-margin) auto;
-      margin-bottom: 25px;
-      background-position: left 10% top 15%;
-      background-size: 110%;
-      background-image: url("../img/msgorigin2.jpg");
-      background-color: var(--comic-background);
-      background-repeat: no-repeat;
-      background-blend-mode: hard-light;
+  main .image {
+    margin: var(--base-margin) auto;
+    margin-bottom: 25px;
+    background-position: left 10% top 15%;
+    background-size: 110%;
+    background-image: url("../img/msgorigin2.jpg");
+    background-color: var(--comic-background);
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    width: 100%;
+    height: 225px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 3px 3px 0 var(--base-color);
+    border: 2px solid var(--base-color);
+    position: relative;
+    filter: grayscale(0.75); }
+    main .image::after {
+      opacity: 1;
+      content: "";
       width: 100%;
-      height: 225px;
-      max-width: 500px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      transition: var(--long-transition);
-      box-shadow: 3px 3px 0 var(--base-color);
-      border: 2px solid var(--base-color);
-      position: relative;
-      filter: grayscale(0.75); }
-      main article .image::after {
-        opacity: 1;
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: url("../img/halftone.png");
-        background-size: auto 10%;
-        background-position: top 3px left 7px;
-        background-blend-mode: darken; }
-      main article .image::before {
-        opacity: 0.2;
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-image: url("../img/comic-book-action.png");
-        background-size: 100% 100%;
-        background-repeat: repeat-x;
-        background-position: center center;
-        background-blend-mode: darken; }
-      main article .image::after {
-        opacity: 0.2;
-        content: "";
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 0; }
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("../img/halftone.png");
+      background-size: auto 10%;
+      background-position: top 3px left 7px;
+      background-blend-mode: darken; }
+    main .image::before {
+      opacity: 0.2;
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-image: url("../img/comic-book-action.png");
+      background-size: 100% 100%;
+      background-repeat: repeat-x;
+      background-position: center center;
+      background-blend-mode: darken; }
+    main .image::after {
+      opacity: 0.2;
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 0; }
 
 @media (max-width: 768px) {
   main {
@@ -485,11 +506,19 @@ main {
       justify-content: center;
       align-items: center; }
       main header-page header {
-        padding: 0; }
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; }
         main header-page header h1 {
-          font-size: 350%; }
+          font-size: 300%; }
           main header-page header h1::after {
             top: 0; }
+        main header-page header aside {
+          flex-basis: auto;
+          margin-top: 25px; }
     main article {
       display: flex;
       flex-direction: column;
@@ -502,8 +531,6 @@ main {
         align-items: center;
         padding: 0;
         width: 100%; }
-        main article .sidebar .name {
-          text-align: center; }
         main article .sidebar .career-title {
           font-size: var(--medium-font); }
         main article .sidebar nav {
@@ -519,5 +546,5 @@ main {
           padding-right: var(--base-margin);
           text-indent: 2em;
           line-height: 1.25em; }
-      main article .landing .panel.image {
-        height: 150px; } }
+    main .landing .panel.image {
+      height: 150px; } }

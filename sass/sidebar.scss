@@ -10,109 +10,89 @@
     letter-spacing: -3px;
 }
 
-.sidebar {
-    padding: 0 var(--base-margin);
-    flex: 0 0 225px;
+section {
+    .tools {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @include flex(column, flex-start, inherit);
 
-    .career-title {
-        text-align: center;
-        @include box-outline-shadow;
-        padding: 5px 5px 2px;
-        font-family: var(--heavy-font);
-        font-size: var(--medium-font);
-        line-height: 1em;
-        text-transform: uppercase;
-        transform: var(--skew-horizontal);
-    }
-
-    nav {
-        margin: var(--base-margin) 0 var(--base-margin);
-    }
-
-    section {
-        .tools {
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+            li {
+                margin-bottom: 20px;
                 @include flex(column, flex-start, inherit);
 
-                li {
-                    margin-bottom: 20px;
-                    @include flex(column, flex-start, inherit);
+                &:last-child {
+                    margin-bottom: 10px;
+                }
 
-                    &:last-child {
-                        margin-bottom: 10px;
+                .tool {
+                    flex: 1 0 100%;
+                    white-space: nowrap;
+                    margin-bottom: 5px;
+                    i {
+                        text-align: center;
+                        width: 20px;
+                        margin-right: 5px;
+                    }
+                }
+                .skill-level {
+                    flex: 1 0 100%;
+                    padding: 0 3px;
+                    @include flex(row, space-between, flex-start);
+
+                    .pip,
+                    .pip::after {
+                        transform: skewX(-30deg);
+                        width: 7.5%;
+                        height: 5px;
+                        background-color: var(--base-color-light);
+                        border: 2px solid var(--base-color);
                     }
 
-                    .tool {
-                        flex: 1 0 100%;
-                        white-space: nowrap;
-                        margin-bottom: 5px;
-                        i {
-                            text-align: center;
-                            width: 20px;
-                            margin-right: 5px;
-                        }
-                    }
-                    .skill-level {
-                        flex: 1 0 100%;
-                        padding: 0 3px;
-                        @include flex(row, space-between, flex-start);
+                    .pip {
+                        z-index: 1;
+                        position: relative;
+                        &.filled {
+                            background-color: var(--base-color);
 
-                        .pip,
-                        .pip::after {
-                            transform: skewX(-30deg);
-                            width: 7.5%;
-                            height: 5px;
-                            background-color: var(--base-color-light);
-                            border: 2px solid var(--base-color);
-                        }
-
-                        .pip {
-                            z-index: 1;
-                            position: relative;
-                            &.filled {
-                                background-color: var(--base-color);
-
-                                &:first-child::after,
-                                &:last-child::after {
-                                    background-color: var(--base-color);
-                                }
-                            }
                             &:first-child::after,
                             &:last-child::after {
-                                content: "";
-                                width: 14px;
-                                z-index: 2;
-                                position: absolute;
-                                left: -5px;
-                                top: -2px;
-                                background-color: var(--base-color-light);
-                                transform: skewX(30deg);
+                                background-color: var(--base-color);
                             }
+                        }
+                        &:first-child::after,
+                        &:last-child::after {
+                            content: "";
+                            width: 14px;
+                            z-index: 2;
+                            position: absolute;
+                            left: -5px;
+                            top: -2px;
+                            background-color: var(--base-color-light);
+                            transform: skewX(30deg);
+                        }
 
-                            &:first-child,
-                            &:first-child::after {
-                                border-top-left-radius: var(--pip-border-radius);
-                                border-bottom-left-radius: var(--pip-border-radius);
-                            }
+                        &:first-child,
+                        &:first-child::after {
+                            border-top-left-radius: var(--pip-border-radius);
+                            border-bottom-left-radius: var(--pip-border-radius);
+                        }
 
-                            &:last-child,
-                            &:last-child::after {
-                                border-top-right-radius: var(--pip-border-radius);
-                                border-bottom-right-radius: var(--pip-border-radius);
-                            }
+                        &:last-child,
+                        &:last-child::after {
+                            border-top-right-radius: var(--pip-border-radius);
+                            border-bottom-right-radius: var(--pip-border-radius);
+                        }
 
-                            &:first-child::after {
-                                border-right: 0;
-                            }
+                        &:first-child::after {
+                            border-right: 0;
+                        }
 
-                            &:last-child::after {
-                                border-left: 0;
-                                right: -5px;
-                                left: initial;
-                            }
+                        &:last-child::after {
+                            border-left: 0;
+                            right: -5px;
+                            left: initial;
                         }
                     }
                 }
