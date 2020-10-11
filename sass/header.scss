@@ -2,6 +2,7 @@ header-page {
     @include flex(column, center, center);
 
     header {
+        width: 100%;
 
         .contact {
             @include flex(column, center, center);

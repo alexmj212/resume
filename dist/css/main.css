@@ -31,6 +31,9 @@ aside a {
   aside a:hover {
     text-decoration: underline; }
 
+aside ul.summary, aside ul.navigation {
+  margin-left: var(--base-margin); }
+
 aside ul li {
   white-space: nowrap;
   display: flex;
@@ -45,7 +48,7 @@ aside ul li {
 
 aside ul.navigation {
   padding-left: var(--base-margin);
-  border-left: 1px solid var(--accent-color1);
+  border-left: 1px solid var(--base-color);
   position: relative;
   z-index: 0; }
   aside ul.navigation .nav-item {
@@ -57,8 +60,8 @@ aside ul.navigation {
   aside ul.navigation .nav-item:last-child:after {
     content: '';
     pointer-events: none;
-    transition: all 500ms ease;
-    background: var(--accent-color1);
+    transition: all 50ms ease;
+    background: var(--base-color);
     display: block;
     position: absolute;
     top: 0;
@@ -76,27 +79,55 @@ aside ul.navigation {
   aside ul.navigation .nav-item:last-child.is-active:after {
     top: 80% !important; }
 
+aside ul.paginator {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: var(--base-margin);
+  width: 100%; }
+  aside ul.paginator li {
+    cursor: pointer;
+    margin: 0;
+    margin-top: 10px; }
+    aside ul.paginator li i {
+      margin: 0; }
+  aside ul.paginator #next-page,
+  aside ul.paginator #previous-page {
+    font-size: 30px;
+    transition: all 250ms ease-out; }
+  aside ul.paginator #next-page.disabled {
+    pointer-events: none;
+    opacity: 0.2; }
+  aside ul.paginator #previous-page.disabled {
+    pointer-events: none;
+    opacity: 0; }
+
 header-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  header-page header .contact {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-color2);
-    border-radius: 8px;
-    padding: 10px 30px;
-    color: var(--base-color);
-    font-size: var(--font-size-medium);
-    max-width: 200px;
-    width: 100%;
-    height: 100%;
-    transition: all 250ms ease-out; }
-    header-page header .contact:hover {
-      background-color: #68a670; }
+  header-page header {
+    width: 100%; }
+    header-page header .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--accent-color2);
+      border-radius: 8px;
+      padding: 10px 30px;
+      color: var(--base-color);
+      font-size: var(--font-size-medium);
+      max-width: 200px;
+      width: 100%;
+      height: 100%;
+      transition: all 250ms ease-out; }
+      header-page header .contact:hover {
+        background-color: #68a670; }
 
 skills-page .tools ul {
   list-style: none;
@@ -143,10 +174,10 @@ skills-page .tools ul {
         height: 15px;
         z-index: 1;
         position: relative;
-        border: 1px solid var(--accent-color1);
+        border: 1px solid var(--accent-color2);
         border-radius: 50%; }
         skills-page .tools ul li .skill-level .pip.filled {
-          background-color: var(--accent-color1); }
+          background-color: var(--accent-color2); }
 
 resume-page .experience {
   margin-bottom: 50px; }
@@ -175,7 +206,7 @@ h1 {
 
 h2 {
   font-family: var(--font-family-serif);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-big);
   line-height: 1em; }
 
 h3, h4 {
@@ -217,7 +248,7 @@ main {
     flex: 1 1 auto;
     position: relative;
     width: 100%;
-    max-width: 40%;
+    max-width: 500px;
     margin-right: 250px;
     margin-left: var(--base-margin);
     display: flex;
@@ -234,6 +265,8 @@ main {
       main article .page .panel {
         width: 100%; }
   main aside {
+    background-color: var(--accent-color1);
+    min-width: 250px;
     flex: 0 1 250px;
     display: flex;
     flex-direction: column;
@@ -241,8 +274,7 @@ main {
     align-items: flex-start;
     position: sticky;
     top: 0;
-    height: 100vh;
-    padding: 0 var(--base-margin); }
+    height: 100vh; }
 
 .uk {
   width: 35px;
@@ -255,12 +287,16 @@ main {
     margin: 0;
     left: initial;
     width: 100%;
-    margin: 0 50px 0 var(--base-margin); } }
+    margin: 0 150px 0 var(--base-margin); } }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   main article {
     margin-right: var(--base-margin); }
+    main article .page:not(:first-child) {
+      padding-top: 50px;
+      min-height: auto; }
   main aside {
+    min-width: auto;
     flex: 0 1 50px;
     padding-right: 0; }
     main aside ul li a {

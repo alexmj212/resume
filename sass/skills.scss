@@ -40,10 +40,10 @@ skills-page {
                         height: 15px;
                         z-index: 1;
                         position: relative;
-                        border: 1px solid var(--accent-color1);
+                        border: 1px solid var(--accent-color2);
                         border-radius: 50%;
                         &.filled {
-                            background-color: var(--accent-color1);
+                            background-color: var(--accent-color2);
                         }
                     }
                 }

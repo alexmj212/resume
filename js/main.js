@@ -96,7 +96,7 @@ function generateSkills() {
                 let pip = document.createElement('div');
                 pip.className = 'pip';
                 if (index < skill.level) {
-                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 75);
+                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 150);
                 }
                 skillList.appendChild(pip);
             });
@@ -107,19 +107,13 @@ function generateSkills() {
     }
 }
 
-function selectPage() {
-    // switch (location.hash) {
-    //     case "#resume":
-    //         document.getElementsByTagName('landing-page')[0].style.display = 'none';
-    //         document.getElementsByTagName('resume-page')[0].style.display = 'initial';
-    //         generateSkills();
-    //         break;
-    //     default:
-    //         document.getElementsByTagName('resume-page')[0].style.display = 'none';
-    //         document.getElementsByTagName('landing-page')[0].style.display = 'initial';
-    //         break;
-    // }
-}
+const pages = [
+    'header-page',
+    'profile-page',
+    'education-page',
+    'skills-page',
+    'resume-page'
+];
 
 class headerPage extends HTMLElement {
 
@@ -201,15 +195,112 @@ window.customElements.define('skills-page', skillsPage);
 window.customElements.define('resume-page', resumePage);
 window.customElements.define('landing-page', landingPage);
 
+var currentPage = 'header-page';
+
 function navigate(navItem) {
-    document.getElementsByTagName(navItem.id)[0].scrollIntoView({ behavior: "smooth" });
+    var page = navItem.id.substring(0, navItem.id.lastIndexOf('-'));
+    document.getElementsByTagName(page)[0].scrollIntoView({ behavior: "smooth" });
+    updatePaginator();
+    if (page === 'skills-page') {
+        generateSkills();
+    }
+}
+
+function nextPage() {
+    let nextPage = pages.indexOf(currentPage) + 1;
+    if (nextPage < pages.length) {
+        navigate(document.getElementById(pages[nextPage]+'-nav'));
+    }
+}
+
+function previousPage() {
+    let previousPage = pages.indexOf(currentPage) - 1;
+    if (previousPage >= 0) {
+        navigate(document.getElementById(pages[previousPage]+'-nav'));
+    }
+}
+
+function updateCurrentPage(page) {
+    currentPage = page;
+}
+
+function updateHashLocation(page) {
+    location.hash = page;
+}
+
+function updatePaginator() {
+    if (pages.indexOf(currentPage) === 0) {
+        document.getElementById('next-page').classList.remove('disabled');
+        document.getElementById('previous-page').classList.add('disabled');
+    } else if (pages.indexOf(currentPage) === pages.length - 1) {
+        document.getElementById('next-page').classList.add('disabled');
+        document.getElementById('previous-page').classList.remove('disabled');
+    } else {
+        document.getElementById('next-page').classList.remove('disabled');
+        document.getElementById('previous-page').classList.remove('disabled');
+    }
+}
+
+function resetNavIndicator() {
     [...document.getElementsByClassName('nav-item')].forEach(element => {
         element.classList.remove('is-active');
     });
-    navItem.classList.add('is-active');
 }
 
-window.addEventListener('hashchange', () => {
-    selectPage();
+window.addEventListener('scroll', () => {
+    var windscroll = window.scrollY;
+    var offsetThreshold = 100;
+
+    resetNavIndicator();
+    updatePaginator();
+
+    if (windscroll >= document.getElementsByTagName('resume-page')[0].offsetTop - offsetThreshold) {
+        document.getElementById('resume-page-nav').classList.add('is-active');
+        updateCurrentPage('resume-page');
+        updateHashLocation('resume-page');
+        updatePaginator();
+        return;
+    }
+
+    if (windscroll >= document.getElementsByTagName('skills-page')[0].offsetTop - offsetThreshold) {
+        document.getElementById('skills-page-nav').classList.add('is-active');
+        updateCurrentPage('skills-page');
+        updateHashLocation('skills-page');
+        updatePaginator();
+        return;
+    }
+
+    if (windscroll >= document.getElementsByTagName('education-page')[0].offsetTop - offsetThreshold) {
+        document.getElementById('education-page-nav').classList.add('is-active');
+        updateCurrentPage('education-page');
+        updateHashLocation('education-page');
+        updatePaginator();
+        return;
+    }
+
+    if (windscroll >= document.getElementsByTagName('profile-page')[0].offsetTop - offsetThreshold) {
+        document.getElementById('profile-page-nav').classList.add('is-active');
+        updateCurrentPage('profile-page');
+        updateHashLocation('profile-page');
+        updatePaginator();
+        return;
+    }
+
+    if (windscroll >= document.getElementsByTagName('header-page')[0].offsetTop - offsetThreshold) {
+        document.getElementById('header-page-nav').classList.add('is-active');
+        updateCurrentPage('header-page');
+        updateHashLocation('header-page');
+        updatePaginator();
+        return;
+    }
+
 });
-selectPage();
+
+
+if (location.hash) {
+    var page = location.hash.substring(1, location.hash.length)+'-nav';
+    navigate(document.getElementById(page));
+} else {
+    window.scroll();
+    resetNavIndicator();
+}
