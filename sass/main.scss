@@ -5,11 +5,6 @@
 @import "skills";
 @import "resume";
 
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
 body {
     background-color: var(--base-background-color);
     color: var(--base-color);
@@ -79,6 +74,7 @@ ul {
 main {
     $sidebar-width: 250px;
     @include flex(row, center, flex-start);
+    height: 100%;
     article {
         flex: 1 1 auto;
         //max-width: calc(100% - #{$sidebar-width});
@@ -98,11 +94,13 @@ main {
         }
     }
     aside {
+
         flex: 0 1 $sidebar-width;
+        @include flex(column, center, flex-start);
         position: sticky;
-        top: 33vh;
-        left: 0;
-        padding: var(--base-margin) 0 var(--base-margin) var(--base-margin);
+        top: 0;
+        height: 100vh;
+        padding: 0 var(--base-margin);
     }
 }
 

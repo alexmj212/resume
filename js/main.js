@@ -67,7 +67,7 @@ const skills = [
         "level": 4
     },
     {
-        "skill": "Relational SQL Databases",
+        "skill": "SQL Databases",
         "icon": "fa fa-database",
         "level": 4
     }

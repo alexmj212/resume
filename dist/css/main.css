@@ -155,10 +155,6 @@ resume-page .experience {
     color: var(--accent-color2);
     font-weight: bold; }
 
-html, body {
-  height: 100%;
-  width: 100%; }
-
 body {
   background-color: var(--base-background-color);
   color: var(--base-color);
@@ -215,7 +211,8 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start; }
+  align-items: flex-start;
+  height: 100%; }
   main article {
     flex: 1 1 auto;
     position: relative;
@@ -238,10 +235,14 @@ main {
         width: 100%; }
   main aside {
     flex: 0 1 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     position: sticky;
-    top: 33vh;
-    left: 0;
-    padding: var(--base-margin) 0 var(--base-margin) var(--base-margin); }
+    top: 0;
+    height: 100vh;
+    padding: 0 var(--base-margin); }
 
 .uk {
   width: 35px;
@@ -260,7 +261,8 @@ main {
   main article {
     margin-right: var(--base-margin); }
   main aside {
-    flex: 0 1 50px; }
+    flex: 0 1 50px;
+    padding-right: 0; }
     main aside ul li a {
       font-size: 0; }
       main aside ul li a i {
