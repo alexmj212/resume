@@ -1,65 +1,36 @@
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     main {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: var(--base-margin) var(--base-margin);
-        header-page {
+        article {
+            max-width: 100%;
+            margin: 0;
+            left: initial;
             width: 100%;
-            @include flex(column, center, center);
-            header {
-                padding: 0;
-                @include flex(column, center, center);
-                flex-direction: column;
-                h1 {
-                    font-size: 300%;
-                    &::after {
-                        top: 0;
+            margin: 0 50px 0 var(--base-margin);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    main {
+        article {
+            margin-right: var(--base-margin);
+        }
+        aside {
+            flex: 0 1 50px;
+            ul {
+                li {
+                    a {
+                        font-size: 0;
+                        i {
+                            font-size: 35px;
+                        }
                     }
                 }
-                aside {
-                    flex-basis: auto;
-                    margin-top: 25px;
-                }
-            }
-        }
-        article {
-            @include flex(column, inherit, center);
-
-            .sidebar {
-                @include flex(column, inherit, center);
-                padding: 0;
-                width: 100%;
-
-                .career-title {
-                    font-size: var(--medium-font);
-                }
-
-                nav {
-                    margin-bottom: 0;
-                }
-
-                section {
-                    width: 100%;
-                }
-
-                .tools {
-                    padding: 0 40px;
-                }
             }
 
-            .resume {
-                padding: 0;
-
-                p {
-                    padding-left: var(--base-margin);
-                    padding-right: var(--base-margin);
-                    text-indent: 2em;
-                    line-height: 1.25em;
-                }
+            .navigation {
+                display: none;
             }
-        }
-        .landing .panel.image {
-            height: 150px;
         }
     }
 }

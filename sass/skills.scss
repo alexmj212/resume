@@ -1,0 +1,53 @@
+skills-page {
+    .tools {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @include flex(column, flex-start, inherit);
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            li {
+                margin: 0 10px;
+                @include flex(column, flex-start, inherit);
+                flex: 1 0 45%;
+
+                &:last-child {
+                    margin-bottom: 10px;
+                }
+
+                .tool {
+                    flex: 1 0 auto;
+                    white-space: nowrap;
+                    margin-bottom: 10px;
+                    @include flex(row, flex-start, center);
+                    i {
+                        text-align: center;
+                        width: 20px;
+                        margin-right: 15px;
+                        font-size: 150%;
+                    }
+                }
+                .skill-level {
+                    flex: 1 0 100%;
+                    padding: 0 3px;
+                    margin-bottom: var(--base-margin);
+                    @include flex(row, space-between, flex-start);
+
+                    .pip {
+                        width: 15px;
+                        height: 15px;
+                        z-index: 1;
+                        position: relative;
+                        border: 1px solid var(--accent-color1);
+                        border-radius: 50%;
+                        &.filled {
+                            background-color: var(--accent-color1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

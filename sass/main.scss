@@ -1,6 +1,115 @@
 @import "vars";
 @import "mixins";
 @import "sidebar";
-@import "landing";
+@import "header";
+@import "skills";
 @import "resume";
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--base-background-color);
+    color: var(--base-color);
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    margin-bottom: var(--base-margin);
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: var(--base-margin);
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-huge);
+    line-height: 1em;
+}
+
+h2 {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-medium);
+    line-height: 1em;
+}
+
+h3, h4 {
+    margin: 0;
+    line-height: 1em;
+}
+
+h3 {
+    color: var(--accent-color1);
+    font-family: var(--font-family-header);
+    font-size: var(--font-size-medium);
+}
+
+h4 {
+    margin-bottom: var(--base-margin);
+    font-family: var(--font-family-condensed);
+    font-size: var(--font-size-emphasize);
+}
+
+p {
+    margin: 0;
+    margin-bottom: var(--base-margin);
+}
+
+a {
+    color: var(--accent-color1);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--hover-color);
+    }
+}
+
+ul {
+    &.no-style {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+}
+
+main {
+    $sidebar-width: 250px;
+    @include flex(row, center, flex-start);
+    article {
+        flex: 1 1 auto;
+        //max-width: calc(100% - #{$sidebar-width});
+        position: relative;
+        width: 100%;
+        max-width: 40%;
+        margin-right: $sidebar-width;
+        margin-left: var(--base-margin);
+        @include flex(column, flex-start, flex-start);
+        .page {
+            @include flex(column, center, center);
+            min-height: 100vh;
+            width: 100%;
+            .panel {
+                width: 100%;
+            }
+        }
+    }
+    aside {
+        flex: 0 1 $sidebar-width;
+        position: sticky;
+        top: 33vh;
+        left: 0;
+        padding: var(--base-margin) 0 var(--base-margin) var(--base-margin);
+    }
+}
+
+.uk {
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+}
+
 @import "mobile";

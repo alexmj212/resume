@@ -133,16 +133,52 @@ class headerPage extends HTMLElement {
     }
 }
 
+class profilePage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/profile.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
+            this.appendChild(element);
+        });
+    }
+}
+
+class educationPage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/education.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
+            this.appendChild(element);
+        });
+    }
+}
+
+class skillsPage extends HTMLElement {
+
+    constructor() { super() }
+
+    async connectedCallback() {
+        let res = await fetch('components/skills.html');
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
+            this.appendChild(element);
+        });
+        generateSkills();
+    }
+}
+
 class resumePage extends HTMLElement {
 
     constructor() { super() }
 
     async connectedCallback() {
         let res = await fetch('components/resume.html');
-        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('article').forEach(element => {
+        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });
-        generateSkills();
     }
 }
 
@@ -159,8 +195,19 @@ class landingPage extends HTMLElement {
 }
 
 window.customElements.define('header-page', headerPage);
+window.customElements.define('profile-page', profilePage);
+window.customElements.define('education-page', educationPage);
+window.customElements.define('skills-page', skillsPage);
 window.customElements.define('resume-page', resumePage);
 window.customElements.define('landing-page', landingPage);
+
+function navigate(navItem) {
+    document.getElementsByTagName(navItem.id)[0].scrollIntoView({ behavior: "smooth" });
+    [...document.getElementsByClassName('nav-item')].forEach(element => {
+        element.classList.remove('is-active');
+    });
+    navItem.classList.add('is-active');
+}
 
 window.addEventListener('hashchange', () => {
     selectPage();

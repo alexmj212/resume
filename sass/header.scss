@@ -1,0 +1,24 @@
+header-page {
+    @include flex(column, center, center);
+
+    header {
+
+        .contact {
+            @include flex(column, center, center);
+            background-color: var(--accent-color2);
+            border-radius: 8px;
+            padding: 10px 30px;
+            color: var(--base-color);
+            font-size: var(--font-size-medium);
+            max-width: 200px;
+            width: 100%;
+            height: 100%;
+            transition: all 250ms ease-out;
+
+            &:hover {
+                background-color: #{lighten($russian-green, 5%)};
+            }
+
+        }
+    }
+}

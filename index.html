@@ -16,15 +16,33 @@
 
 <body>
     <main>
-        <header-page class="page">
-            <div class="landing">
-                <section class="panel image">
-                </section>
-            </div>
-        </header-page>
-
-        <resume-page class="page"></resume-page>
+        <aside>
+            <ul class="summary no-style">
+                <li><a href="mailto:alexmj212@gmail.com" title="Email"><i
+                            class="fas fa-envelope"></i></i>alexmj212@gmail.com</a></li>
+                <li><a href="tel:8596636843" title="Phone"><i class="fas fa-phone-alt"></i>859-663-6843</a></li>
+                <li><a href="https://www.linkedin.com/in/alex-johnson-077b3564/" title="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>LinkedIn</a></li>
+                <li><a href="http://www.github.com/alexmj212" title="GitHub" target="_blank"><i
+                            class="fab fa-github"></i>GitHub</a></li>
+            </ul>
+            <ul class="navigation no-style with-indicator">
+                <li id="header-page" class="nav-item" onclick="navigate(this)">Greetings</li>
+                <li id="profile-page" class="nav-item" onclick="navigate(this)">Profile</li>
+                <li id="education-page" class="nav-item" onclick="navigate(this)">Education</li>
+                <li id="skills-page" class="nav-item" onclick="navigate(this)">Skills</li>
+                <li id="resume-page" class="nav-item" onclick="navigate(this)">Experience</li>
+            </ul>
+        </aside>
+        <article>
+            <header-page class="page"></header-page>
+            <profile-page class="page"></profile-page>
+            <education-page class="page"></education-page>
+            <skills-page class="page"></skills-page>
+            <resume-page class="page"></resume-page>
+        </article>
     </main>
+
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/926bef921d.js" crossorigin="anonymous"></script>
 </body>

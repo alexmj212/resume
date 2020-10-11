@@ -1,70 +1,48 @@
-@function encodecolor($string) {
-    @if type-of($string) == "color" and str-index(#{$string}, "#") == 1 {
-        $hex: str-slice(ie-hex-str($string), 4);
-        $string: unquote("#{$hex}");
 
-        @return "%23" + $string;
-    }
-
-    @return $string;
-}
-
-$base-color: #444;
-$background-color: #e8e8e4;
-$base-margin: 15;
+$base-margin: 15px;
+$ruby-red: hsla(355, 76%, 36%, 1);
+$timberwolf: hsla(22, 14%, 84%, 1);
+$cultured: hsla(210, 12%, 97%, 1);
+$carolina-blue: #0b8bd5;
+$russian-green: hsla(128, 26%, 48%, 1);
+$royal-blue-dark: hsla(225, 76%, 18%, 1);
+$space-cadet: hsla(226, 47%, 20%, 1);
 
 :root {
-    --main-width: #{768 - $base-margin}px;
+    --base-color: #{$cultured};
 
-    --base-color: #{$base-color};
-    --base-color-light: #{lighten($base-color, 50%)};
-    --comic-color: #{$base-color};
-    --accent-color: var(--base-color);
-    --accent-color1: #35b;
-    --accent-color2: #fc3;
-    --accent-color3: #c12;
+    --accent-color1: #{$carolina-blue};
+    --accent-color2: #{$russian-green};
+    --accent-color3: #{$ruby-red};
 
-    --hover-color: var(--accent-color3);
+    --link-color: var(--accent-color1);
+    --link-hover-color: #{lighten($carolina-blue, 20%)};
 
-    --base-background: #{$background-color};
-    --comic-background: #e8e8e4;
-    --panel-background: #{$background-color};
-    --bubble-color: #444;
+    --base-background-color: #{$space-cadet};
 
-    --thicc: 900;
-    --bold: 700;
-    --normal: 500;
-    --light: 400;
+    --base-margin: #{$base-margin};
 
-    --base-margin: #{$base-margin}px;
-    --effect-bg: #555;
-
-    --drop-shadow-color: var(--base-color-light);
-    --drop-shadow: 0 2px 3px var(--drop-shadow-color);
-
-    --border-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100px' height='220px' viewBox='0 0 100 220' version='1.1' id='svg8'%3E%3Cg id='layer2'%3E%3Crect style='fill:#{encodecolor($base-color)};fill-rule:evenodd;stroke-width:0.253319' id='rect41' width='100' height='220' x='7.1054274e-15' y='-1.4210855e-14' /%3E%3C/g%3E%3Cg id='layer1' transform='translate(73.327385,-93.738098)'%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15' width='100' height='40' x='-73.327385' y='93.738098' /%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15-8' width='100' height='40' x='-73.327385' y='173.7381' /%3E%3Crect style='fill:#{encodecolor($background-color)};fill-rule:evenodd;stroke-width:0' id='rect15-7' width='100' height='60' x='-73.571426' y='253.7381' /%3E%3C/g%3E%3C/svg%3E");
-
-    --border-radius: 10px;
-    --divider-border-width: 4px;
-    --divider-border-width-offset: -4px;
-    --divider-border: var(--divider-border-width) solid var(--base-color);
-
-    --pip-border-radius: 5px;
+    --border-radius: 5px;
 
     --base-transition: all 150ms ease-out;
     --long-transition: all 500ms ease-in-out;
 
-    --skew-horizontal: skewX(-10deg);
-    --skew-horizontal-reverse: skewX(10deg);
+    --font-weight-thicc: 900;
+    --font-weight-bold: 700;
+    --font-weight-normal: 500;
+    --font-weight-light: 400;
 
-    --huge-font: 400%;
-    --big-font: 200%;
-    --medium-font: 150%;
-    --base-font: 1em;
-    --small-font: 80%;
-    --serif-font: "Playfair Display SC", serif;
-    --sans-font: "Open Sans Condensed", sans-serif;
-    --heavy-font: "Teko", sans-serif;
-    --script-font: "Permanent Marker", sans-serif;
-    --body-font: "Work Sans", sans-serif;
+    --font-size-huge: 400%;
+    --font-size-big: 200%;
+    --font-size-medium: 150%;
+    --font-size-emphasize: 125%;
+    --font-size-normal: 1em;
+    --font-size-small: 80%;
+
+    --font-family-serif: "Playfair Display SC", serif;
+    --font-family-sans: "Work Sans", sans-serif;
+    --font-family-condensed: "Open Sans Condensed", sans-serif;
+    --font-family-header: "Teko", sans-serif;
+    --font-family-script: "Permanent Marker", sans-serif;
+
 }
