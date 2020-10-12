@@ -96,7 +96,7 @@ function generateSkills() {
                 let pip = document.createElement('div');
                 pip.className = 'pip';
                 if (index < skill.level) {
-                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 150);
+                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 10);
                 }
                 skillList.appendChild(pip);
             });
@@ -201,9 +201,6 @@ function navigate(navItem) {
     var page = navItem.id.substring(0, navItem.id.lastIndexOf('-'));
     document.getElementsByTagName(page)[0].scrollIntoView({ behavior: "smooth" });
     updatePaginator();
-    if (page === 'skills-page') {
-        generateSkills();
-    }
 }
 
 function nextPage() {
@@ -295,6 +292,14 @@ window.addEventListener('scroll', () => {
     }
 
 });
+
+function toggleMenu() {
+    if (document.getElementsByTagName('aside')[0].classList.contains('is-open')) {
+        document.getElementsByTagName('aside')[0].classList.remove('is-open');
+    } else {
+        document.getElementsByTagName('aside')[0].classList.add('is-open');
+    }
+}
 
 
 if (location.hash) {

@@ -1,11 +1,4 @@
 aside {
-    a {
-        color: var(--base-color);
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 
     .open-menu {
         width: 80%;
@@ -18,11 +11,32 @@ aside {
         top: 0;
     }
 
+    .me {
+        @include flex(column, center, center);
+        width: 100%;
+
+        h2 {
+            font-size: var(--font-size-medium);
+            text-decoration: underline;
+        }
+
+        .portrait {
+            background-color: var(--base-background-color);
+            background-position: center center;
+            background-size: auto 100%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--base-color);
+            border-radius: 50%;
+            margin-bottom: var(--base-margin);
+        }
+    }
+
     ul {
 
         &.summary,
         &.navigation {
-            margin-left: var(--base-margin);
+            margin: 0 0 var(--base-margin) var(--base-margin);
         }
 
         li {
@@ -34,6 +48,19 @@ aside {
                 vertical-align: middle;
                 font-size: var(--font-size-medium);
                 margin-right: 10px;
+            }
+        }
+
+        &.summary {
+            a {
+                color: var(--base-color);
+                i {
+                    width: 25px;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
 

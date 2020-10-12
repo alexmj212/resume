@@ -27,36 +27,81 @@
         article {
             margin-left: calc(50px + var(--base-margin));
             margin-right: var(--base-margin);
+
             .page:not(:first-child) {
                 padding-top: 50px;
                 min-height: auto;
             }
         }
+
         aside {
+            width: 50px;
             min-width: 50px;
+            z-index: 2;
             flex: 0 1 50px;
             padding-right: 0;
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
-            ul {
-                li {
-                    a {
-                        font-size: 0;
-                        i {
-                            font-size: 35px;
-                        }
+            transition: all 500ms ease-out;
+            @include flex(column, center, flex-start);
+
+            .open-menu {
+                width: auto;
+                margin-left: 8px;
+                @include flex(column, center, center);
+                right: 10px;
+                transition: all 500ms ease-out;
+            }
+
+            &.is-open {
+                width: 80%;
+
+                .open-menu {
+                    width: 100%;
+                    align-items: flex-end;
+
+                    i {
+                        transform: rotate(180deg);
                     }
+                }
+
+                ul.summary {
+                    @include flex(column, center, flex-start);
+                }
+
+            }
+
+            .me {
+                width: 100%;
+                @include flex(row, flex-start, center);
+                margin-left: 5px;
+                overflow: hidden;
+                white-space: nowrap;
+                .portrait {
+                    margin-right: 17px;
+                    margin-bottom: 10px;
+                    width: 35px;
+                    height: 35px;
+                    min-width: 35px;
+                    min-height: 35px;
                 }
             }
 
             .summary {
                 width: 100%;
-                margin: 0;
-                @include flex(column, center, center);
-                i {
-                    margin: 0;
+                margin-left: 7px;
+                @include flex(column, center, flex-start);
+                overflow: hidden;
+                a {
+                    text-decoration: underline;
+                    i {
+                        width: 35px;
+                        z-index: 2;
+                        margin-right: 20px;
+                        font-size: 35px;
+                    }
                 }
             }
 
@@ -70,5 +115,7 @@
                 }
             }
         }
+
+
     }
 }

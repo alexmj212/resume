@@ -26,11 +26,6 @@
   --font-family-header: "Teko", sans-serif;
   --font-family-script: "Permanent Marker", sans-serif; }
 
-aside a {
-  color: var(--base-color); }
-  aside a:hover {
-    text-decoration: underline; }
-
 aside .open-menu {
   width: 80%;
   margin-top: var(--base-margin);
@@ -44,8 +39,27 @@ aside .open-menu {
   position: absolute;
   top: 0; }
 
+aside .me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+  aside .me h2 {
+    font-size: var(--font-size-medium);
+    text-decoration: underline; }
+  aside .me .portrait {
+    background-color: var(--base-background-color);
+    background-position: center center;
+    background-size: auto 100%;
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--base-color);
+    border-radius: 50%;
+    margin-bottom: var(--base-margin); }
+
 aside ul.summary, aside ul.navigation {
-  margin-left: var(--base-margin); }
+  margin: 0 0 var(--base-margin) var(--base-margin); }
 
 aside ul li {
   white-space: nowrap;
@@ -58,6 +72,13 @@ aside ul li {
     vertical-align: middle;
     font-size: var(--font-size-medium);
     margin-right: 10px; }
+
+aside ul.summary a {
+  color: var(--base-color); }
+  aside ul.summary a i {
+    width: 25px; }
+  aside ul.summary a:hover {
+    text-decoration: underline; }
 
 aside ul.navigation {
   padding-left: var(--base-margin);
@@ -132,10 +153,13 @@ header-page {
       align-items: center;
       background-color: var(--accent-color2);
       border-radius: 8px;
+      border: 1px solid #88b98f;
       padding: 10px 30px;
+      margin-bottom: var(--base-margin);
       color: var(--base-color);
       font-size: var(--font-size-medium);
-      max-width: 200px;
+      font-weight: var(--font-weight-thicc);
+      max-width: 175px;
       width: 100%;
       height: 100%;
       transition: all 250ms ease-out; }
@@ -279,6 +303,7 @@ main {
         width: 100%; }
   main aside {
     background-color: var(--accent-color1);
+    width: 250px;
     min-width: 250px;
     flex: 0 1 250px;
     display: flex;
@@ -318,26 +343,72 @@ main {
       padding-top: 50px;
       min-height: auto; }
   main aside {
+    width: 50px;
     min-width: 50px;
+    z-index: 2;
     flex: 0 1 50px;
     padding-right: 0;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%; }
-    main aside ul li a {
-      font-size: 0; }
-      main aside ul li a i {
-        font-size: 35px; }
-    main aside .summary {
-      width: 100%;
-      margin: 0;
+    height: 100%;
+    transition: all 500ms ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+    main aside .open-menu {
+      width: auto;
+      margin-left: 8px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center; }
-      main aside .summary i {
-        margin: 0; }
+      align-items: center;
+      right: 10px;
+      transition: all 500ms ease-out; }
+    main aside.is-open {
+      width: 80%; }
+      main aside.is-open .open-menu {
+        width: 100%;
+        align-items: flex-end; }
+        main aside.is-open .open-menu i {
+          transform: rotate(180deg); }
+      main aside.is-open ul.summary {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start; }
+    main aside .me {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 5px;
+      overflow: hidden;
+      white-space: nowrap; }
+      main aside .me .portrait {
+        margin-right: 17px;
+        margin-bottom: 10px;
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        min-height: 35px; }
+    main aside .summary {
+      width: 100%;
+      margin-left: 7px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      overflow: hidden; }
+      main aside .summary a {
+        text-decoration: underline; }
+        main aside .summary a i {
+          width: 35px;
+          z-index: 2;
+          margin-right: 20px;
+          font-size: 35px; }
     main aside .navigation {
       display: none; }
     main aside .paginator i {

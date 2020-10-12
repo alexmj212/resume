@@ -95,6 +95,7 @@ main {
     }
     aside {
         background-color: var(--accent-color1);
+        width: $sidebar-width;
         min-width: $sidebar-width;
         flex: 0 1 $sidebar-width;
         @include flex(column, center, flex-start);
