@@ -335,7 +335,7 @@ main {
     width: 100%;
     margin: 0 50px 0 var(--base-margin); } }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-height: 767px) {
   main article {
     margin-left: calc(50px + var(--base-margin));
     margin-right: var(--base-margin); }
