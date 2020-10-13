@@ -20,7 +20,7 @@ header-page {
             transition: all 250ms ease-out;
 
             &:hover {
-                background-color: #{lighten($russian-green, 5%)};
+                background-color: #{lighten($russian-green, 15%)};
             }
 
         }

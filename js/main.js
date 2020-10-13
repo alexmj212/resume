@@ -2,74 +2,54 @@
 
 const skills = [
     {
-        "skill": "Angular (v2+)",
+        "skill": "Angular (2+)",
         "icon": "fab fa-angular",
-        "level": 9
+        "level": 4.5
     },
     {
         "skill": "TypeScript",
         "icon": "fab fa-microsoft",
-        "level": 8
+        "level": 4
     },
     {
         "skill": "JavaScript (ES5+)",
         "icon": "fab fa-js-square",
-        "level": 8
+        "level": 4
     },
     {
         "skill": "NodeJS",
         "icon": "fab fa-node-js",
-        "level": 6
+        "level": 2.5
     },
     {
         "skill": "Responsive Design",
         "icon": "fa fa-mobile-alt",
-        "level": 9
+        "level": 4.5
     },
     {
-        "skill": "LESS / SASS / CSS3",
+        "skill": "SASS / CSS3",
         "icon": "fab fa-css3",
-        "level": 9
+        "level": 4.5
     },
     {
         "skill": "HTML5",
         "icon": "fab fa-html5",
-        "level": 7
+        "level": 3.5
     },
     {
-        "skill": "Grunt / Gulp / NPM",
+        "skill": "NPM / Grunt / Gulp",
         "icon": "fab fa-npm",
-        "level": 7
+        "level": 3.5
     },
     {
         "skill": "Git / GitHub",
         "icon": "fab fa-github",
-        "level": 8
-    },
-    {
-        "skill": "PHP",
-        "icon": "fab fa-php",
-        "level": 6
-    },
-    {
-        "skill": "Java",
-        "icon": "fab fa-java",
         "level": 4
     },
     {
         "skill": "Amazon (AWS)",
         "icon": "fab fa-aws",
-        "level": 5
-    },
-    {
-        "skill": "NoSQL Databases",
-        "icon": "far fa-file-code",
-        "level": 4
-    },
-    {
-        "skill": "SQL Databases",
-        "icon": "fa fa-database",
-        "level": 4
+        "level": 3
     }
 ];
 
@@ -92,11 +72,14 @@ function generateSkills() {
             let skillList = document.createElement('div');
             skillList.className = 'skill-level';
 
-            Array.apply(null, Array(10)).forEach((v, index) => {
+            Array.apply(null, Array(5)).forEach((v, index) => {
                 let pip = document.createElement('div');
                 pip.className = 'pip';
                 if (index < skill.level) {
-                    setTimeout(() => pip.classList.add('filled'), (index + 1) * 10);
+                    pip.classList.add('filled');
+                }
+                if (index === Math.floor(skill.level) && skill.level % 1) {
+                    pip.classList.add('half');
                 }
                 skillList.appendChild(pip);
             });
@@ -221,10 +204,6 @@ function updateCurrentPage(page) {
     currentPage = page;
 }
 
-function updateHashLocation(page) {
-    location.hash = page;
-}
-
 function updatePaginator() {
     if (pages.indexOf(currentPage) === 0) {
         document.getElementById('next-page').classList.remove('disabled');
@@ -254,7 +233,6 @@ window.addEventListener('scroll', () => {
     if (windscroll >= document.getElementsByTagName('resume-page')[0].offsetTop - offsetThreshold) {
         document.getElementById('resume-page-nav').classList.add('is-active');
         updateCurrentPage('resume-page');
-        updateHashLocation('resume-page');
         updatePaginator();
         return;
     }
@@ -262,7 +240,6 @@ window.addEventListener('scroll', () => {
     if (windscroll >= document.getElementsByTagName('skills-page')[0].offsetTop - offsetThreshold) {
         document.getElementById('skills-page-nav').classList.add('is-active');
         updateCurrentPage('skills-page');
-        updateHashLocation('skills-page');
         updatePaginator();
         return;
     }
@@ -270,7 +247,6 @@ window.addEventListener('scroll', () => {
     if (windscroll >= document.getElementsByTagName('education-page')[0].offsetTop - offsetThreshold) {
         document.getElementById('education-page-nav').classList.add('is-active');
         updateCurrentPage('education-page');
-        updateHashLocation('education-page');
         updatePaginator();
         return;
     }
@@ -278,7 +254,6 @@ window.addEventListener('scroll', () => {
     if (windscroll >= document.getElementsByTagName('profile-page')[0].offsetTop - offsetThreshold) {
         document.getElementById('profile-page-nav').classList.add('is-active');
         updateCurrentPage('profile-page');
-        updateHashLocation('profile-page');
         updatePaginator();
         return;
     }
@@ -286,7 +261,6 @@ window.addEventListener('scroll', () => {
     if (windscroll >= document.getElementsByTagName('header-page')[0].offsetTop - offsetThreshold) {
         document.getElementById('header-page-nav').classList.add('is-active');
         updateCurrentPage('header-page');
-        updateHashLocation('header-page');
         updatePaginator();
         return;
     }
@@ -299,6 +273,16 @@ function toggleMenu() {
     } else {
         document.getElementsByTagName('aside')[0].classList.add('is-open');
     }
+}
+
+function changeExperienceFocus(element) {
+    [...document.getElementsByClassName('timeline-event')].forEach(e => {
+        e.classList.remove('is-active');
+    })
+    document.getElementById(element.id).classList.add('is-active');
+    let width = document.getElementsByClassName('experience')[0].scrollWidth;
+    let elementNumber = +element.id.substring(element.id.indexOf('-')+1, element.id.length);
+    document.getElementById('experience-list').scrollTo({ left: (width*elementNumber)-width });
 }
 
 

@@ -17,13 +17,14 @@ aside {
 
         h2 {
             font-size: var(--font-size-medium);
-            text-decoration: underline;
+            padding-bottom: 0;
+            border-bottom: 0;
         }
 
         .portrait {
-            background-color: var(--base-background-color);
-            background-position: center center;
-            background-size: auto 100%;
+            background-image: url('../../dist/img/portrait.jpg');
+            background-position: top 25% left -100%;
+            background-size: auto 140%;
             width: 150px;
             height: 150px;
             border: 3px solid var(--base-color);
@@ -84,7 +85,7 @@ aside {
             $height: (100/$menu-items) * 1%;
             $menu-items-loop-offset: $menu-items - 1;
 
-            .nav-item:last-child:after {
+            .nav-item:last-child::after {
                 content: '';
                 pointer-events: none;
                 transition: all 50ms ease;
@@ -98,7 +99,7 @@ aside {
             }
 
             @for $i from 1 through $menu-items-loop-offset {
-                .nav-item:nth-child(#{$i}).is-active~.nav-item:last-child:after {
+                .nav-item:nth-child(#{$i}).is-active~.nav-item:last-child::after {
                     top: ($height*$i)-$height;
                 }
             }

@@ -2,10 +2,17 @@
     main {
         article {
             max-width: 100%;
-            margin: 0;
-            left: initial;
             width: 100%;
-            margin: 0 150px 0 var(--base-margin);
+            margin: 0 150px 0 0;
+
+            .experience-timeline {
+                display: none;
+            }
+
+            #experience-list {
+                display: block;
+                overflow: auto;
+            }
         }
     }
 }
@@ -13,11 +20,7 @@
 @media (max-width: 768px) {
     main {
         article {
-            max-width: 100%;
-            margin: 0;
-            left: initial;
-            width: 100%;
-            margin: 0 50px 0 var(--base-margin);
+            margin-right: 50px;
         }
     }
 }
@@ -25,12 +28,11 @@
 @media (max-width: 767px), (max-height: 767px) {
     main {
         article {
-            margin-left: calc(50px + var(--base-margin));
+            padding-left: calc(50px + var(--base-margin));
             margin-right: var(--base-margin);
 
-            .page:not(:first-child) {
-                padding-top: 50px;
-                min-height: auto;
+            skills-page .tools ul li {
+                flex: 0 0 75%;
             }
         }
 

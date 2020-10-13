@@ -1,109 +1,117 @@
 <section class="panel">
-    <h2>Experience</h2>
+    <h2>What I've been doing</h2>
     <ul>
         <li>For 7 years, I have worked with many kinds of front-end technologies to deliver great user experiences.</li>
         <li>During that time, I focused on meeting customer needs using proactive communication.</li>
         <li>Along the way, I've picked up some knowledge of back-end architecture and database structures.</li>
     </ul>
-    <div class="experience">
-        <div class="date-location">
-            2017 - Now
-        </div>
-        <div class="information">
-            <div class="title-company">
-                <h3>Software Engineer</h3>
-                <h4>TwinSpires.com</h4>
+    <ul class="experience-timeline no-style">
+        <li id="experience-1" class="timeline-event is-active" onclick="changeExperienceFocus(this)">2017 - Now</li>
+        <li id="experience-2" class="timeline-event" onclick="changeExperienceFocus(this)">2014 - 2017</li>
+        <li id="experience-3" class="timeline-event" onclick="changeExperienceFocus(this)">2013 - 2014</li>
+        <li id="experience-4" class="timeline-event" onclick="changeExperienceFocus(this)">2011 - 2013</li>
+    </ul>
+    <div id="experience-list">
+        <div class="experience">
+            <div class="date-location">
+                2017 - Now
             </div>
-            <ul class="summary">
-                <li>Work on several delivery teams for various web-based products</li>
-                <li>Facilitate inter-team communication and encourage best practices</li>
-                <li>Support for legacy products and administrative applications</li>
-            </ul>
-            <div class="more-info">
-                <div class="projects">
-                    <div class="project-name">Responsive Implementation of TwinSpires.com</div>
-                    <ul>
-                        <li>This project was a great opportunity to exercise most of my strengths
-                            with front end development. I really enjoyed working with the
-                            feature focused-team and coming together to complete a major project.
-                            Mobile-focused projects more prevalent not just at TwinSpires but in the
-                            industry as a whole.
-                        </li>
-                    </ul>
-                    <div class="project-name">TwinSpires.com Video Features</div>
-                    <ul>
-                        <li>This vital feature required a intensve focus to properly to deliver
-                            for customers. I mastered the complexity around video display in desktop
-                            and
-                            mobile focused applications. Successful delivery of this project is a
-                            great personal achievement for myself and for TwinSpires.com
-                        </li>
-                    </ul>
-                    <div class="project-name">Historical Horse Racing Results</div>
-                    <ul>
-                        <li>I assisted my team in delivering a full-stack feature using Amazon
-                            Lambdas.
-                            This feature used existing static data and a new data-digestion system
-                            to
-                            produce
-                            historical results for customers delivered via a responsive front-end
-                            component.
-                        </li>
-                    </ul>
+            <div class="information">
+                <div class="title-company">
+                    <h3>Software Engineer</h3>
+                    <h4>TwinSpires.com</h4>
+                </div>
+                <ul class="summary">
+                    <li>Work on several delivery teams for various web-based products</li>
+                    <li>Facilitate inter-team communication and encourage best practices</li>
+                    <li>Support for legacy products and administrative applications</li>
+                </ul>
+                <div class="more-info">
+                    <div class="projects">
+                        <div class="project-name">Responsive Implementation of TwinSpires.com</div>
+                        <ul>
+                            <li>This project was a great opportunity to exercise most of my strengths
+                                with front end development. I really enjoyed working with the
+                                feature focused-team and coming together to complete a major project.
+                                Mobile-focused projects more prevalent not just at TwinSpires but in the
+                                industry as a whole.
+                            </li>
+                        </ul>
+                        <div class="project-name">TwinSpires.com Video Features</div>
+                        <ul>
+                            <li>This vital feature required a intensve focus to properly to deliver
+                                for customers. I mastered the complexity around video display in desktop
+                                and
+                                mobile focused applications. Successful delivery of this project is a
+                                great personal achievement for myself and for TwinSpires.com
+                            </li>
+                        </ul>
+                        <div class="project-name">Historical Horse Racing Results</div>
+                        <ul>
+                            <li>I assisted my team in delivering a full-stack feature using Amazon
+                                Lambdas.
+                                This feature used existing static data and a new data-digestion system
+                                to
+                                produce
+                                historical results for customers delivered via a responsive front-end
+                                component.
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="experience">
-        <div class="date-location">2014 - 2017</div>
-        <div class="information">
-            <div class="title-company">
-                <h3>Software Engineer</h3>
-                <h4>The Jockey Club Technology Services</h4>
-            </div>
-            <ul class="summary">
-                <li>Created and deployed user interfaces and server infrastructure</li>
-                <li>Lead the management of remote resources to achieve project goals</li>
-                <li>Communicated proactively among team members and clients</li>
-                <li>Supported and maintained existing applications and infrastructure</li>
-            </ul>
-            <div class="more-info">
-                <div class="projects">
-                    <div class="project-name">Projects Included:</div>
-                    <ul>
-                        <li>Betting Transaction Reporting and Mathematical Modeling</li>
-                        <li>Organizational System for Data Accountability</li>
-                        <li>Extraction, Transformation, Loading of Transactional Betting Data</li>
-                        <li>Mathematical Modeling for International Rankings of Thoroughbreds</li>
-                        <li>Education and Personnel Management System for Stewardship Accreditation</li>
-                        <li>Education and Course System for Attaining Training Certifications</li>
-                        <li>Outreach and Commentary Blog on Worldwide Thoroughbred Topics</li>
-                    </ul>
+        <div class="experience">
+            <div class="date-location">2014 - 2017</div>
+            <div class="information">
+                <div class="title-company">
+                    <h3>Software Engineer</h3>
+                    <h4>The Jockey Club Technology Services</h4>
+                </div>
+                <ul class="summary">
+                    <li>Created and deployed user interfaces and server infrastructure</li>
+                    <li>Lead the management of remote resources to achieve project goals</li>
+                    <li>Communicated proactively among team members and clients</li>
+                    <li>Supported and maintained existing applications and infrastructure</li>
+                </ul>
+                <div class="more-info">
+                    <div class="projects">
+                        <div class="project-name">Projects Included:</div>
+                        <ul>
+                            <li>Betting Transaction Reporting and Mathematical Modeling</li>
+                            <li>Organizational System for Data Accountability</li>
+                            <li>Extraction, Transformation, Loading of Transactional Betting Data</li>
+                            <li>Mathematical Modeling for International Rankings of Thoroughbreds</li>
+                            <li>Education and Personnel Management System for Stewardship Accreditation</li>
+                            <li>Education and Course System for Attaining Training Certifications</li>
+                            <li>Outreach and Commentary Blog on Worldwide Thoroughbred Topics</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="experience">
-        <div class="date-location">2013 - 2014</div>
-        <div class="information">
-            <div class="title-company">
-                <h3>System Administrator</h3>
-                <h4>iEntry, Inc.</h4>
+        <div class="experience">
+            <div class="date-location">2013 - 2014</div>
+            <div class="information">
+                <div class="title-company">
+                    <h3>System Administrator</h3>
+                    <h4>iEntry, Inc.</h4>
+                </div>
+                <ul class="summary">
+                    <li>Developed critical data and server infrastructure software</li>
+                    <li>Implemented marketing tools to identify subscriber
+                        audience
+                    </li>
+                </ul>
             </div>
-            <ul class="summary">
-                <li>Developed critical data and server infrastructure software</li>
-                <li>Implemented marketing tools to identify subscriber
-                    audience
-                </li>
-            </ul>
         </div>
-    </div>
-    <div class="experience">
-        <div class="date-location">2011 - 2013</div>
-        <div class="information">
-            <div class="title-company">
-                <h3>Technical Desktop Support</h3>
-                <h4>College of Arts and Sciences - University of Kentucky</h4>
+        <div class="experience">
+            <div class="date-location">2011 - 2013</div>
+            <div class="information">
+                <div class="title-company">
+                    <h3>Technical Desktop Support</h3>
+                    <h4>College of Arts and Sciences - University of Kentucky</h4>
+                </div>
             </div>
         </div>
     </div>

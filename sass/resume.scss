@@ -1,11 +1,73 @@
 resume-page {
-    .experience {
-        margin-bottom: 50px;
+    ul.experience-timeline {
+        margin-bottom: var(--base-margin);
+        @include flex(row, space-around, center);
+        position: relative;
 
-        .date-location {
-            text-transform: uppercase;
-            color: var(--accent-color2);
-            font-weight: bold;
+        .timeline-event {
+            flex: 1 0 25%;
+            min-width: 25%;
+            font-size: var(--font-size-medium);
+            font-family: var(--font-family-condensed);
+            cursor: pointer;
+            @include flex(row, center, center);
+
+            &:first-child {
+                padding-right: 0;
+            }
+
+            &:last-child {
+                padding-left: 0;
+            }
+        }
+
+        $menu-items: 4;
+        $width: (100/$menu-items) * 1%;
+        $menu-items-loop-offset: $menu-items - 1;
+
+        .timeline-event:last-child:after {
+            content: '';
+            pointer-events: none;
+            z-index: -1;
+            transition: all 250ms ease;
+            background-color: var(--accent-color2);
+            border: 1px solid #{lighten($russian-green, 15%)};
+            border-radius: 5px;
+            display: block;
+            position: absolute;
+            bottom: -8px;
+            margin: 0 10px;
+            width: calc(#{(100/$menu-items) * 1%} - 23px);
+            height: 150%;
+        }
+
+        @for $i from 1 through $menu-items-loop-offset {
+            .timeline-event:nth-child(#{$i}).is-active~.timeline-event:last-child:after {
+                left: ($width*$i)-$width;
+            }
+        }
+
+        .timeline-event:last-child.is-active {
+            &:after {
+                left: 100%-$width !important;
+            }
+        }
+    }
+
+    #experience-list {
+        @include flex(row, flex-start, flex-start);
+        overflow: hidden;
+
+        .experience {
+            padding-left: 2px;
+            margin-bottom: 50px;
+            min-width: 100%;
+
+            .date-location {
+                text-transform: uppercase;
+                color: var(--accent-color2);
+                font-weight: bold;
+            }
         }
     }
 }
