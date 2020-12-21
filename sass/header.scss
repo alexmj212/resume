@@ -8,10 +8,10 @@ header-page {
             @include flex(column, center, center);
             background-color: var(--accent-color2);
             border-radius: 8px;
-            border: 1px solid #{lighten($russian-green, 15%)};
+            border: 3px solid #{lighten($russian-green, 15%)};
             padding: 10px 30px;
             margin-bottom: var(--base-margin);
-            color: var(--base-color);
+            color: $cultured;
             font-size: var(--font-size-medium);
             font-weight: var(--font-weight-thicc);
             max-width: 175px;

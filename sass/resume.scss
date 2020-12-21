@@ -31,7 +31,7 @@ resume-page {
             z-index: -1;
             transition: all 250ms ease;
             background-color: var(--accent-color2);
-            border: 1px solid #{lighten($russian-green, 15%)};
+            border: 3px solid #{lighten($russian-green, 15%)};
             border-radius: 5px;
             display: block;
             position: absolute;
@@ -45,6 +45,10 @@ resume-page {
             .timeline-event:nth-child(#{$i}).is-active~.timeline-event:last-child:after {
                 left: ($width*$i)-$width;
             }
+        }
+
+        .timeline-event.is-active {
+            color: $cultured;
         }
 
         .timeline-event:last-child.is-active {

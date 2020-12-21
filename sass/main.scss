@@ -32,7 +32,7 @@ h2 {
     font-size: var(--font-size-big);
     line-height: 1em;
     padding-bottom: var(--base-margin);
-    border-bottom: 1px solid var(--accent-color2);
+    border-bottom: 3px solid var(--accent-color2);
 }
 
 h3, h4 {
@@ -44,6 +44,9 @@ h3 {
     color: var(--accent-color1);
     font-family: var(--font-family-header);
     font-size: var(--font-size-medium);
+    [data-theme="dark"] & {
+        color: var(--base-color);
+    }
 }
 
 h4 {
@@ -109,6 +112,16 @@ main {
         position: sticky;
         top: 0;
         height: 100vh;
+    }
+
+    .theme-switch {
+        cursor: pointer;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px 15px;
+        background-color: var(--accent-color1);
+        z-index: 2;
     }
 }
 

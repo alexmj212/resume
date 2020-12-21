@@ -40,7 +40,7 @@ skills-page {
                         height: 20px;
                         z-index: 1;
                         position: relative;
-                        border: 1px solid #{lighten($russian-green, 15%)};
+                        border: 3px solid #{lighten($russian-green, 15%)};
                         border-radius: 50%;
                         &.filled {
                             background-color: var(--accent-color2);

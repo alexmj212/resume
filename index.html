@@ -16,6 +16,9 @@
 
 <body>
     <main>
+        <div class="theme-switch" onclick="toggleTheme()">
+            <i id="theme-toggle" class="fas fa-lightbulb"></i>
+        </div>
         <aside>
             <div class="open-menu" onclick="toggleMenu()"><i class="fas fa-arrow-right"></i></div>
             <div class="me">
@@ -40,7 +43,7 @@
             </ul>
             <ul class="paginator no-style">
                 <li id="previous-page" class="disabled" onclick="previousPage()"><i class="fas fa-arrow-circle-up"></i></li>
-                <li id="next-page" onclick="nextPage()"><i class="fas fa-arrow-circle-down"></i></li>
+                <li id="next-page" onclick="nextPage()" class="bounce"><i class="fas fa-arrow-circle-down"></i></li>
             </ul>
         </aside>
         <article>

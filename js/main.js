@@ -189,14 +189,14 @@ function navigate(navItem) {
 function nextPage() {
     let nextPage = pages.indexOf(currentPage) + 1;
     if (nextPage < pages.length) {
-        navigate(document.getElementById(pages[nextPage]+'-nav'));
+        navigate(document.getElementById(pages[nextPage] + '-nav'));
     }
 }
 
 function previousPage() {
     let previousPage = pages.indexOf(currentPage) - 1;
     if (previousPage >= 0) {
-        navigate(document.getElementById(pages[previousPage]+'-nav'));
+        navigate(document.getElementById(pages[previousPage] + '-nav'));
     }
 }
 
@@ -207,12 +207,13 @@ function updateCurrentPage(page) {
 function updatePaginator() {
     if (pages.indexOf(currentPage) === 0) {
         document.getElementById('next-page').classList.remove('disabled');
+        document.getElementById('next-page').classList.add('bounce');
         document.getElementById('previous-page').classList.add('disabled');
     } else if (pages.indexOf(currentPage) === pages.length - 1) {
         document.getElementById('next-page').classList.add('disabled');
         document.getElementById('previous-page').classList.remove('disabled');
     } else {
-        document.getElementById('next-page').classList.remove('disabled');
+        document.getElementById('next-page').classList.remove('disabled', 'bounce');
         document.getElementById('previous-page').classList.remove('disabled');
     }
 }
@@ -281,15 +282,52 @@ function changeExperienceFocus(element) {
     })
     document.getElementById(element.id).classList.add('is-active');
     let width = document.getElementsByClassName('experience')[0].scrollWidth;
-    let elementNumber = +element.id.substring(element.id.indexOf('-')+1, element.id.length);
-    document.getElementById('experience-list').scrollTo({ left: (width*elementNumber)-width });
+    let elementNumber = +element.id.substring(element.id.indexOf('-') + 1, element.id.length);
+    document.getElementById('experience-list').scrollTo({ left: (width * elementNumber) - width });
 }
 
+var colorTheme = 'light';
 
-if (location.hash) {
-    var page = location.hash.substring(1, location.hash.length)+'-nav';
-    navigate(document.getElementById(page));
+function setTheme(theme) {
+    switch(theme) {
+        case 'dark':
+            document.documentElement.setAttribute('data-theme', theme);
+            colorTheme = theme;
+            document.getElementById('theme-toggle').classList.remove('fas');
+            document.getElementById('theme-toggle').classList.add('far');
+            break;
+        default:
+            document.documentElement.setAttribute('data-theme', 'light');
+            colorTheme = 'light';
+            document.getElementById('theme-toggle').classList.remove('far');
+            document.getElementById('theme-toggle').classList.add('fas');
+            break;
+    }
+}
+
+function toggleTheme() {
+    if (colorTheme === 'light') {
+        setTheme('dark');
+    } else {
+        setTheme('light');
+    }
+}
+
+// Initial theme mode
+if (window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all') {
+    setTheme('dark');
 } else {
-    window.scroll();
-    resetNavIndicator();
+    setTheme('light');
 }
+
+// Listen to OS theme settings
+window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+    if (e.matches) {
+        setTheme('dark');
+    } else {
+        setTheme('light');
+    }
+});
+
+window.scroll();
+resetNavIndicator();
