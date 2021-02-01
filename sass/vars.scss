@@ -7,6 +7,7 @@ $carolina-blue: hsla(202, 90%, 44%, 1);
 $russian-green: hsla(128, 26%, 48%, 1);
 $royal-blue-dark: hsla(225, 76%, 18%, 1);
 $space-cadet: hsla(226, 47%, 20%, 1);
+$dark-mode-bg: hsla(228, 10%, 19%, 1);
 
 :root {
 
@@ -33,7 +34,7 @@ $space-cadet: hsla(226, 47%, 20%, 1);
         --link-color: var(--accent-color1);
         --link-hover-color: lighten(#266e97, 20%);
 
-        --base-background-color: #2b2d35;
+        --base-background-color: #{$dark-mode-bg};
     }
 
     --base-margin: #{$base-margin};

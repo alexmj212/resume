@@ -6,7 +6,7 @@
         content="text/html; charset=utf-8" />
     <title>Alex Johnson - Resume</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@900&family=Open+Sans+Condensed:wght@300&family=Work+Sans&family=Roboto+Condensed:wght@700&family=Teko:wght@700&family=Permanent+Marker&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Work+Sans&family=Roboto+Condensed:wght@700&family=Teko:wght@700&family=Permanent+Marker&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dist/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
@@ -42,7 +42,8 @@
                 <li id="resume-page-nav" class="nav-item" onclick="navigate(this)">Experience</li>
             </ul>
             <ul class="paginator no-style">
-                <li id="previous-page" class="disabled" onclick="previousPage()"><i class="fas fa-arrow-circle-up"></i></li>
+                <li id="previous-page" class="disabled" onclick="previousPage()"><i class="fas fa-arrow-circle-up"></i>
+                </li>
                 <li id="next-page" onclick="nextPage()" class="bounce"><i class="fas fa-arrow-circle-down"></i></li>
             </ul>
         </aside>
@@ -55,31 +56,47 @@
         </article>
     </main>
     <div id="modal" class="modal hidden">
-        <div class="modal-header">
-        <h1>Project Name</h1>
-        </div>
-        <div class="modal-close" onclick="closeModal()">
-            <i class="fa fa-close"></i>
-        </div>
-        <div class="modal-slideshow">
-            <div class="previous"><i class="fas fa-arrow-circle-left"></i></div>
-            <div class="next"><i class="fas fa-arrow-circle-right"></i></div>
-            <div class="slides">
-                <div class="slide image"><img src="dist\img\msgorigin.jpg" /></div>
-                <div class="slide image"><img src="dist\img\rx-78-2.png" /></div>
+        <div id="modal-container" class="modal-container">
+            <div class="modal-header">
+                <h1>Project Name</h1>
             </div>
-        </div>
-        <div class="modal-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique ultrices interdum. Donec in neque laoreet ipsum rhoncus tristique eu consequat mauris. Donec tristique odio eget nibh posuere, sed malesuada sem porta. Praesent neque massa, interdum et dolor ac, ornare rutrum orci. Duis sollicitudin turpis nec vestibulum dictum. Sed auctor nisi eu erat euismod, non mattis erat rutrum. Sed hendrerit odio nisi, eget molestie justo tristique vel. In dignissim dui ac mollis iaculis. Ut sodales volutpat mi eget faucibus.</p>
+            <div class="modal-close" onclick="closeModal()">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="modal-slideshow">
+                <div class="previous" onclick="slideShowPrevious(this)"><i class="fas fa-arrow-circle-left"></i></div>
+                <div class="next" onclick="slideShowNext(this)"><i class="fas fa-arrow-circle-right"></i></div>
+                <div id="slides" class="slides">
+                    <div class="slide image"><img src="dist\img\msgorigin.jpg" /></div>
+                    <div class="slide image"><img src="dist\img\rx-78-2.png" /></div>
+                    <div class="slide image"><img src="dist\img\msgorigin2.jpg" /></div>
+                    <div class="slide image"><img src="dist\img\portrait.jpg" /></div>
+                </div>
+            </div>
+            <div class="modal-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique ultrices interdum. Donec in
+                    neque laoreet ipsum rhoncus tristique eu consequat mauris. Donec tristique odio eget nibh posuere,
+                    sed malesuada sem porta. Praesent neque massa, interdum et dolor ac, ornare rutrum orci. Duis
+                    sollicitudin turpis nec vestibulum dictum. Sed auctor nisi eu erat euismod, non mattis erat rutrum.
+                    Sed hendrerit odio nisi, eget molestie justo tristique vel. In dignissim dui ac mollis iaculis. Ut
+                    sodales volutpat mi eget faucibus.</p>
 
-            <p>Ut quis erat a turpis viverra convallis non ac quam. Quisque pharetra ut metus tempor facilisis. Sed dictum odio nec tortor venenatis, in vehicula diam tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam ullamcorper massa, in gravida sapien vulputate sed. Praesent placerat ligula et nisi consectetur, ut facilisis purus efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="modal-footer">
-            Company & Date
+                <p>Ut quis erat a turpis viverra convallis non ac quam. Quisque pharetra ut metus tempor facilisis. Sed
+                    dictum odio nec tortor venenatis, in vehicula diam tincidunt. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Sed aliquam ullamcorper massa, in gravida sapien vulputate sed.
+                    Praesent placerat ligula et nisi consectetur, ut facilisis purus efficitur. Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="modal-footer">
+                Company & Date
+            </div>
         </div>
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/skills.js"></script>
     <script src="https://kit.fontawesome.com/926bef921d.js" crossorigin="anonymous"></script>
 </body>
 

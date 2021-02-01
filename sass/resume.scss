@@ -11,6 +11,7 @@ resume-page {
             font-family: var(--font-family-condensed);
             cursor: pointer;
             @include flex(row, center, center);
+            user-select: none;
 
             &:first-child {
                 padding-right: 0;
@@ -61,6 +62,7 @@ resume-page {
     #experience-list {
         @include flex(row, flex-start, flex-start);
         overflow: hidden;
+        scroll-behavior: smooth;
 
         .experience {
             padding-left: 2px;
