@@ -17,11 +17,11 @@
 <body>
     <main>
         <div class="theme-switch" onclick="toggleTheme()">
-            <i id="theme-toggle" class="fas fa-lightbulb"></i>
+            <i id="theme-toggle" class="fas fa-sun"></i>
         </div>
         <aside>
             <div class="open-menu" onclick="toggleMenu()"><i class="fas fa-arrow-right"></i></div>
-            <div class="me">
+            <div class="me" onclick="openModal()">
                 <div class="portrait"></div>
                 <h2>Alex Johnson</h2>
             </div>
@@ -54,6 +54,30 @@
             <resume-page class="page"></resume-page>
         </article>
     </main>
+    <div id="modal" class="modal hidden">
+        <div class="modal-header">
+        <h1>Project Name</h1>
+        </div>
+        <div class="modal-close" onclick="closeModal()">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="modal-slideshow">
+            <div class="previous"><i class="fas fa-arrow-circle-left"></i></div>
+            <div class="next"><i class="fas fa-arrow-circle-right"></i></div>
+            <div class="slides">
+                <div class="slide image"><img src="dist\img\msgorigin.jpg" /></div>
+                <div class="slide image"><img src="dist\img\rx-78-2.png" /></div>
+            </div>
+        </div>
+        <div class="modal-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique ultrices interdum. Donec in neque laoreet ipsum rhoncus tristique eu consequat mauris. Donec tristique odio eget nibh posuere, sed malesuada sem porta. Praesent neque massa, interdum et dolor ac, ornare rutrum orci. Duis sollicitudin turpis nec vestibulum dictum. Sed auctor nisi eu erat euismod, non mattis erat rutrum. Sed hendrerit odio nisi, eget molestie justo tristique vel. In dignissim dui ac mollis iaculis. Ut sodales volutpat mi eget faucibus.</p>
+
+            <p>Ut quis erat a turpis viverra convallis non ac quam. Quisque pharetra ut metus tempor facilisis. Sed dictum odio nec tortor venenatis, in vehicula diam tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam ullamcorper massa, in gravida sapien vulputate sed. Praesent placerat ligula et nisi consectetur, ut facilisis purus efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="modal-footer">
+            Company & Date
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/926bef921d.js" crossorigin="anonymous"></script>

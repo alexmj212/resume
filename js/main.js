@@ -49,7 +49,7 @@ const skills = [
     {
         "skill": "Amazon (AWS)",
         "icon": "fab fa-aws",
-        "level": 3
+        "level": 2
     }
 ];
 
@@ -207,14 +207,10 @@ function updateCurrentPage(page) {
 function updatePaginator() {
     if (pages.indexOf(currentPage) === 0) {
         document.getElementById('next-page').classList.remove('disabled');
-        document.getElementById('next-page').classList.add('bounce');
         document.getElementById('previous-page').classList.add('disabled');
-    } else if (pages.indexOf(currentPage) === pages.length - 1) {
-        document.getElementById('next-page').classList.add('disabled');
-        document.getElementById('previous-page').classList.remove('disabled');
     } else {
-        document.getElementById('next-page').classList.remove('disabled', 'bounce');
-        document.getElementById('previous-page').classList.remove('disabled');
+        document.getElementById('next-page').classList.add('disabled');
+        document.getElementById('previous-page').classList.add('disabled');
     }
 }
 
@@ -293,14 +289,14 @@ function setTheme(theme) {
         case 'dark':
             document.documentElement.setAttribute('data-theme', theme);
             colorTheme = theme;
-            document.getElementById('theme-toggle').classList.remove('fas');
-            document.getElementById('theme-toggle').classList.add('far');
+            document.getElementById('theme-toggle').classList.remove('fa-moon');
+            document.getElementById('theme-toggle').classList.add('fa-sun');
             break;
         default:
             document.documentElement.setAttribute('data-theme', 'light');
             colorTheme = 'light';
-            document.getElementById('theme-toggle').classList.remove('far');
-            document.getElementById('theme-toggle').classList.add('fas');
+            document.getElementById('theme-toggle').classList.remove('fa-sun');
+            document.getElementById('theme-toggle').classList.add('fa-moon');
             break;
     }
 }
@@ -328,6 +324,24 @@ window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
         setTheme('light');
     }
 });
+
+var scrollTop = 0;
+
+function openModal() {
+    document.getElementById('modal').classList.remove('hidden');
+    scrollTop = document.documentElement.scrollTop;
+    document.body.style.top = - (scrollTop) + 'px';
+    document.body.classList.add('scroll-lock');
+    document.getElementsByTagName('main')[0].classList.add('modal-open');
+
+}
+
+function closeModal() {
+    document.getElementById('modal').classList.add('hidden');
+    document.body.classList.remove('scroll-lock');
+    document.getElementsByTagName('main')[0].classList.remove('modal-open');
+    document.documentElement.scrollTop = scrollTop;
+}
 
 window.scroll();
 resetNavIndicator();

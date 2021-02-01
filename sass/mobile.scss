@@ -52,15 +52,15 @@
             top: 0;
             left: 0;
             height: 100%;
-            transition: all 500ms ease-out;
-            @include flex(column, center, flex-start);
+            @include transition();
+            @include flex(column, flex-start, flex-start);
 
             .open-menu {
                 width: auto;
                 margin-left: 8px;
                 @include flex(column, center, center);
                 right: 10px;
-                transition: all 500ms ease-out;
+                @include transition();
             }
 
             &.is-open {
@@ -84,6 +84,7 @@
             .me {
                 width: 100%;
                 @include flex(row, flex-start, center);
+                margin-top: 60px;
                 margin-left: 5px;
                 overflow: hidden;
                 white-space: nowrap;
@@ -121,9 +122,7 @@
             }
 
             .paginator {
-                i {
-                    font-size: 35px;
-                }
+                display: none;
             }
 
             @media (orientation: landscape) {
@@ -138,5 +137,26 @@
         }
 
 
+    }
+
+    .modal {
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        max-width: 100%;
+        padding: 0;
+        margin: auto;
+        box-shadow: none;
+
+        &-header, &-content, &-footer {
+            margin: 30px 30px 0 30px;
+        }
+
+        &-footer {
+            width: auto;
+            text-align: left;
+            padding-bottom: 30px;
+        }
     }
 }

@@ -29,7 +29,7 @@ resume-page {
             content: '';
             pointer-events: none;
             z-index: -1;
-            transition: all 250ms ease;
+            @include transition();
             background-color: var(--accent-color2);
             border: 3px solid #{lighten($russian-green, 15%)};
             border-radius: 5px;

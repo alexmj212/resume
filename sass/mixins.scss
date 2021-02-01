@@ -49,3 +49,7 @@
         background-blend-mode: darken;
     }
 }
+
+@mixin transition($time: 250ms) {
+    transition: all $time ease-out;
+}

@@ -90,7 +90,7 @@ aside {
             .nav-item:last-child::after {
                 content: '';
                 pointer-events: none;
-                transition: all 50ms ease;
+                @include transition(50ms);
                 background: $cultured;
                 display: block;
                 position: absolute;
@@ -133,15 +133,11 @@ aside {
             #next-page,
             #previous-page {
                 font-size: 30px;
-                transition: all 250ms ease-out;
+                @include transition();
             }
 
-            #next-page.disabled {
-                pointer-events: none;
-                opacity: 0.2;
-            }
-
-            #previous-page.disabled {
+            #next-page.disabled, #previous-page.disabled {
+                visibility: hidden;
                 pointer-events: none;
                 opacity: 0;
             }

@@ -17,7 +17,7 @@ header-page {
             max-width: 175px;
             width: 100%;
             height: 100%;
-            transition: all 250ms ease-out;
+            @include transition();
 
             &:hover {
                 background-color: #{lighten($russian-green, 15%)};

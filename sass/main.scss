@@ -4,6 +4,7 @@
 @import "header";
 @import "skills";
 @import "resume";
+@import "modal";
 
 body {
     background-color: var(--base-background-color);
@@ -12,6 +13,12 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.5em;
     -webkit-tap-highlight-color: transparent;
+
+    &.scroll-lock {
+        position: fixed;
+        overflow-y: scroll;
+        width: 100%;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,6 +130,14 @@ main {
         background-color: var(--accent-color1);
         z-index: 2;
     }
+
+    &.modal-open {
+        @include transition();
+        opacity: 0.2;
+        filter: blur(4px);
+    }
+
+
 }
 
 .uk {
