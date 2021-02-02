@@ -5,6 +5,7 @@
 @import "skills";
 @import "resume";
 @import "modal";
+@import "portfolio";
 
 body {
     background-color: var(--base-background-color);
@@ -89,25 +90,36 @@ main {
     $sidebar-width: 250px;
     @include flex(row, center, flex-start);
     height: 100%;
+
     article {
         flex: 1 1 auto;
-        //max-width: calc(100% - #{$sidebar-width});
         position: relative;
         width: 100%;
-        max-width: 500px;
-        margin-right: $sidebar-width;
-        padding-left: var(--base-margin);
         @include flex(column, flex-start, flex-start);
+
         .page {
             @include flex(column, center, center);
             min-height: 100vh;
             width: 100%;
-            .panel {
-                width: 100%;
+            width: -moz-available;
+            width: -webkit-fill-available;
+            width: fill-available;
+            padding: 0 var(--base-margin);
+            header, section {
+                max-width: 750px;
             }
+
+            &:first-child {
+                padding-bottom: 50px;
+            }
+
             &:not(:first-child) {
-                padding-top: 50px;
+                padding: 50px 0;
                 min-height: auto;
+            }
+
+            &:nth-child(even) {
+                background-color: var(--stripe-bg);
             }
         }
     }
@@ -120,6 +132,8 @@ main {
         position: sticky;
         top: 0;
         height: 100vh;
+        animation-name: bottom-up;
+        animation-duration: 1.5s;
     }
 
     .theme-switch {
@@ -145,6 +159,21 @@ main {
     width: 35px;
     height: 35px;
     vertical-align: middle;
+}
+
+@keyframes bottom-up {
+    0% {
+        top: 2000px;
+        padding-top: 100vh;
+    }
+    50% {
+        top: 0;
+        padding-top: 100vh;
+    }
+    100% {
+        top: 0;
+        padding-top: 0;
+    }
 }
 
 @import "mobile";

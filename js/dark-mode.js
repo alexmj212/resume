@@ -1,3 +1,5 @@
+'use strict';
+
 var colorTheme = 'light';
 
 function setTheme(theme) {

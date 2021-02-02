@@ -26,8 +26,8 @@ aside {
             background-image: url('../../dist/img/portrait.jpg');
             background-position: top 25% left -100%;
             background-size: auto 140%;
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border: 3px solid $cultured;
             border-radius: 50%;
             margin-bottom: var(--base-margin);
@@ -83,7 +83,7 @@ aside {
                 }
             }
 
-            $menu-items: 5;
+            $menu-items: 6;
             $height: (100/$menu-items) * 1%;
             $menu-items-loop-offset: $menu-items - 1;
 

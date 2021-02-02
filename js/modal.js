@@ -1,3 +1,5 @@
+'use strict';
+
 var modalOpen = false;
 var scrollTop = 0;
 var slidePositionIndex = 0;
@@ -12,6 +14,8 @@ document.addEventListener('click', event => {
 });
 
 function openModal() {
+    slideCount = document.getElementsByClassName('slides')[0].children.length;
+    updateSlideArrows();
     document.getElementById('modal').classList.remove('hidden');
     scrollTop = document.documentElement.scrollTop;
     document.body.style.top = - (scrollTop) + 'px';
@@ -38,6 +42,7 @@ function slideShowNext() {
     if (slidePositionIndex >= 0 && slidePositionIndex < slideCount - 1) {
         slidePositionIndex++;
         document.getElementsByClassName('slides')[0].scrollTo({ left: (width * slidePositionIndex) });
+        updateSlideArrows();
     }
 }
 
@@ -46,5 +51,19 @@ function slideShowPrevious() {
     if (slidePositionIndex >= 1 && slidePositionIndex < slideCount) {
         slidePositionIndex--;
         document.getElementsByClassName('slides')[0].scrollTo({ left: (width * slidePositionIndex) });
+        updateSlideArrows();
+    }
+}
+
+function updateSlideArrows() {
+    if (slidePositionIndex === 0) {
+        document.getElementById('previous-slide').classList.add('disabled');
+        document.getElementById('next-slide').classList.remove('disabled');
+    } else if (slidePositionIndex === slideCount - 1) {
+        document.getElementById('previous-slide').classList.remove('disabled');
+        document.getElementById('next-slide').classList.add('disabled');
+    } else {
+        document.getElementById('previous-slide').classList.remove('disabled');
+        document.getElementById('next-slide').classList.remove('disabled');
     }
 }

@@ -6,12 +6,22 @@ resume-page {
 
         .timeline-event {
             flex: 1 0 25%;
-            min-width: 25%;
-            font-size: var(--font-size-medium);
-            font-family: var(--font-family-condensed);
+            max-width: 20%;
+            font-size: var(--font-size-normal);
+            font-weight: var(--font-weight-bold);
+            border: 3px solid var(--base-color);
+            border-radius: 10px;
             cursor: pointer;
             @include flex(row, center, center);
             user-select: none;
+            height: 25px;
+            @include transition();
+
+            &:hover {
+                color: $cultured;
+                border-color: $cultured;
+                background-color: #{lighten($russian-green, 15%)};
+            }
 
             &:first-child {
                 padding-right: 0;
@@ -26,22 +36,6 @@ resume-page {
         $width: (100/$menu-items) * 1%;
         $menu-items-loop-offset: $menu-items - 1;
 
-        .timeline-event:last-child:after {
-            content: '';
-            pointer-events: none;
-            z-index: -1;
-            @include transition();
-            background-color: var(--accent-color2);
-            border: 3px solid #{lighten($russian-green, 15%)};
-            border-radius: 5px;
-            display: block;
-            position: absolute;
-            bottom: -8px;
-            margin: 0 10px;
-            width: calc(#{(100/$menu-items) * 1%} - 23px);
-            height: 150%;
-        }
-
         @for $i from 1 through $menu-items-loop-offset {
             .timeline-event:nth-child(#{$i}).is-active~.timeline-event:last-child:after {
                 left: ($width*$i)-$width;
@@ -50,6 +44,8 @@ resume-page {
 
         .timeline-event.is-active {
             color: $cultured;
+            border-color: #{lighten($russian-green, 15%)};
+            background-color: var(--accent-color2);
         }
 
         .timeline-event:last-child.is-active {
@@ -72,7 +68,7 @@ resume-page {
             .date-location {
                 text-transform: uppercase;
                 color: var(--accent-color2);
-                font-weight: bold;
+                font-weight: var(--font-weight-bold);
             }
         }
     }

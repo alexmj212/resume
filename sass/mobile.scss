@@ -3,7 +3,10 @@
         article {
             max-width: 100%;
             width: 100%;
-            margin: 0 150px 0 0;
+
+            section {
+                padding: 0 var(--base-margin);
+            }
 
             .experience-timeline {
                 display: none;
@@ -17,14 +20,6 @@
     }
 }
 
-@media (max-width: 768px) {
-    main {
-        article {
-            margin-right: 50px;
-        }
-    }
-}
-
 @media (max-width: 767px),
 (max-height: 767px) {
     main {
@@ -34,8 +29,7 @@
         }
 
         article {
-            padding-left: calc(50px + var(--base-margin));
-            margin-right: var(--base-margin);
+            padding-left: 50px;
 
             skills-page .tools ul li {
                 flex: 0 0 75%;
@@ -151,10 +145,20 @@
             right: 30px;
         }
 
+        &-header {
+            width: 90%;
+        }
+
         &-footer {
             width: auto;
             text-align: left;
-            padding-bottom: 30px;
+        }
+    }
+
+    .portfolio {
+        &-item {
+            flex: 1 1 100%;
+            max-width: 100%;
         }
     }
 }

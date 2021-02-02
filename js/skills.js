@@ -1,3 +1,5 @@
+'use strict';
+
 const skills = [
     {
         "skill": "Angular (2+)",
@@ -50,8 +52,6 @@ const skills = [
         "level": 2
     }
 ];
-
-var parser = new DOMParser();
 
 function generateSkills() {
     let list = document.querySelector('div.tools ul');
