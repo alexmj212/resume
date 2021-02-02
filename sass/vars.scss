@@ -44,7 +44,9 @@ $gunmetal: hsl(204, 10%, 20%);
 
     --base-margin: #{$base-margin};
 
-    --border-radius: 5px;
+    --border-radius: 10px;
+
+    --box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 
     --font-weight-thicc: 900;
     --font-weight-bold: 700;

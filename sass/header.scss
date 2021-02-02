@@ -6,7 +6,7 @@ header-page {
         .contact {
             @include flex(row, center, center);
             background-color: var(--accent-color2);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             border: 3px solid #{lighten($russian-green, 15%)};
             padding: 10px 30px;
             margin-bottom: var(--base-margin);

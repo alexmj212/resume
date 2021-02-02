@@ -10,7 +10,7 @@ resume-page {
             font-size: var(--font-size-normal);
             font-weight: var(--font-weight-bold);
             border: 3px solid var(--base-color);
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             cursor: pointer;
             @include flex(row, center, center);
             user-select: none;

@@ -9,7 +9,8 @@
   --link-hover-color: #51b9f6;
   --base-background-color: #f6f7f8;
   --base-margin: 15px;
-  --border-radius: 5px;
+  --border-radius: 10px;
+  --box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   --font-weight-thicc: 900;
   --font-weight-bold: 700;
   --font-weight-normal: 500;
@@ -66,7 +67,8 @@ aside {
       height: 200px;
       border: 3px solid #f6f7f8;
       border-radius: 50%;
-      margin-bottom: var(--base-margin); }
+      margin-bottom: var(--base-margin);
+      box-shadow: var(--box-shadow); }
   aside ul.summary, aside ul.navigation {
     margin: 0 0 var(--base-margin) var(--base-margin); }
   aside ul li {
@@ -168,7 +170,7 @@ header-page {
     justify-content: center;
     align-items: center;
     background-color: var(--accent-color2);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     border: 3px solid #88b98f;
     padding: 10px 30px;
     margin-bottom: var(--base-margin);
@@ -249,7 +251,7 @@ resume-page ul.experience-timeline {
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-bold);
     border: 3px solid var(--base-color);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -316,6 +318,7 @@ resume-page #experience-list {
     max-width: 700px;
     background: var(--base-background-color);
     border: 3px solid var(--accent-color1);
+    border-radius: var(--border-radius);
     padding: var(--base-margin); }
   .modal.hidden {
     visibility: hidden;
@@ -339,8 +342,8 @@ resume-page #experience-list {
   .modal-slideshow {
     position: relative;
     margin-bottom: 20px;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 0px 10px; }
+    padding: 0px 10px;
+    border-radius: var(--border-radius); }
     .modal-slideshow .previous,
     .modal-slideshow .next {
       font-size: 300%;
@@ -392,7 +395,9 @@ resume-page #experience-list {
         .modal-slideshow .slides .slide.image img {
           width: auto;
           max-width: 100%;
-          max-height: 500px; }
+          max-height: 500px;
+          box-shadow: var(--box-shadow);
+          border-radius: var(--border-radius); }
   .modal-content {
     font-size: var(--font-size-small);
     line-height: 1.25em;
@@ -432,12 +437,14 @@ resume-page #experience-list {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      border-radius: var(--border-radius); }
       .portfolio-item-image img {
         height: 100%;
-        width: 100%;
+        width: auto;
         max-height: 300px;
-        object-fit: contain; }
+        object-fit: contain;
+        border-radius: var(--border-radius); }
     .portfolio-item-description {
       font-size: var(--font-size-small);
       font-weight: var(--font-weight-bold);
@@ -470,7 +477,7 @@ h1 {
 
 h2 {
   font-family: var(--font-family-serif);
-  font-size: var(--font-size-big);
+  font-size: var(--font-size-huge);
   line-height: 1em;
   padding-bottom: var(--base-margin);
   border-bottom: 3px solid var(--accent-color2); }
@@ -540,6 +547,15 @@ main {
         min-height: auto; }
       main article .page:nth-child(even) {
         background-color: var(--stripe-bg); }
+      main article .page .panel .float-right {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        float: right;
+        margin: 10px 0 10px 10px;
+        border: 3px solid var(--base-color);
+        border-radius: 50%;
+        box-shadow: var(--box-shadow); }
   main aside {
     background-color: var(--accent-color1);
     width: 250px;
@@ -553,7 +569,9 @@ main {
     top: 0;
     height: 100vh;
     animation-name: bottom-up;
-    animation-duration: 1.5s; }
+    animation-duration: 1.5s;
+    box-shadow: 0px 0px 20px black;
+    z-index: 1; }
   main .theme-switch {
     cursor: pointer;
     position: fixed;
@@ -602,6 +620,9 @@ main {
     padding-left: 50px; }
     main article skills-page .tools ul li {
       flex: 0 0 75%; }
+    main article .page .panel .float-right {
+      float: none;
+      margin-left: 0; }
   main aside {
     width: 50px;
     min-width: 50px;
@@ -694,4 +715,6 @@ main {
     text-align: left; }
   .portfolio-item {
     flex: 1 1 100%;
-    max-width: 100%; } }
+    max-width: 100%; }
+    .portfolio-item-image img {
+      width: 100%; } }

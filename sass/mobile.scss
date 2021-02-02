@@ -34,6 +34,15 @@
             skills-page .tools ul li {
                 flex: 0 0 75%;
             }
+
+            .page {
+                .panel {
+                    .float-right {
+                        float: none;
+                        margin-left: 0;
+                    }
+                }
+            }
         }
 
         aside {
@@ -159,6 +168,10 @@
         &-item {
             flex: 1 1 100%;
             max-width: 100%;
+
+            &-image img {
+                width: 100%;
+            }
         }
     }
 }

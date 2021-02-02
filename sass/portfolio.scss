@@ -16,13 +16,15 @@
             background-color: rgba(0,0,0,0.1);
             padding: var(--base-margin);
             @include flex(column, center, center);
+            border-radius: var(--border-radius);
 
 
             img {
                 height: 100%;
-                width: 100%;
+                width: auto;
                 max-height: 300px;
                 object-fit: contain;
+                border-radius: var(--border-radius);
             }
         }
 
