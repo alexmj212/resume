@@ -1,6 +1,6 @@
 resume-page {
     ul.experience-timeline {
-        margin-bottom: var(--base-margin);
+        margin: 30px 0;
         @include flex(row, space-around, center);
         position: relative;
 
@@ -9,7 +9,7 @@ resume-page {
             max-width: 20%;
             font-size: var(--font-size-normal);
             font-weight: var(--font-weight-bold);
-            border: 3px solid var(--base-color);
+            border: 3px solid var(--border);
             border-radius: var(--border-radius);
             cursor: pointer;
             @include flex(row, center, center);
@@ -18,9 +18,8 @@ resume-page {
             @include transition();
 
             &:hover {
-                color: $cultured;
-                border-color: $cultured;
-                background-color: #{lighten($russian-green, 15%)};
+                color: var(--base-color);
+                border-color: var(--base-color);
             }
 
             &:first-child {
@@ -59,6 +58,8 @@ resume-page {
         @include flex(row, flex-start, flex-start);
         overflow: hidden;
         scroll-behavior: smooth;
+        width: 90%;
+        margin: auto;
 
         .experience {
             padding-left: 2px;

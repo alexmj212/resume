@@ -1,5 +1,5 @@
 
-$base-margin: 15px;
+$base-margin: 30px;
 $ruby-red: hsla(355, 76%, 36%, 1);
 $timberwolf: hsla(22, 14%, 84%, 1);
 $cultured: hsla(210, 12%, 97%, 1);
@@ -16,6 +16,8 @@ $gunmetal: hsl(204, 10%, 20%);
 
     --base-color: #{$space-cadet};
 
+    --border: rgba(0,0,0,0.1);
+
     --accent-color1: #{$carolina-blue};
     --accent-color2: #{$russian-green};
     --accent-color3: #{$ruby-red};
@@ -29,6 +31,8 @@ $gunmetal: hsl(204, 10%, 20%);
 
     &[data-theme="dark"] {
         --base-color: #d3d3d3;
+
+        --border: rgba(255,255,255,0.1);
 
         --accent-color1: #1C516F;
         --accent-color2: #52905a;
@@ -53,6 +57,7 @@ $gunmetal: hsl(204, 10%, 20%);
     --font-weight-normal: 500;
     --font-weight-light: 400;
 
+    --font-size-greeting: 750%;
     --font-size-huge: 400%;
     --font-size-big: 200%;
     --font-size-medium: 150%;

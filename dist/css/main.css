@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   --base-color: #1b264b;
+  --border: rgba(0,0,0,0.1);
   --accent-color1: #0b8bd5;
   --accent-color2: #5b9a63;
   --accent-color3: #a21622;
@@ -8,13 +9,14 @@
   --link-color: var(--accent-color1);
   --link-hover-color: #51b9f6;
   --base-background-color: #f6f7f8;
-  --base-margin: 15px;
+  --base-margin: 30px;
   --border-radius: 10px;
   --box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   --font-weight-thicc: 900;
   --font-weight-bold: 700;
   --font-weight-normal: 500;
   --font-weight-light: 400;
+  --font-size-greeting: 750%;
   --font-size-huge: 400%;
   --font-size-big: 200%;
   --font-size-medium: 150%;
@@ -27,6 +29,7 @@
   --font-family-header: "Teko", sans-serif; }
   :root[data-theme="dark"] {
     --base-color: #d3d3d3;
+    --border: rgba(255,255,255,0.1);
     --accent-color1: #1C516F;
     --accent-color2: #52905a;
     --accent-color3: #77262d;
@@ -65,7 +68,6 @@ aside {
       background-size: auto 140%;
       width: 200px;
       height: 200px;
-      border: 3px solid #f6f7f8;
       border-radius: 50%;
       margin-bottom: var(--base-margin);
       box-shadow: var(--box-shadow); }
@@ -90,7 +92,7 @@ aside {
       text-decoration: underline; }
   aside ul.navigation {
     padding-left: var(--base-margin);
-    border-left: 1px solid #f6f7f8;
+    border-left: 5px solid rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 0; }
     aside ul.navigation .nav-item {
@@ -107,7 +109,7 @@ aside {
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      left: -5px;
       height: 16.66667%;
       width: 5px; }
     aside ul.navigation .nav-item:nth-child(1).is-active ~ .nav-item:last-child::after {
@@ -164,27 +166,33 @@ header-page {
   flex-direction: column;
   justify-content: center;
   align-items: center; }
-  header-page header .contact {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--accent-color2);
-    border-radius: var(--border-radius);
-    border: 3px solid #88b98f;
-    padding: 10px 30px;
-    margin-bottom: var(--base-margin);
-    color: #f6f7f8;
-    font-size: var(--font-size-medium);
-    font-weight: var(--font-weight-thicc);
-    max-width: 175px;
-    width: 100%;
-    height: 100%;
-    transition: all 250ms ease-out; }
-    header-page header .contact i {
-      margin-left: var(--base-margin); }
-    header-page header .contact:hover {
-      background-color: #88b98f; }
+  header-page header {
+    width: 100%; }
+    header-page header h1 {
+      font-size: var(--font-size-greeting); }
+    header-page header p {
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-emphasize); }
+    header-page header .contact {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--accent-color2);
+      border-radius: var(--border-radius);
+      padding: 10px 30px;
+      margin-bottom: var(--base-margin);
+      color: #f6f7f8;
+      font-size: var(--font-size-medium);
+      font-weight: var(--font-weight-thicc);
+      max-width: 225px;
+      width: 100%;
+      height: 100%;
+      transition: all 250ms ease-out; }
+      header-page header .contact i {
+        margin-left: 15px; }
+      header-page header .contact:hover {
+        background-color: #88b98f; }
 
 skills-page .tools ul {
   list-style: none;
@@ -201,7 +209,7 @@ skills-page .tools ul {
     flex-direction: column;
     justify-content: flex-start;
     align-items: inherit;
-    flex: 0 0 40%;
+    flex: 0 0 33%;
     width: 50%; }
     skills-page .tools ul li:last-child {
       margin-bottom: 10px; }
@@ -227,11 +235,11 @@ skills-page .tools ul {
       justify-content: space-between;
       align-items: flex-start; }
       skills-page .tools ul li .skill-level .pip {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         z-index: 1;
         position: relative;
-        border: 3px solid #88b98f;
+        border: 3px solid var(--accent-color2);
         border-radius: 50%; }
         skills-page .tools ul li .skill-level .pip.filled {
           background-color: var(--accent-color2); }
@@ -239,7 +247,7 @@ skills-page .tools ul {
             background: linear-gradient(90deg, var(--accent-color2) 50%, transparent 50%); }
 
 resume-page ul.experience-timeline {
-  margin-bottom: var(--base-margin);
+  margin: 30px 0;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -250,7 +258,7 @@ resume-page ul.experience-timeline {
     max-width: 20%;
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-bold);
-    border: 3px solid var(--base-color);
+    border: 3px solid var(--border);
     border-radius: var(--border-radius);
     cursor: pointer;
     display: flex;
@@ -261,9 +269,8 @@ resume-page ul.experience-timeline {
     height: 25px;
     transition: all 250ms ease-out; }
     resume-page ul.experience-timeline .timeline-event:hover {
-      color: #f6f7f8;
-      border-color: #f6f7f8;
-      background-color: #88b98f; }
+      color: var(--base-color);
+      border-color: var(--base-color); }
     resume-page ul.experience-timeline .timeline-event:first-child {
       padding-right: 0; }
     resume-page ul.experience-timeline .timeline-event:last-child {
@@ -287,7 +294,9 @@ resume-page #experience-list {
   justify-content: flex-start;
   align-items: flex-start;
   overflow: hidden;
-  scroll-behavior: smooth; }
+  scroll-behavior: smooth;
+  width: 90%;
+  margin: auto; }
   resume-page #experience-list .experience {
     padding-left: 2px;
     margin-bottom: 50px;
@@ -317,7 +326,6 @@ resume-page #experience-list {
     overflow: auto;
     max-width: 700px;
     background: var(--base-background-color);
-    border: 3px solid var(--accent-color1);
     border-radius: var(--border-radius);
     padding: var(--base-margin); }
   .modal.hidden {
@@ -478,9 +486,7 @@ h1 {
 h2 {
   font-family: var(--font-family-serif);
   font-size: var(--font-size-huge);
-  line-height: 1em;
-  padding-bottom: var(--base-margin);
-  border-bottom: 3px solid var(--accent-color2); }
+  line-height: 1em; }
 
 h3, h4 {
   margin: 0;
@@ -552,25 +558,25 @@ main {
         height: 200px;
         object-fit: cover;
         float: right;
-        margin: 10px 0 10px 10px;
-        border: 3px solid var(--base-color);
+        margin: 10px 0 10px 50px;
         border-radius: 50%;
         box-shadow: var(--box-shadow); }
   main aside {
     background-color: var(--accent-color1);
-    width: 250px;
-    min-width: 250px;
-    flex: 0 1 250px;
+    width: 275px;
+    min-width: 275px;
+    flex: 0 1 275px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     position: sticky;
     top: 0;
+    left: 0;
     height: 100vh;
     animation-name: bottom-up;
     animation-duration: 1.5s;
-    box-shadow: 0px 0px 20px black;
+    box-shadow: var(--box-shadow);
     z-index: 1; }
   main .theme-switch {
     cursor: pointer;
@@ -592,14 +598,9 @@ main {
 
 @keyframes bottom-up {
   0% {
-    top: 2000px;
-    padding-top: 100vh; }
-  50% {
-    top: 0;
-    padding-top: 100vh; }
+    transform: translateX(-400px); }
   100% {
-    top: 0;
-    padding-top: 0; } }
+    transform: translateX(0); } }
 
 @media (max-width: 1024px) {
   main article {
@@ -618,11 +619,22 @@ main {
     display: none; }
   main article {
     padding-left: 50px; }
+    main article header h1 {
+      font-size: var(--font-size-huge); }
+    main article header p {
+      font-size: var(--font-size-normal); }
     main article skills-page .tools ul li {
       flex: 0 0 75%; }
-    main article .page .panel .float-right {
-      float: none;
-      margin-left: 0; }
+    main article .page .panel .image-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%; }
+      main article .page .panel .image-container .float-right {
+        float: none;
+        margin-left: 0;
+        margin-bottom: 50px; }
   main aside {
     width: 50px;
     min-width: 50px;
@@ -665,8 +677,8 @@ main {
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      margin-top: 60px;
-      margin-left: 5px;
+      margin-top: 70px;
+      margin-left: 8px;
       overflow: hidden;
       white-space: nowrap; }
       main aside .me .portrait {

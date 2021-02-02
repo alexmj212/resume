@@ -31,15 +31,30 @@
         article {
             padding-left: 50px;
 
+            header {
+                h1 {
+                    font-size: var(--font-size-huge);
+                }
+                p {
+                    font-size: var(--font-size-normal);
+                }
+            }
+
             skills-page .tools ul li {
                 flex: 0 0 75%;
             }
 
             .page {
                 .panel {
-                    .float-right {
-                        float: none;
-                        margin-left: 0;
+                    .image-container {
+                        @include flex(row, center, center);
+                        width: 100%;
+
+                        .float-right {
+                            float: none;
+                            margin-left: 0;
+                            margin-bottom: 50px;
+                        }
                     }
                 }
             }
@@ -87,8 +102,8 @@
             .me {
                 width: 100%;
                 @include flex(row, flex-start, center);
-                margin-top: 60px;
-                margin-left: 5px;
+                margin-top: 70px;
+                margin-left: 8px;
                 overflow: hidden;
                 white-space: nowrap;
 

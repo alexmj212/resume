@@ -40,8 +40,6 @@ h2 {
     font-family: var(--font-family-serif);
     font-size: var(--font-size-huge);
     line-height: 1em;
-    padding-bottom: var(--base-margin);
-    border-bottom: 3px solid var(--accent-color2);
 }
 
 h3, h4 {
@@ -87,7 +85,7 @@ ul {
 }
 
 main {
-    $sidebar-width: 250px;
+    $sidebar-width: 275px;
     @include flex(row, center, flex-start);
     height: 100%;
 
@@ -128,8 +126,7 @@ main {
                     height: 200px;
                     object-fit: cover;
                     float: right;
-                    margin: 10px 0 10px 10px;
-                    border: 3px solid var(--base-color);
+                    margin: 10px 0 10px 50px;
                     border-radius: 50%;
                     box-shadow: var(--box-shadow);
                 }
@@ -144,10 +141,11 @@ main {
         @include flex(column, center, flex-start);
         position: sticky;
         top: 0;
+        left: 0;
         height: 100vh;
         animation-name: bottom-up;
         animation-duration: 1.5s;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 30%);
+        box-shadow: var(--box-shadow);
         z-index: 1;
     }
 
@@ -178,16 +176,10 @@ main {
 
 @keyframes bottom-up {
     0% {
-        top: 2000px;
-        padding-top: 100vh;
-    }
-    50% {
-        top: 0;
-        padding-top: 100vh;
+        transform: translateX(-400px);
     }
     100% {
-        top: 0;
-        padding-top: 0;
+        transform: translateX(0);
     }
 }
 

@@ -32,12 +32,7 @@ const portfolioItems = [
         "date": "2018",
         "company": "TwinSpires.com",
         "caption": "Responsive implementation of TwinSpires.com",
-        "description": `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tristique ultrices interdum. Donec in
-            neque laoreet ipsum rhoncus tristique eu consequat mauris. Donec tristique odio eget nibh posuere,
-            sed malesuada sem porta. Praesent neque massa, interdum et dolor ac, ornare rutrum orci. Duis
-            sollicitudin turpis nec vestibulum dictum. Sed auctor nisi eu erat euismod, non mattis erat rutrum.
-            Sed hendrerit odio nisi, eget molestie justo tristique vel. In dignissim dui ac mollis iaculis. Ut
-            sodales volutpat mi eget faucibus.`
+        "description": `This project was a great opportunity to exercise most of my strengths with front end development. I really enjoyed working with the feature focused-team and coming together to complete a major project. Mobile-focused projects more prevalent not just at TwinSpires but in the industry as a whole.`
     },
     {
         "project": "TwinSpires Video",

@@ -10,7 +10,7 @@ skills-page {
             li {
                 margin: 0 10px;
                 @include flex(column, flex-start, inherit);
-                flex: 0 0 40%;
+                flex: 0 0 33%;
                 width: 50%;
 
                 &:last-child {
@@ -36,11 +36,11 @@ skills-page {
                     @include flex(row, space-between, flex-start);
 
                     .pip {
-                        width: 20px;
-                        height: 20px;
+                        width: 30px;
+                        height: 30px;
                         z-index: 1;
                         position: relative;
-                        border: 3px solid #{lighten($russian-green, 15%)};
+                        border: 3px solid var(--accent-color2);
                         border-radius: 50%;
                         &.filled {
                             background-color: var(--accent-color2);
