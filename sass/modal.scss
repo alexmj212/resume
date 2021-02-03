@@ -62,7 +62,7 @@
             @include flex(row, flex-start, center);
             @include transition();
             background: transparent;
-            color: $cultured;
+            color: var(--base-color);
 
             i {
                 filter: drop-shadow(0px 0px 3px rgba(0,0,0,0.4));
@@ -119,7 +119,6 @@
     }
 
     &-footer {
-        border-top: 3px solid var(--accent-color2);
         font-size: var(--font-size-small);
         width: 100%;
         text-align: right;
