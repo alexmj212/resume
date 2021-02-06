@@ -1,13 +1,13 @@
-'use strict';
+import * as Modal from './modal.js';
 
-const portfolioItems = [
+export const portfolioItems = [
     // {
     //     "project": "TwinSpires Dark Mode",
     //     "images": [
-    //         'dist/img/twinspires/program/program-dark.png',
-    //         'dist/img/twinspires/program/program-light.png',
-    //         'dist/img/twinspires/program/toteboard-dark.png',
-    //         'dist/img/twinspires/program/toteboard-light.png'
+    //         'img/twinspires/program/program-dark.png',
+    //         'img/twinspires/program/program-light.png',
+    //         'img/twinspires/program/toteboard-dark.png',
+    //         'img/twinspires/program/toteboard-light.png'
     //     ],
     //     "date": "2020 - 2021",
     //     "company": "TwinSpires.com",
@@ -28,12 +28,12 @@ const portfolioItems = [
     {
         "project": "TwinSpires Responsive",
         "images": [
-            'dist/img/twinspires/responsive/program-light.png',
-            //'dist/img/twinspires/responsive/program-dark.png',
-            'dist/img/twinspires/responsive/landing-light.png',
-            //'dist/img/twinspires/responsive/landing-dark.png',
-            'dist/img/twinspires/responsive/calendar-light.png',
-            //'dist/img/twinspires/responsive/calendar-dark.png',
+            'img/twinspires/responsive/program-light.png',
+            //'img/twinspires/responsive/program-dark.png',
+            'img/twinspires/responsive/landing-light.png',
+            //'img/twinspires/responsive/landing-dark.png',
+            'img/twinspires/responsive/calendar-light.png',
+            //'img/twinspires/responsive/calendar-dark.png',
         ],
         "date": "2018",
         "company": "TwinSpires.com",
@@ -49,10 +49,10 @@ const portfolioItems = [
     {
         "project": "TwinSpires Video",
         "images": [
-            'dist/img/twinspires/video/video-desktop-light.png',
-            //'dist/img/twinspires/video/video-desktop-dark.png',
-            'dist/img/twinspires/video/video-mobile-light.png',
-            //'dist/img/twinspires/video/video-mobile-dark.png'
+            'img/twinspires/video/video-desktop-light.png',
+            //'img/twinspires/video/video-desktop-dark.png',
+            'img/twinspires/video/video-mobile-light.png',
+            //'img/twinspires/video/video-mobile-dark.png'
         ],
         "date": "2018 - 2020",
         "company": "TwinSpires.com",
@@ -67,7 +67,7 @@ const portfolioItems = [
     }
 ];
 
-function generatePortfolio() {
+export function generatePortfolio() {
     let list = document.querySelector('#portfolio');
     if (list) {
         list.innerHTML = "";
@@ -113,16 +113,16 @@ function generatePortfolio() {
     }
 }
 
-function openPortfolioModal(index) {
+export function openPortfolioModal(index) {
     let portfolioItem = portfolioItems[index];
     generateModalSlideshow(portfolioItem.images);
     document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
     document.querySelector('div.modal-content p').innerHTML = portfolioItem.description;
     document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
-    openModal();
+    Modal.openModal();
 }
 
-function generateModalSlideshow(imageList = []) {
+export function generateModalSlideshow(imageList = []) {
     let slides = document.querySelector('#slides');
     slides.innerHTML = "";
 

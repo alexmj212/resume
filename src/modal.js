@@ -1,19 +1,9 @@
-'use strict';
+export let modalOpen = false;
+export let scrollTop = 0;
+export let slidePositionIndex = 0;
+export let slideCount = document.getElementsByClassName('slides')[0].children.length;
 
-var modalOpen = false;
-var scrollTop = 0;
-var slidePositionIndex = 0;
-var slideCount = document.getElementsByClassName('slides')[0].children.length;
-
-document.addEventListener('click', event => {
-    var isClickInside = document.getElementById('modal-container').contains(event.target);
-
-    if (!isClickInside && modalOpen) {
-        closeModal();
-    }
-});
-
-function openModal() {
+export function openModal() {
     slideCount = document.getElementsByClassName('slides')[0].children.length;
     updateSlideArrows();
     document.getElementById('modal').classList.remove('hidden');
@@ -24,7 +14,7 @@ function openModal() {
     setTimeout(() => modalOpen = true, 500);
 }
 
-function closeModal() {
+export function closeModal() {
     document.getElementById('modal').classList.add('hidden');
     document.body.classList.remove('scroll-lock');
     document.getElementsByTagName('main')[0].classList.remove('modal-open');
@@ -37,7 +27,7 @@ function closeModal() {
     }, 250);
 }
 
-function slideShowNext() {
+export function slideShowNext() {
     let width = Math.ceil(document.getElementById('slides').scrollWidth / slideCount);
     if (slidePositionIndex >= 0 && slidePositionIndex < slideCount - 1) {
         slidePositionIndex++;
@@ -46,7 +36,7 @@ function slideShowNext() {
     }
 }
 
-function slideShowPrevious() {
+export function slideShowPrevious() {
     let width = Math.ceil(document.getElementById('slides').scrollWidth / slideCount);
     if (slidePositionIndex >= 1 && slidePositionIndex < slideCount) {
         slidePositionIndex--;
@@ -55,7 +45,7 @@ function slideShowPrevious() {
     }
 }
 
-function updateSlideArrows() {
+export function updateSlideArrows() {
     if (slidePositionIndex === 0) {
         document.getElementById('previous-slide').classList.add('disabled');
         document.getElementById('next-slide').classList.remove('disabled');
@@ -67,3 +57,23 @@ function updateSlideArrows() {
         document.getElementById('next-slide').classList.remove('disabled');
     }
 }
+
+document.addEventListener('click', event => {
+    var isClickInside = document.getElementById('modal-container').contains(event.target);
+
+    if (!isClickInside && modalOpen) {
+        closeModal();
+    }
+});
+
+document.getElementById('previous-slide').addEventListener('click', event => {
+    slideShowPrevious(this);
+});
+
+document.getElementById('next-slide').addEventListener('click', event => {
+    slideShowNext(this);
+});
+
+document.getElementById('close-modal').addEventListener('click', event => {
+    closeModal();
+});

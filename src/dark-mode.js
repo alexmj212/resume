@@ -1,8 +1,6 @@
-'use strict';
-
 var colorTheme = 'light';
 
-function setTheme(theme) {
+export function setTheme(theme) {
     switch (theme) {
         case 'dark':
             document.documentElement.setAttribute('data-theme', theme);
@@ -19,7 +17,7 @@ function setTheme(theme) {
     }
 }
 
-function toggleTheme() {
+export function toggleTheme() {
     if (colorTheme === 'light') {
         setTheme('dark');
     } else {
@@ -27,18 +25,26 @@ function toggleTheme() {
     }
 }
 
-// Initial theme mode
-if (window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all') {
-    setTheme('dark');
-} else {
-    setTheme('light');
-}
-
-// Listen to OS theme settings
-window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
-    if (e.matches) {
+export function initializeThemeDetection() {
+    // Initial theme mode
+    if (window.matchMedia('(prefers-color-scheme: dark)').media !== 'not all') {
         setTheme('dark');
     } else {
         setTheme('light');
     }
+
+    // Listen to OS theme settings
+    window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+        if (e.matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    });
+}
+
+document.getElementById('theme-control').addEventListener('click', event => {
+    toggleTheme();
 });
+
+

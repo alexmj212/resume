@@ -6,23 +6,21 @@
         content="text/html; charset=utf-8" />
     <title>Alex Johnson - Resume</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Work+Sans:wght@500&family=Roboto+Condensed:wght@700&family=Teko:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&family=Roboto+Condensed:wght@700&family=Teko:wght@700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="dist/css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
 
 
 </head>
 
 <body>
     <main>
-        <div class="theme-switch" onclick="toggleTheme()">
+        <div id="theme-control" class="theme-switch">
             <i id="theme-toggle" class="fas fa-sun"></i>
         </div>
         <aside>
-            <div class="open-menu" onclick="toggleMenu()"><i class="fas fa-arrow-right"></i></div>
+            <div id="menu-toggle" class="open-menu"><i class="fas fa-arrow-right"></i></div>
             <div class="me">
-                <div class="portrait"></div>
+                <img src="img/portrait.jpg" class="portrait"/>
                 <h2>Alex Johnson</h2>
             </div>
             <ul class="summary no-style">
@@ -35,12 +33,12 @@
                             class="fab fa-github"></i>GitHub</a></li>
             </ul>
             <ul class="navigation no-style with-indicator">
-                <li id="header-page-nav" class="nav-item" onclick="navigate(this)">Greetings</li>
-                <li id="profile-page-nav" class="nav-item" onclick="navigate(this)">Profile</li>
-                <li id="education-page-nav" class="nav-item" onclick="navigate(this)">Education</li>
-                <li id="skills-page-nav" class="nav-item" onclick="navigate(this)">Skills</li>
-                <li id="portfolio-page-nav" class="nav-item" onclick="navigate(this)">Portfolio</li>
-                <li id="resume-page-nav" class="nav-item" onclick="navigate(this)">Experience</li>
+                <li id="header-page-nav" class="nav-item">Greetings</li>
+                <li id="profile-page-nav" class="nav-item">Profile</li>
+                <li id="education-page-nav" class="nav-item">Education</li>
+                <li id="skills-page-nav" class="nav-item">Skills</li>
+                <li id="portfolio-page-nav" class="nav-item">Portfolio</li>
+                <li id="resume-page-nav" class="nav-item">Experience</li>
             </ul>
         </aside>
         <article>
@@ -57,12 +55,12 @@
             <div class="modal-header">
                 <h1></h1>
             </div>
-            <div class="modal-close" onclick="closeModal()">
+            <div id="close-modal" class="modal-close">
                 <i class="fa fa-close"></i>
             </div>
             <div class="modal-slideshow">
-                <div id="previous-slide" class="previous disabled" onclick="slideShowPrevious(this)"><i class="fas fa-arrow-circle-left"></i></div>
-                <div id="next-slide" class="next" onclick="slideShowNext(this)"><i class="fas fa-arrow-circle-right"></i></div>
+                <div id="previous-slide" class="previous disabled"><i class="fas fa-arrow-circle-left"></i></div>
+                <div id="next-slide" class="next"><i class="fas fa-arrow-circle-right"></i></div>
                 <div id="slides" class="slides"></div>
             </div>
             <div class="modal-content">
@@ -71,12 +69,7 @@
             <div class="modal-footer"></div>
         </div>
     </div>
-    <script src="js/main.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/dark-mode.js"></script>
-    <script src="js/skills.js"></script>
-    <script src="js/pages.js"></script>
-    <script src="js/portfolio.js"></script>
+    <script src="main.js"></script>
     <script src="https://kit.fontawesome.com/926bef921d.js" crossorigin="anonymous"></script>
 </body>
 

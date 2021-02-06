@@ -1,5 +1,3 @@
-'use strict';
-
 const skills = [
     {
         "skill": "Angular (2+)",
@@ -53,7 +51,7 @@ const skills = [
     }
 ];
 
-function generateSkills() {
+export function generateSkills() {
     let list = document.querySelector('div.tools ul');
     if (list) {
         list.innerHTML = "";

@@ -43,7 +43,7 @@ resume-page {
 
         .timeline-event.is-active {
             color: $cultured;
-            border-color: #{lighten($russian-green, 15%)};
+            border-color: transparent;
             background-color: var(--accent-color2);
         }
 

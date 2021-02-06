@@ -1,3 +1,4 @@
+//@import "normalize.css";
 @import "vars";
 @import "mixins";
 @import "sidebar";
@@ -6,6 +7,11 @@
 @import "resume";
 @import "modal";
 @import "portfolio";
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     background-color: var(--base-background-color);
@@ -59,7 +65,6 @@ h3 {
 h4 {
     margin-bottom: var(--base-margin);
     font-family: var(--font-family-condensed);
-    font-size: var(--font-size-emphasize);
 }
 
 p {
@@ -143,8 +148,6 @@ main {
         top: 0;
         left: 0;
         height: 100vh;
-        animation-name: bottom-up;
-        animation-duration: 1.5s;
         box-shadow: var(--box-shadow);
         z-index: 1;
     }
@@ -172,15 +175,6 @@ main {
     width: 35px;
     height: 35px;
     vertical-align: middle;
-}
-
-@keyframes bottom-up {
-    0% {
-        transform: translateX(-400px);
-    }
-    100% {
-        transform: translateX(0);
-    }
 }
 
 @import "mobile";

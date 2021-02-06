@@ -14,7 +14,7 @@
 
             #experience-list {
                 display: block;
-                overflow: auto;
+                overflow: hidden;
             }
         }
     }
@@ -106,6 +106,10 @@
                 margin-left: 8px;
                 overflow: hidden;
                 white-space: nowrap;
+
+                h2 {
+                    margin-bottom: 0;
+                }
 
                 .portrait {
                     margin-right: 17px;

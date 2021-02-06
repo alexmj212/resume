@@ -23,11 +23,9 @@ aside {
         }
 
         .portrait {
-            background-image: url('../../dist/img/portrait.jpg');
-            background-position: top 25% left -100%;
-            background-size: auto 140%;
             width: 200px;
             height: 200px;
+            object-fit: cover;
             border-radius: 50%;
             margin-bottom: var(--base-margin);
             box-shadow: var(--box-shadow);

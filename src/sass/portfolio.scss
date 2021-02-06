@@ -22,6 +22,8 @@
         &-image {
             flex: 1 1 auto;
             @include flex(column, center, center);
+            min-height: 250px;
+            background-color: var(--border);
             border-radius: var(--border-radius) 0 0 var(--border-radius);
             padding: var(--base-margin);
 

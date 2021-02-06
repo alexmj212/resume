@@ -1,6 +1,7 @@
-'use strict';
+import * as Skills from "./skills.js";
+import * as Portfolio from "./portfolio.js";
 
-const pages = [
+export const pages = [
     'header-page',
     'profile-page',
     'education-page',
@@ -11,7 +12,7 @@ const pages = [
 
 var parser = new DOMParser();
 
-class headerPage extends HTMLElement {
+export class headerPage extends HTMLElement {
 
     constructor() { super() }
 
@@ -23,7 +24,7 @@ class headerPage extends HTMLElement {
     }
 }
 
-class profilePage extends HTMLElement {
+export class profilePage extends HTMLElement {
 
     constructor() { super() }
 
@@ -35,7 +36,7 @@ class profilePage extends HTMLElement {
     }
 }
 
-class educationPage extends HTMLElement {
+export class educationPage extends HTMLElement {
 
     constructor() { super() }
 
@@ -47,7 +48,7 @@ class educationPage extends HTMLElement {
     }
 }
 
-class skillsPage extends HTMLElement {
+export class skillsPage extends HTMLElement {
 
     constructor() { super() }
 
@@ -56,11 +57,11 @@ class skillsPage extends HTMLElement {
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });
-        generateSkills();
+        Skills.generateSkills();
     }
 }
 
-class resumePage extends HTMLElement {
+export class resumePage extends HTMLElement {
 
     constructor() { super() }
 
@@ -69,10 +70,15 @@ class resumePage extends HTMLElement {
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });
+        [...document.getElementsByClassName('timeline-event')].forEach(timelineEvent => {
+            timelineEvent.addEventListener('click', event => {
+                changeExperienceView(event.currentTarget);
+            });
+        });
     }
 }
 
-class landingPage extends HTMLElement {
+export class landingPage extends HTMLElement {
 
     constructor() { super() }
 
@@ -83,7 +89,7 @@ class landingPage extends HTMLElement {
         });
     }
 }
-class portfolioPage extends HTMLElement {
+export class portfolioPage extends HTMLElement {
 
     constructor() { super() }
 
@@ -92,37 +98,42 @@ class portfolioPage extends HTMLElement {
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });
-        generatePortfolio();
+        Portfolio.generatePortfolio();
     }
 }
 
-window.customElements.define('header-page', headerPage);
-window.customElements.define('profile-page', profilePage);
-window.customElements.define('education-page', educationPage);
-window.customElements.define('skills-page', skillsPage);
-window.customElements.define('resume-page', resumePage);
-window.customElements.define('landing-page', landingPage);
-window.customElements.define('portfolio-page', portfolioPage);
+export function initializePages() {
+    window.customElements.define('header-page', headerPage);
+    window.customElements.define('profile-page', profilePage);
+    window.customElements.define('education-page', educationPage);
+    window.customElements.define('skills-page', skillsPage);
+    window.customElements.define('resume-page', resumePage);
+    window.customElements.define('landing-page', landingPage);
+    window.customElements.define('portfolio-page', portfolioPage);
+    Array.from(document.getElementsByClassName('nav-item')).forEach(item => {
+        item.addEventListener('click', event => navigate(event.currentTarget))
+    });
+}
 
-var currentPage = 'header-page';
+export let currentPage = 'header-page';
 
-function navigate(navItem) {
+export function navigate(navItem) {
     var page = navItem.id.substring(0, navItem.id.lastIndexOf('-'));
     document.getElementsByTagName(page)[0].scrollIntoView({ behavior: "smooth" });
 }
 
-function nextPage() {
+export function nextPage() {
     let nextPage = pages.indexOf(currentPage) + 1;
     if (nextPage < pages.length) {
         navigate(document.getElementById(pages[nextPage] + '-nav'));
     }
 }
 
-function updateCurrentPage(page) {
+export function updateCurrentPage(page) {
     currentPage = page;
 }
 
-function resetNavIndicator() {
+export function resetNavIndicator() {
     [...document.getElementsByClassName('nav-item')].forEach(element => {
         element.classList.remove('is-active');
     });
@@ -172,4 +183,15 @@ window.addEventListener('scroll', () => {
 
 });
 
+window.scroll();
 resetNavIndicator();
+
+function changeExperienceView(element) {
+    [...document.getElementsByClassName('timeline-event')].forEach(e => {
+        e.classList.remove('is-active');
+    })
+    document.getElementById(element.id).classList.add('is-active');
+    let width = document.getElementsByClassName('experience')[0].scrollWidth;
+    let elementNumber = +element.id.substring(element.id.indexOf('-') + 1, element.id.length);
+    document.getElementById('experience-list').scrollTo({ left: (width * elementNumber) - width });
+}
