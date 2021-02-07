@@ -1,0 +1,58 @@
+@import '../mixins.scss';
+
+skills-page {
+    .tools {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            @include flex(row, space-around, inherit);
+            flex-wrap: wrap;
+
+            li {
+                margin: 0 10px;
+                @include flex(column, flex-start, inherit);
+                flex: 0 0 33%;
+                width: 50%;
+
+                &:last-child {
+                    margin-bottom: 10px;
+                }
+
+                .tool {
+                    flex: 1 0 auto;
+                    white-space: nowrap;
+                    margin-bottom: 10px;
+                    @include flex(row, flex-start, center);
+                    i {
+                        text-align: center;
+                        width: 20px;
+                        margin-right: 15px;
+                        font-size: 150%;
+                    }
+                }
+                .skill-level {
+                    flex: 1 0 100%;
+                    padding: 0 3px;
+                    margin-bottom: var(--base-margin);
+                    @include flex(row, space-between, flex-start);
+
+                    .pip {
+                        width: 30px;
+                        height: 30px;
+                        z-index: 1;
+                        position: relative;
+                        border: 3px solid var(--accent-color2);
+                        border-radius: 50%;
+                        &.filled {
+                            background-color: var(--accent-color2);
+                            &.half {
+                                background: linear-gradient(90deg, var(--accent-color2) 50%, transparent 50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
