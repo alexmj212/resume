@@ -19,7 +19,7 @@ sidebar-element aside {
 
     .me {
         @include flex(row, flex-start, center);
-        flex: 1 20%;
+        flex: 1 25%;
 
         h2 {
             font-size: var(--font-size-medium);
@@ -42,11 +42,6 @@ sidebar-element aside {
 
         @include flex(row, flex-start, flex-start);
 
-        &.summary,
-        &.navigation {
-            // margin: 0 0 var(--base-margin) var(--base-margin);
-        }
-
         li {
             white-space: nowrap;
             @include flex(row, flex-start, center);
@@ -59,8 +54,7 @@ sidebar-element aside {
         }
 
         &.summary {
-
-            flex: 1 20%;
+            flex: 1 25%;
             justify-content: flex-end;
 
             a {
@@ -77,15 +71,14 @@ sidebar-element aside {
         }
 
         &.navigation {
-            //padding-left: var(--base-margin);
-            //border-left: 5px solid rgba(255,255,255,0.2);
-            li {
-                margin: 0 15px;
-            }
             flex: 1 750px;
             @include flex(row, center, center);
             position: relative;
             z-index: 0;
+
+            li {
+                margin: 0 15px;
+            }
 
             .nav-item {
                 cursor: pointer;
@@ -120,7 +113,8 @@ sidebar-element aside {
                 @include transition();
             }
 
-            #next-page.disabled, #previous-page.disabled {
+            #next-page.disabled,
+            #previous-page.disabled {
                 visibility: hidden;
                 pointer-events: none;
                 opacity: 0;

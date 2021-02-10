@@ -12,7 +12,7 @@ skills-page {
             li {
                 margin: 0 10px;
                 @include flex(column, flex-start, inherit);
-                flex: 0 0 33%;
+                flex: 0 0 30%;
                 width: 50%;
 
                 &:last-child {

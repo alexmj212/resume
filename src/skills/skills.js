@@ -45,11 +45,6 @@ export let skills = [
         "skill": "Git / GitHub",
         "icon": "fab fa-github",
         "level": 4
-    },
-    {
-        "skill": "Amazon (AWS)",
-        "icon": "fab fa-aws",
-        "level": 2
     }
 ];
 

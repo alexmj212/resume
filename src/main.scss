@@ -125,6 +125,12 @@ main {
                 min-height: auto;
             }
 
+            &:nth-child(odd) {
+                box-shadow: 0 0 30px rgba(0, 0, 0, 20%);
+            }
+
+
+
             &:nth-child(even) {
                 background-color: var(--stripe-bg);
             }
