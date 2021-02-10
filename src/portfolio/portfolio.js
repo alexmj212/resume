@@ -1,3 +1,5 @@
+import { Modal } from "../modal/modal.js";
+
 import "./portfolio.scss";
 
 export let portfolioItems = [
@@ -73,7 +75,7 @@ export class portfolioPage extends HTMLElement {
 
     async connectedCallback() {
         let res = await fetch('portfolio.html');
-        var parser = new DOMParser();
+        let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });
@@ -128,26 +130,11 @@ export class portfolioPage extends HTMLElement {
 
     openPortfolioModal(index) {
         let portfolioItem = portfolioItems[index];
-        this.generateModalSlideshow(portfolioItem.images);
-        document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
-        document.querySelector('div.modal-content p').innerHTML = portfolioItem.description;
-        document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
-        openModal();
+        let modal = new Modal();
+        modal.openModal(portfolioItem)
     }
 
-    generateModalSlideshow(imageList = []) {
-        let slides = document.querySelector('#slides');
-        slides.innerHTML = "";
 
-        imageList.forEach(image => {
-            let slide = document.createElement('div');
-            slide.className = 'slide image';
-            let img = document.createElement('img');
-            img.setAttribute('src', image);
-            slide.appendChild(img);
-            slides.appendChild(slide);
-        });
-    }
 }
 
 window.customElements.define('portfolio-page', portfolioPage);

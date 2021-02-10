@@ -5,20 +5,12 @@ export class Modal extends HTMLElement {
     constructor() {
         super();
         this.modalOpen = false;
-        this.scrollTop = 0;
         this.slidePositionIndex = 0;
         this.slideCount = 0;
     }
 
-
-
-    async connectedCallback() {
-        let res = await fetch('modal.html');
-        var parser = new DOMParser();
-        parser.parseFromString(await res.text(), 'text/html').querySelectorAll('aside').forEach(element => {
-            this.appendChild(element);
-        });
-        document.addEventListener('click', event => {
+    addEventListeners() {
+        document.getElementById('modal').addEventListener('click', event => {
             var isClickInside = document.getElementById('modal-container').contains(event.target);
 
             if (!isClickInside && this.modalOpen) {
@@ -39,31 +31,71 @@ export class Modal extends HTMLElement {
         });
     }
 
-    openModal() {
-        this.slideCount = document.getElementsByClassName('slides')[0].children.length;
-        updateSlideArrows();
-        document.getElementById('modal').classList.remove('hidden');
-        this.scrollTop = document.documentElement.scrollTop;
-        document.body.style.top = - (scrollTop) + 'px';
-        document.body.classList.add('scroll-lock');
-        document.getElementsByTagName('main')[0].classList.add('modal-open');
-        setTimeout(() => this.modalOpen = true, 500);
+    removeEventListeners() {
+        //document.removeEventListener('click');
+        document.getElementById('previous-slide').removeEventListener('click', ()=>{});
+        document.getElementById('next-slide').removeEventListener('click', ()=>{});
+        document.getElementById('close-modal').removeEventListener('click', ()=>{});
+    }
+
+    openModal(portfolioItem) {
+        return new Promise(resolve => {
+            fetch('modal.html').then(response => response.text()).then(body => {
+                let parser = new DOMParser();
+                parser.parseFromString(body, 'text/html').querySelectorAll('#modal').forEach(element => {
+                    //this.addEventListeners();
+                    document.getElementsByTagName('modal-element')[0].appendChild(element);
+                    document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
+                    document.querySelector('div.modal-content p').innerHTML = portfolioItem.description;
+                    document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
+                    this.generateModalSlideshow(portfolioItem.images);
+                    this.slideCount = document.getElementsByClassName('slides')[0].children.length;
+                    this.updateSlideArrows();
+
+
+
+                    setTimeout(() => {
+                        document.getElementById('modal').classList.remove('hidden');
+                        document.body.style.top = - (document.documentElement.scrollTop) + 'px';
+                        document.body.classList.add('scroll-lock');
+                        document.getElementsByTagName('main')[0].classList.add('modal-open');
+                        this.addEventListeners();
+                        this.modalOpen = true;
+                        resolve();
+                    }, 250);
+                });
+            });
+        });
     }
 
     closeModal() {
         document.getElementById('modal').classList.add('hidden');
         document.body.classList.remove('scroll-lock');
         document.getElementsByTagName('main')[0].classList.remove('modal-open');
-        document.documentElement.scrollTop = this.scrollTop;
-        this.modalOpen = false
+        document.documentElement.scrollTop = document.body.style.top.match(/\d+/).join("");
+        document.body.style.top = "";
+        this.modalOpen = false;
+        this.removeEventListeners();
+        setTimeout(() => { document.getElementById('modal').remove() }, 500);
+        this.slidePositionIndex = 0;
+    }
 
-        setTimeout(() => {
-            document.getElementById('slides').scrollLeft = 0;
-            this.slidePositionIndex = 0;
-        }, 250);
+    generateModalSlideshow(imageList = []) {
+        let slides = document.querySelector('#slides');
+        slides.innerHTML = "";
+
+        imageList.forEach(image => {
+            let slide = document.createElement('div');
+            slide.className = 'slide image';
+            let img = document.createElement('img');
+            img.setAttribute('src', image);
+            slide.appendChild(img);
+            slides.appendChild(slide);
+        });
     }
 
     slideShowNext() {
+        this.slideCount = document.getElementsByClassName('slides')[0].children.length;
         let width = Math.ceil(document.getElementById('slides').scrollWidth / this.slideCount);
         if (this.slidePositionIndex >= 0 && this.slidePositionIndex < this.slideCount - 1) {
             this.slidePositionIndex++;
@@ -73,6 +105,7 @@ export class Modal extends HTMLElement {
     }
 
     slideShowPrevious() {
+        this.slideCount = document.getElementsByClassName('slides')[0].children.length;
         let width = Math.ceil(document.getElementById('slides').scrollWidth / this.slideCount);
         if (this.slidePositionIndex >= 1 && this.slidePositionIndex < this.slideCount) {
             this.slidePositionIndex--;
@@ -82,10 +115,11 @@ export class Modal extends HTMLElement {
     }
 
     updateSlideArrows() {
+        this.slideCount = document.getElementsByClassName('slides')[0].children.length;
         if (this.slidePositionIndex === 0) {
             document.getElementById('previous-slide').classList.add('disabled');
             document.getElementById('next-slide').classList.remove('disabled');
-        } else if (slidePositionIndex === this.slideCount - 1) {
+        } else if (this.slidePositionIndex === this.slideCount - 1) {
             document.getElementById('previous-slide').classList.remove('disabled');
             document.getElementById('next-slide').classList.add('disabled');
         } else {

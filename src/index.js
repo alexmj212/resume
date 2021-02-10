@@ -1,25 +1,16 @@
 'use strict';
 
 import * as DarkMode from "./dark-mode.js";
-import "./sidebar/sidebar.js";
-import "./header/header.js";
-import "./profile/profile.js";
-import "./education/education.js";
-import "./skills/skills.js";
-import "./portfolio/portfolio.js";
-import "./resume/resume.js";
-import "./sidebar/sidebar.js";
+import * as Sidebar from "./sidebar/sidebar.js";
+import * as Header from "./header/header.js";
+import * as Profile from "./profile/profile.js";
+import * as Education from "./education/education.js";
+import * as Skills from "./skills/skills.js";
+import * as Portfolio from "./portfolio/portfolio.js";
+import * as Resume from "./resume/resume.js";
 import "./main.scss";
 
 DarkMode.initializeThemeDetection();
-
-// document.getElementById('menu-toggle').addEventListener('click', () => {
-//     if (document.getElementsByTagName('aside')[0].classList.contains('is-open')) {
-//         document.getElementsByTagName('aside')[0].classList.remove('is-open');
-//     } else {
-//         document.getElementsByTagName('aside')[0].classList.add('is-open');
-//     }
-// });
 
 export const pages = [
     'header-page',
@@ -49,49 +40,48 @@ export function resetNavIndicator() {
     });
 }
 
-window.addEventListener('scroll', () => {
-    var windscroll = window.scrollY;
-    var offsetThreshold = 100;
+// window.addEventListener('scroll', () => {
+//     var windscroll = window.scrollY;
 
-    resetNavIndicator();
+//     resetNavIndicator();
 
-    if (windscroll >= document.getElementsByTagName('resume-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('resume-page-nav').classList.add('is-active');
-        updateCurrentPage('resume-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('resume-page')[0].offsetTop) {
+//         document.getElementById('resume-page-nav').classList.add('is-active');
+//         updateCurrentPage('resume-page');
+//         return;
+//     }
 
-    if (windscroll >= document.getElementsByTagName('portfolio-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('portfolio-page-nav').classList.add('is-active');
-        updateCurrentPage('portfolio-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('portfolio-page')[0].offsetTop) {
+//         document.getElementById('portfolio-page-nav').classList.add('is-active');
+//         updateCurrentPage('portfolio-page');
+//         return;
+//     }
 
-    if (windscroll >= document.getElementsByTagName('skills-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('skills-page-nav').classList.add('is-active');
-        updateCurrentPage('skills-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('skills-page')[0].offsetTop - offsetThreshold) {
+//         document.getElementById('skills-page-nav').classList.add('is-active');
+//         updateCurrentPage('skills-page');
+//         return;
+//     }
 
-    if (windscroll >= document.getElementsByTagName('education-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('education-page-nav').classList.add('is-active');
-        updateCurrentPage('education-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('education-page')[0].offsetTop - offsetThreshold) {
+//         document.getElementById('education-page-nav').classList.add('is-active');
+//         updateCurrentPage('education-page');
+//         return;
+//     }
 
-    if (windscroll >= document.getElementsByTagName('profile-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('profile-page-nav').classList.add('is-active');
-        updateCurrentPage('profile-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('profile-page')[0].offsetTop - offsetThreshold) {
+//         document.getElementById('profile-page-nav').classList.add('is-active');
+//         updateCurrentPage('profile-page');
+//         return;
+//     }
 
-    if (windscroll >= document.getElementsByTagName('header-page')[0].offsetTop - offsetThreshold) {
-        document.getElementById('header-page-nav').classList.add('is-active');
-        updateCurrentPage('header-page');
-        return;
-    }
+//     if (windscroll >= document.getElementsByTagName('header-page')[0].offsetTop - offsetThreshold) {
+//         document.getElementById('header-page-nav').classList.add('is-active');
+//         updateCurrentPage('header-page');
+//         return;
+//     }
 
-});
+// });
 
 window.scroll();
 resetNavIndicator();

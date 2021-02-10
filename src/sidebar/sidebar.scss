@@ -2,6 +2,9 @@
 
 sidebar-element aside {
     color: var(--white-text);
+    font-size: var(--font-size-small);
+    padding: 10px var(--base-margin);
+    height: 100%;
 
     .open-menu {
         width: 80%;
@@ -15,45 +18,51 @@ sidebar-element aside {
     }
 
     .me {
-        @include flex(column, center, center);
-        width: 100%;
+        @include flex(row, flex-start, center);
+        flex: 1 20%;
 
         h2 {
             font-size: var(--font-size-medium);
             padding-bottom: 0;
             border-bottom: 0;
+            margin-bottom: 0;
         }
 
         .portrait {
-            width: 200px;
-            height: 200px;
+            width: 50px;
+            height: 50px;
             object-fit: cover;
+            margin-right: var(--base-margin);
             border-radius: 50%;
-            margin-bottom: var(--base-margin);
             box-shadow: var(--box-shadow);
         }
     }
 
     ul {
 
+        @include flex(row, flex-start, flex-start);
+
         &.summary,
         &.navigation {
-            margin: 0 0 var(--base-margin) var(--base-margin);
+            // margin: 0 0 var(--base-margin) var(--base-margin);
         }
 
         li {
             white-space: nowrap;
             @include flex(row, flex-start, center);
-            margin-bottom: 10px;
+            margin-right: 5px;
 
             i {
                 vertical-align: middle;
                 font-size: var(--font-size-medium);
-                margin-right: 10px;
             }
         }
 
         &.summary {
+
+            flex: 1 20%;
+            justify-content: flex-end;
+
             a {
                 color: var(--white-text);
 
@@ -68,47 +77,22 @@ sidebar-element aside {
         }
 
         &.navigation {
-            padding-left: var(--base-margin);
-            border-left: 5px solid rgba(255,255,255,0.2);
+            //padding-left: var(--base-margin);
+            //border-left: 5px solid rgba(255,255,255,0.2);
+            li {
+                margin: 0 15px;
+            }
+            flex: 1 750px;
+            @include flex(row, center, center);
             position: relative;
             z-index: 0;
 
             .nav-item {
                 cursor: pointer;
                 height: 30px;
-                margin: 0;
 
                 &:hover {
                     text-decoration: underline;
-                }
-            }
-
-            $menu-items: 6;
-            $height: (100/$menu-items) * 1%;
-            $menu-items-loop-offset: $menu-items - 1;
-
-            .nav-item:last-child::after {
-                content: '';
-                pointer-events: none;
-                @include transition(50ms);
-                background: var(--white-text);
-                display: block;
-                position: absolute;
-                top: 0;
-                left: -5px;
-                height: #{(100/$menu-items) * 1%};
-                width: 5px;
-            }
-
-            @for $i from 1 through $menu-items-loop-offset {
-                .nav-item:nth-child(#{$i}).is-active~.nav-item:last-child::after {
-                    top: ($height*$i)-$height;
-                }
-            }
-
-            .nav-item:last-child.is-active {
-                &:after {
-                    top: 100%-$height !important;
                 }
             }
         }

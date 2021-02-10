@@ -66,6 +66,7 @@
             z-index: 2;
             flex: 0 1 50px;
             padding-right: 0;
+            padding-left: 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -102,7 +103,8 @@
             .me {
                 width: 100%;
                 @include flex(row, flex-start, center);
-                margin-top: 70px;
+                flex: 0 auto;
+                margin-top: var(--base-margin);
                 margin-left: 8px;
                 overflow: hidden;
                 white-space: nowrap;
@@ -125,7 +127,12 @@
                 width: 100%;
                 margin-left: 7px;
                 @include flex(column, center, flex-start);
+                flex: 0 auto;
                 overflow: hidden;
+
+                li {
+                    margin-bottom: 10px;
+                }
 
                 a {
                     text-decoration: underline;
@@ -192,8 +199,14 @@
                 flex-direction: column !important;
             }
 
-            &-image img {
-                max-width: 200px;
+            &-image {
+                border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+                width: -webkit-fill-available;
+                width: -moz-fill-available;
+                min-height: inherit;
+                img {
+                    max-width: 200px;
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ export class resumePage extends HTMLElement {
 
     async connectedCallback() {
         let res = await fetch('resume.html');
-        var parser = new DOMParser();
+        let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });

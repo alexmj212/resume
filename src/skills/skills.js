@@ -59,7 +59,7 @@ export class skillsPage extends HTMLElement {
 
     async connectedCallback() {
         let res = await fetch('skills.html');
-        var parser = new DOMParser();
+        let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });

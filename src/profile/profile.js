@@ -5,7 +5,7 @@ export class profilePage extends HTMLElement {
 
     async connectedCallback() {
         let res = await fetch('profile.html');
-        var parser = new DOMParser();
+        let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('section').forEach(element => {
             this.appendChild(element);
         });

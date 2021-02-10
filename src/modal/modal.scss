@@ -20,6 +20,7 @@
         background: var(--base-background-color);
         border-radius: var(--border-radius);
         padding: var(--base-margin);
+        box-shadow: var(--box-shadow);
     }
 
     &.hidden {
@@ -81,13 +82,13 @@
         }
 
         .previous {
-            left: 0;
-            padding-left: var(--base-margin);
+            left: -15px;
+            //padding-left: var(--base-margin);
         }
 
         .next {
-            right: 0;
-            padding-right: var(--base-margin);
+            right: -15px;
+            //padding-right: var(--base-margin);
         }
 
         .slides {

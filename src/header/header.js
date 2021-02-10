@@ -6,7 +6,7 @@ export class headerPage extends HTMLElement {
 
     async connectedCallback() {
         let res = await fetch('header.html');
-        var parser = new DOMParser();
+        let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('header').forEach(element => {
             this.appendChild(element);
         });
