@@ -20,6 +20,12 @@ export let portfolioItems = [
             "Integrated all components to automatically react to theme changes",
             "Optimized and consolidated page elements for performant user experience"
         ],
+        "badges": [
+            'Angular',
+            'SASS',
+            'Mobile',
+            'CSS3'
+        ],
         "description": ``
     },
     {
@@ -41,6 +47,12 @@ export let portfolioItems = [
             "Created mobile-specific elements including navigation, modals, and lists",
             "Full parity in mobile vs. desktop functionality"
         ],
+        "badges": [
+            'Angular',
+            'TypeScript',
+            'Mobile',
+            'CSS3'
+        ],
         "description": ``
     },
     {
@@ -53,12 +65,18 @@ export let portfolioItems = [
         ],
         "date": "2018 - 2020",
         "company": "TwinSpires.com",
-        "caption": "Live and Replayable Video of Racing",
+        "caption": "Live and Replayable Video of Racing Content",
         "bullets": [
             "Integrated front-end libraries from multiple video providers to create a seamless experience",
             "Created site-wide video components that support a wide variety of views and formats",
             "Dynamic controls for viewing and interacting with video content",
             "Support for desktop and mobile video experiences"
+        ],
+        "badges": [
+            'Angular',
+            'HTML5',
+            'Mobile',
+            'Multimedia'
         ],
         "description": ``
     }
@@ -95,22 +113,42 @@ export class portfolioPage extends HTMLElement {
 
                 let listItemDescription = document.createElement('div');
                 listItemDescription.className = 'portfolio-item-description';
-                listItemDescription.innerHTML = portfolioItem.project + ' | ' + portfolioItem.date;
+                let listItemDescriptionName = document.createElement('h3');
+                listItemDescriptionName.innerHTML = portfolioItem.project;
+                listItemDescription.appendChild(listItemDescriptionName);
 
-                // let listItemDescriptionCaption = document.createElement('p');
-                // listItemDescriptionCaption.innerHTML = portfolioItem.caption;
-                // listItemDescription.appendChild(listItemDescriptionCaption);
+                let listItemDescriptionCaption = document.createElement('p');
+                listItemDescriptionCaption.innerHTML = portfolioItem.caption;
+                listItemDescription.appendChild(listItemDescriptionCaption);
 
-                let listItemDescriptionSummary = document.createElement('ul');
-                if (portfolioItem.bullets) {
-                    portfolioItem.bullets.forEach(bullet => {
-                        let listItemDescriptionBullet = document.createElement('li');
-                        listItemDescriptionBullet.innerHTML = bullet;
-                        listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
+                // let listItemDescriptionSummary = document.createElement('ul');
+                // listItemDescriptionSummary.classList.add('description');
+                // if (portfolioItem.bullets) {
+                //     portfolioItem.bullets.forEach(bullet => {
+                //         let listItemDescriptionBullet = document.createElement('li');
+                //         listItemDescriptionBullet.innerHTML = bullet;
+                //         listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
+                //     });
+                // }
+                // listItemDescription.appendChild(listItemDescriptionSummary);
+
+                let listItemBadges = document.createElement('ul');
+                listItemBadges.classList.add('badges');
+
+                let listItemHeroButton = document.createElement('a');
+                listItemHeroButton.classList.add('view');
+                listItemHeroButton.innerHTML = 'View Project';
+                listItemDescription.appendChild(listItemHeroButton);
+
+                if (portfolioItem.badges) {
+                    portfolioItem.badges.forEach(badge => {
+                        let listItemBadge = document.createElement('li');
+                        listItemBadge.classList.add('badge');
+                        listItemBadge.innerHTML = badge;
+                        listItemBadges.appendChild(listItemBadge);
                     });
                 }
-                listItemDescription.appendChild(listItemDescriptionSummary);
-
+                listItemDescription.appendChild(listItemBadges);
 
                 listItemContainer.appendChild(listItemImage)
                 listItemContainer.appendChild(listItemDescription);
@@ -128,8 +166,6 @@ export class portfolioPage extends HTMLElement {
         let modal = new Modal();
         modal.openModal(portfolioItem)
     }
-
-
 }
 
 window.customElements.define('portfolio-page', portfolioPage);

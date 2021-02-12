@@ -65,13 +65,20 @@ resume-page {
 
         .experience {
             padding-left: 2px;
-            margin-bottom: 50px;
             min-width: 100%;
 
             .date-location {
                 text-transform: uppercase;
                 color: var(--accent-color2);
                 font-weight: var(--font-weight-bold);
+            }
+
+            .projects {
+                ul {
+                    li {
+                        margin-bottom: 15px;
+                    }
+                }
             }
         }
     }

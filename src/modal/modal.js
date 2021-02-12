@@ -47,6 +47,16 @@ export class Modal extends HTMLElement {
                     document.getElementsByTagName('modal-element')[0].appendChild(element);
                     document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
                     document.querySelector('div.modal-content p').innerHTML = portfolioItem.description;
+                    let listItemDescriptionSummary = document.createElement('ul');
+                    listItemDescriptionSummary.classList.add('description');
+                    if (portfolioItem.bullets) {
+                        portfolioItem.bullets.forEach(bullet => {
+                            let listItemDescriptionBullet = document.createElement('li');
+                            listItemDescriptionBullet.innerHTML = bullet;
+                            listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
+                        });
+                    }
+                    document.querySelector('div.modal-content p').appendChild(listItemDescriptionSummary);
                     document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
                     this.generateModalSlideshow(portfolioItem.images);
                     this.slideCount = document.getElementsByClassName('slides')[0].children.length;

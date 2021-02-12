@@ -19,7 +19,7 @@ export class Sidebar extends HTMLElement {
         var page = navItem.id.substring(0, navItem.id.lastIndexOf('-'));
         //document.getElementsByTagName(page)[0].scrollIntoView({ behavior: "smooth", block: "center" });
 
-        var headerOffset = 65;
+        var headerOffset = 50;
         var elementPosition = document.getElementsByTagName(page)[0].getBoundingClientRect().top + window.pageYOffset;
         var offsetPosition = elementPosition - headerOffset;
 
