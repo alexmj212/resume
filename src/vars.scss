@@ -3,6 +3,8 @@ $base-margin: 30px;
 $ruby-red: hsla(355, 76%, 36%, 1);
 $timberwolf: hsla(22, 14%, 84%, 1);
 $cultured: hsla(210, 12%, 97%, 1);
+$purple-navy: #6C7A89;
+$cadet-gray: #818F9C;
 $carolina-blue: hsla(202, 90%, 44%, 1);
 $russian-green: hsla(128, 26%, 48%, 1);
 $royal-blue-dark: hsla(225, 76%, 18%, 1);
@@ -15,6 +17,8 @@ $gunmetal: hsl(204, 10%, 20%);
     color-scheme: light dark;
 
     --white-text: #{$cultured};
+
+    --deemphasized: #{$cadet-gray};
 
     --base-color: #{$space-cadet};
 
@@ -34,6 +38,8 @@ $gunmetal: hsl(204, 10%, 20%);
     &[data-theme="dark"] {
 
         --white-text: #{$timberwolf};
+
+        --deemphasized: #{$cadet-gray};
 
         --base-color: #d3d3d3;
 

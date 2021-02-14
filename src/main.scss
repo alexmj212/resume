@@ -91,6 +91,10 @@ ul {
     }
 }
 
+.theme-transition {
+    @include transition(500ms);
+}
+
 main {
     $sidebar-width: 275px;
     @include flex(column, center, flex-start);
@@ -104,7 +108,7 @@ main {
 
         .page {
             @include flex(column, center, center);
-            min-height: 92vh;
+            min-height: auto;
             width: 100%;
             width: -moz-available;
             width: -webkit-fill-available;
@@ -118,11 +122,11 @@ main {
 
             &:first-child {
                 padding-bottom: 50px;
+                min-height: 66vh;
             }
 
             &:not(:first-child) {
                 padding: 50px 0;
-                min-height: auto;
             }
 
             &:nth-child(even) {
@@ -183,7 +187,8 @@ main {
         padding: 0 10px;
         font-size: 60%;
         font-weight: var(--font-weight-bold);
-        line-height: 1.5em;
+        color: var(--deemphasized);
+        line-height: 2em;
         text-transform: uppercase;
         background-color: var(--border);
         vertical-align: middle;
@@ -204,12 +209,6 @@ main {
         opacity: 0.2;
         filter: blur(4px);
     }
-
-    profile-page {
-        min-height: 85vh !important;
-    }
-
-
 }
 
 .uk {

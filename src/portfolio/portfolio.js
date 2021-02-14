@@ -6,8 +6,11 @@ export let portfolioItems = [
     {
         "project": "TwinSpires Dark Mode",
         "images": [
+            'img/twinspires/program/program-dark-thumb.png',
+            'img/twinspires/program/program-mobile.png',
             'img/twinspires/program/program-dark.png',
             'img/twinspires/program/program-light.png',
+            'img/twinspires/program/calendar-mobile.png',
             'img/twinspires/program/toteboard-dark.png',
             'img/twinspires/program/toteboard-light.png'
         ],
@@ -31,12 +34,10 @@ export let portfolioItems = [
     {
         "project": "TwinSpires Responsive",
         "images": [
+            'img/twinspires/responsive/program-mobile-thumb.png',
             'img/twinspires/responsive/program-light.png',
-            'img/twinspires/responsive/program-dark.png',
             'img/twinspires/responsive/landing-light.png',
-            'img/twinspires/responsive/landing-dark.png',
             'img/twinspires/responsive/calendar-light.png',
-            'img/twinspires/responsive/calendar-dark.png',
         ],
         "date": "2018",
         "company": "TwinSpires.com",
@@ -58,10 +59,9 @@ export let portfolioItems = [
     {
         "project": "TwinSpires Video",
         "images": [
+            'img/twinspires/video/video-desktop-thumb.png',
             'img/twinspires/video/video-desktop-light.png',
-            'img/twinspires/video/video-desktop-dark.png',
             'img/twinspires/video/video-mobile-light.png',
-            'img/twinspires/video/video-mobile-dark.png'
         ],
         "date": "2018 - 2020",
         "company": "TwinSpires.com",

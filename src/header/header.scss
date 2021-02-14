@@ -5,6 +5,9 @@ header-page {
 
     header {
 
+        border-left: 30px solid var(--accent-color2);
+        padding-left: var(--base-margin);
+
         h1 {
             font-size: var(--font-size-greeting);
             margin-bottom: 0;
@@ -12,8 +15,10 @@ header-page {
         }
 
         p {
+            color: var(--deemphasized);
             font-weight: var(--font-weight-bold);
             font-size: var(--font-size-emphasize);
+            margin-bottom: 0;
         }
     }
 }

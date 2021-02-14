@@ -19,9 +19,13 @@ export function setTheme(theme) {
 
 export function toggleTheme() {
     if (colorTheme === 'light') {
+        document.body.classList.add('theme-transition');
         setTheme('dark');
+        setTimeout(() => document.body.classList.remove('theme-transition'), 500);
     } else {
+        document.body.classList.add('theme-transition');
         setTheme('light');
+        setTimeout(() => document.body.classList.remove('theme-transition'), 500);
     }
 }
 
