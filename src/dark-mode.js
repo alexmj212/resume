@@ -5,14 +5,20 @@ export function setTheme(theme) {
         case 'dark':
             document.documentElement.setAttribute('data-theme', theme);
             colorTheme = theme;
-            document.getElementById('theme-toggle').classList.remove('fa-moon');
-            document.getElementById('theme-toggle').classList.add('fa-sun');
+            setTimeout(() => {
+                document.getElementById('theme-toggle').classList.remove('fa-moon');
+                document.getElementById('theme-toggle').classList.add('fa-sun');
+            }, 200);
+
             break;
         default:
             document.documentElement.setAttribute('data-theme', 'light');
             colorTheme = 'light';
-            document.getElementById('theme-toggle').classList.remove('fa-sun');
-            document.getElementById('theme-toggle').classList.add('fa-moon');
+            setTimeout(() => {
+                document.getElementById('theme-toggle').classList.remove('fa-sun');
+                document.getElementById('theme-toggle').classList.add('fa-moon');
+            }, 200);
+
             break;
     }
 }
@@ -47,8 +53,6 @@ export function initializeThemeDetection() {
     });
 }
 
-document.getElementById('theme-control').addEventListener('click', event => {
-    toggleTheme();
-});
+
 
 

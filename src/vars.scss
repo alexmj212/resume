@@ -1,16 +1,16 @@
 
 $base-margin: 30px;
-$ruby-red: hsla(355, 76%, 36%, 1);
-$timberwolf: hsla(22, 14%, 84%, 1);
-$cultured: hsla(210, 12%, 97%, 1);
-$purple-navy: #6C7A89;
-$cadet-gray: #818F9C;
-$carolina-blue: hsla(202, 90%, 44%, 1);
-$russian-green: hsla(128, 26%, 48%, 1);
-$royal-blue-dark: hsla(225, 76%, 18%, 1);
-$space-cadet: hsla(226, 47%, 20%, 1);
-$dark-mode-bg: hsla(228, 10%, 19%, 1);
-$gunmetal: hsl(204, 10%, 20%);
+$ruby-red: #a21622;
+$timberwolf: #dcd5d0;
+$cultured: #f6f7f8;
+$purple-navy: #6c7a89;
+$cadet-gray: #818f9c;
+$carolina-blue: #0b8bd5;
+$russian-green: #5b9a63;
+$royal-blue-dark: #0b1c51;
+$space-cadet: #1b264b;
+$dark-mode-bg: #2c2e35;
+$gunmetal: #2e3438;
 
 :root {
 
@@ -18,7 +18,7 @@ $gunmetal: hsl(204, 10%, 20%);
 
     --white-text: #{$cultured};
 
-    --deemphasized: #{$cadet-gray};
+    --deemphasized: #C4C5C8;
 
     --base-color: #{$space-cadet};
 
@@ -29,6 +29,7 @@ $gunmetal: hsl(204, 10%, 20%);
     --accent-color3: #{$ruby-red};
 
     --stripe-bg: rgba(0,0,0,0.05);
+    --nav-bg: #053F61;
 
     --link-color: var(--accent-color1);
     --link-hover-color: #{lighten($carolina-blue, 20%)};
@@ -39,7 +40,7 @@ $gunmetal: hsl(204, 10%, 20%);
 
         --white-text: #{$timberwolf};
 
-        --deemphasized: #{$cadet-gray};
+        --deemphasized: #919397;
 
         --base-color: #d3d3d3;
 
@@ -50,6 +51,7 @@ $gunmetal: hsl(204, 10%, 20%);
         --accent-color3: #77262d;
 
         --stripe-bg: rgba(255,255,255,0.05);
+        --nav-bg: #2c2e35;
 
         --link-color: var(--accent-color1);
         --link-hover-color: #{lighten(#266e97, 20%)};
@@ -61,7 +63,7 @@ $gunmetal: hsl(204, 10%, 20%);
 
     --border-radius: 5px;
 
-    --box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 
     --font-weight-thicc: 900;
     --font-weight-bold: 700;

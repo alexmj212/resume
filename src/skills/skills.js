@@ -2,7 +2,7 @@ import "./skills.scss";
 
 export let skills = [
     {
-        "skill": "Angular (2+)",
+        "skill": "Angular (v2+)",
         "icon": "fab fa-angular",
         "level": 4.5,
         "description": `
@@ -100,9 +100,11 @@ export class skillsPage extends HTMLElement {
                 let icon = document.createElement('i');
                 icon.className = skill.icon;
                 tool.appendChild(icon);
+                let skillDescription = document.createElement('div');
+                skillDescription.classList.add('description');
                 let skillName = document.createElement('h3');
                 skillName.innerHTML = skill.skill;
-                tool.appendChild(skillName);
+                skillDescription.appendChild(skillName);
 
                 // let skillList = document.createElement('div');
                 // skillList.className = 'skill-level';
@@ -122,9 +124,10 @@ export class skillsPage extends HTMLElement {
                 if (skill.description) {
                     let description = document.createElement('p');
                     description.innerHTML = skill.description;
-                    tool.appendChild(description);
+                    skillDescription.appendChild(description);
                 }
 
+                tool.appendChild(skillDescription);
                 listItem.appendChild(tool);
                 // listItem.appendChild(skillList);
             });

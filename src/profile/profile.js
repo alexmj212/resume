@@ -1,3 +1,4 @@
+import "./profile.scss";
 
 export class profilePage extends HTMLElement {
 

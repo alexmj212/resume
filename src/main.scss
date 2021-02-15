@@ -56,11 +56,10 @@ h4 {
 
 h3 {
     color: var(--accent-color1);
-    font-family: var(--font-family-header);
-    font-size: var(--font-size-medium);
+    margin-bottom: 10px;
 
     [data-theme="dark"] & {
-        color: var(--link-hover-color);
+        color: #89A4C1;
     }
 }
 
@@ -117,12 +116,12 @@ main {
 
             header,
             section {
-                max-width: 850px;
+                max-width: 50em;
             }
 
             &:first-child {
                 padding-bottom: 50px;
-                min-height: 66vh;
+                min-height: 80vh;
             }
 
             &:not(:first-child) {
@@ -156,7 +155,7 @@ main {
         max-height: 75px;
 
         aside {
-            background-color: var(--accent-color1);
+            background-color: var(--nav-bg);
             @include flex(row, center, center);
             box-shadow: var(--box-shadow);
         }
@@ -167,7 +166,7 @@ main {
         background-color: var(--accent-color2);
         border-radius: var(--border-radius);
         padding: 10px 30px;
-        margin-bottom: var(--base-margin);
+        margin: var(--base-margin) auto;
         color: var(--white-text);
         font-size: var(--font-size-medium);
         font-weight: var(--font-weight-thicc);
@@ -187,7 +186,6 @@ main {
         padding: 0 10px;
         font-size: 60%;
         font-weight: var(--font-weight-bold);
-        color: var(--deemphasized);
         line-height: 2em;
         text-transform: uppercase;
         background-color: var(--border);
@@ -196,12 +194,6 @@ main {
 
     .theme-switch {
         cursor: pointer;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 10px 15px;
-        background-color: var(--accent-color1);
-        z-index: 2;
     }
 
     &.modal-open {

@@ -153,7 +153,8 @@ export class portfolioPage extends HTMLElement {
                 listItemContainer.appendChild(listItemImage)
                 listItemContainer.appendChild(listItemDescription);
                 listItem.appendChild(listItemContainer);
-                listItemContainer.addEventListener("click", () => { this.openPortfolioModal(index); });
+                listItemHeroButton.addEventListener("click", () => { this.openPortfolioModal(index); });
+                listItemImage.addEventListener("click", () => { this.openPortfolioModal(index); });
                 list.appendChild(listItem);
 
             });
@@ -164,7 +165,7 @@ export class portfolioPage extends HTMLElement {
     openPortfolioModal(index) {
         let portfolioItem = portfolioItems[index];
         let modal = new Modal();
-        modal.openModal(portfolioItem)
+        modal.openModal(portfolioItem);
     }
 }
 

@@ -26,12 +26,13 @@
             //background-color: var(--border);
             border-radius: var(--border-radius) 0 0 var(--border-radius);
             padding: var(--base-margin);
+            cursor: pointer;
 
             img {
                 height: auto;
                 width: auto;
                 max-height: 200px;
-                max-width: 300px;
+                max-width: 275px;
                 object-fit: contain;
 
             }

@@ -2,7 +2,6 @@
 
 .modal {
     position: fixed;
-    width: 100%;
     height: 100%;
     top: 0;
     left: 0;
@@ -10,20 +9,23 @@
     bottom: 0;
     opacity: 1;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--base-background-color);
     @include transition();
     @include flex(row, center, center);
 
     &-container {
-        overflow: auto;
-        max-width: 700px;
-        background: var(--base-background-color);
+        background: var(--stripe-bg);
         border-radius: var(--border-radius);
-        padding: var(--base-margin);
-        box-shadow: var(--box-shadow);
+        overflow: auto;
+        @include flex(column, center, center);
+
+        & > * {
+            max-width: 50em;
+        }
     }
 
     &.hidden {
+        top: 200px;
         visibility: hidden;
         opacity: 0;
     }
@@ -37,13 +39,14 @@
         font-size: var(--font-size-medium);
         z-index: 12;
         background: var(--base-background-color);
-        box-shadow: var(--box-shadow);
         @include flex(row, center, center);
         width: 50px;
         height: 50px;
     }
 
     &-header {
+        margin-top: var(--base-margin);
+
         h1 {
             font-size: var(--font-size-big);
         }
@@ -84,12 +87,12 @@
         }
 
         .previous {
-            left: -15px;
+            left: 15px;
             //padding-left: var(--base-margin);
         }
 
         .next {
-            right: -15px;
+            right: 15px;
             //padding-right: var(--base-margin);
         }
 
@@ -117,7 +120,7 @@
     }
 
     &-content {
-        font-size: var(--font-size-small);
+        padding: 0 var(--base-margin);
         line-height: 1.25em;
         margin-bottom: var(--base-margin);
         ul {
@@ -128,9 +131,10 @@
     }
 
     &-footer {
+        padding: 0 var(--base-margin);
         font-size: var(--font-size-small);
-        width: 100%;
         text-align: right;
         font-style: italic;
+        margin-bottom: var(--base-margin);
     }
 }

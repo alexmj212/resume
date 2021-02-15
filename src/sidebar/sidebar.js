@@ -1,4 +1,5 @@
 import "./sidebar.scss";
+import * as DarkMode from "../dark-mode.js";
 
 export class Sidebar extends HTMLElement {
 
@@ -12,6 +13,9 @@ export class Sidebar extends HTMLElement {
         });
         Array.from(document.getElementsByClassName('nav-item')).forEach(item => {
             item.addEventListener('click', event => this.navigate(event.currentTarget))
+        });
+        document.getElementById('theme-control').addEventListener('click', event => {
+            DarkMode.toggleTheme();
         });
     }
 
