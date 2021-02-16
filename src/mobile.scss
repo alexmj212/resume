@@ -126,6 +126,7 @@
     .modal {
         &-container {
             height: 100%;
+            max-height: inherit;
             justify-content: flex-start;
         }
 

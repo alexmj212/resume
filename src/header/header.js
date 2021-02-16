@@ -14,3 +14,7 @@ export class headerPage extends HTMLElement {
 }
 
 window.customElements.define('header-page', headerPage);
+
+document.addEventListener('scroll', event => {
+    document.documentElement.style.setProperty('--hero-bg-offset', 200-(document.documentElement.scrollTop * 0.1) + "vw");
+});

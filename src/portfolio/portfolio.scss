@@ -41,7 +41,6 @@
         &-description {
             flex: 0 1 50%;
             font-size: var(--font-size-normal);
-            font-weight: var(--font-weight-bold);
             margin: var(--base-margin);
 
             h3 {
@@ -50,7 +49,6 @@
 
             p {
                 margin-bottom: var(--base-margin);
-                font-weight: var(--font-weight-normal);
             }
 
             .view {

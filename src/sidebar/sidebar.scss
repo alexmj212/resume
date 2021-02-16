@@ -82,6 +82,7 @@ sidebar-element aside {
             }
 
             .nav-item {
+                user-select: none;
                 cursor: pointer;
                 height: 30px;
 

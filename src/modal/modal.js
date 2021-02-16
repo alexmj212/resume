@@ -1,3 +1,4 @@
+import { portfolioItems } from "../portfolio/portfolio";
 import "./modal.scss";
 
 export class Modal extends HTMLElement {
@@ -46,7 +47,7 @@ export class Modal extends HTMLElement {
                     //this.addEventListeners();
                     document.getElementsByTagName('modal-element')[0].appendChild(element);
                     document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
-                    document.querySelector('div.modal-content p').innerHTML = portfolioItem.description;
+
                     let listItemDescriptionSummary = document.createElement('ul');
                     listItemDescriptionSummary.classList.add('description');
                     if (portfolioItem.bullets) {
@@ -56,7 +57,10 @@ export class Modal extends HTMLElement {
                             listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
                         });
                     }
-                    document.querySelector('div.modal-content p').appendChild(listItemDescriptionSummary);
+                    let listItemDescription = document.createElement('div');
+                    listItemDescription.innerHTML = portfolioItem.description;
+                    document.querySelector('div.modal-content').appendChild(listItemDescriptionSummary);
+                    document.querySelector('div.modal-content').appendChild(listItemDescription);
                     document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
                     this.generateModalSlideshow(portfolioItem.images);
                     this.slideCount = document.getElementsByClassName('slides')[0].children.length;

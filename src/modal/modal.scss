@@ -9,15 +9,17 @@
     bottom: 0;
     opacity: 1;
     z-index: 10;
-    background: var(--base-background-color);
+    background: var(--stripe-bg);
     @include transition();
     @include flex(row, center, center);
 
     &-container {
-        background: var(--stripe-bg);
+        background: var(--base-background-color);
         border-radius: var(--border-radius);
         overflow: auto;
-        @include flex(column, center, center);
+        height: 100%;
+        max-height: 80vh;
+        @include flex(column, flex-start, center);
 
         & > * {
             max-width: 50em;
@@ -46,10 +48,6 @@
 
     &-header {
         margin-top: var(--base-margin);
-
-        h1 {
-            font-size: var(--font-size-big);
-        }
     }
 
     &-slideshow {
@@ -123,10 +121,16 @@
         padding: 0 var(--base-margin);
         line-height: 1.25em;
         margin-bottom: var(--base-margin);
+        max-width: 40em;
+
+        h2 {
+            font-size: var(--font-size-big);
+        }
         ul {
-            margin: 0;
-            padding: 0;
-            padding-left: 15px;
+            margin-bottom: var(--base-margin);
+        }
+        p {
+            text-indent: 2em;
         }
     }
 

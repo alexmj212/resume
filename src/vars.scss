@@ -14,13 +14,15 @@ $gunmetal: #2e3438;
 
 :root {
 
-    color-scheme: light dark;
+    color-scheme: light;
 
     --white-text: #{$cultured};
 
     --deemphasized: #C4C5C8;
 
     --base-color: #{$space-cadet};
+
+    --base-weight: var(--font-weight-normal);
 
     --border: rgba(0,0,0,0.1);
 
@@ -38,11 +40,15 @@ $gunmetal: #2e3438;
 
     &[data-theme="dark"] {
 
+        color-scheme: dark;
+
         --white-text: #{$timberwolf};
 
         --deemphasized: #919397;
 
         --base-color: #d3d3d3;
+
+        --base-weight: var(--font-weight-normal);
 
         --border: rgba(255,255,255,0.1);
 
@@ -65,10 +71,12 @@ $gunmetal: #2e3438;
 
     --box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 
+    --hero-bg-offset: 200vw;
+
     --font-weight-thicc: 900;
     --font-weight-bold: 700;
-    --font-weight-normal: 500;
-    --font-weight-light: 400;
+    --font-weight-normal: 400;
+    --font-weight-light: 300;
 
     --font-size-greeting: 750%;
     --font-size-huge: 400%;

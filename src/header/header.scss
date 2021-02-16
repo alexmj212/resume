@@ -2,7 +2,7 @@
 
 header-page {
     @include flex(column, center, center);
-    background: repeating-linear-gradient(
+    background-image: repeating-linear-gradient(
         45deg,
         #075988,
         #075988 25%,
@@ -13,10 +13,11 @@ header-page {
         #075988 75%,
         #075988 100%
     );
-    animation: background-slide 15s ease-in-out infinite alternate;
+    background-position: 50% 50%;
+    background-size: var(--hero-bg-offset) 100vh;
 
     [data-theme="dark"] & {
-        background: repeating-linear-gradient(
+        background-image: repeating-linear-gradient(
             45deg,
             #2E3138,
             #2E3138 25%,
@@ -30,7 +31,7 @@ header-page {
     }
 
     header {
-
+        width: 100%;
         border-left: 30px solid var(--accent-color2);
         padding-left: var(--base-margin);
         color: var(--white-text);
@@ -46,20 +47,8 @@ header-page {
         }
 
         p {
-            font-weight: var(--font-weight-bold);
             font-size: var(--font-size-emphasize);
             margin-bottom: 0;
         }
-    }
-}
-
-@keyframes background-slide {
-    0% {
-        background-position: 100% 0;
-        background-size: 100vw 130vh;
-    }
-    100% {
-        background-position: 0px 0px;
-        background-size: 100% 100%;
     }
 }

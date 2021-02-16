@@ -21,6 +21,9 @@ export function setTheme(theme) {
 
             break;
     }
+    document.style.display='none';
+    document.offsetHeight; // no need to store this anywhere, the reference is enough
+    document.style.display='';
 }
 
 export function toggleTheme() {
