@@ -192,7 +192,7 @@ export class portfolioPage extends HTMLElement {
     openPortfolioModal(index) {
         let portfolioItem = portfolioItems[index];
         let modal = new Modal();
-        modal.openModal(portfolioItem);
+        modal.openModal(Modal.PORTFOLIO_MODAL, portfolioItem);
     }
 }
 

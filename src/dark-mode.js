@@ -8,6 +8,7 @@ export function setTheme(theme) {
             setTimeout(() => {
                 document.getElementById('theme-toggle').classList.remove('fa-moon');
                 document.getElementById('theme-toggle').classList.add('fa-sun');
+                document.offsetHeight;
             }, 200);
 
             break;
@@ -17,13 +18,12 @@ export function setTheme(theme) {
             setTimeout(() => {
                 document.getElementById('theme-toggle').classList.remove('fa-sun');
                 document.getElementById('theme-toggle').classList.add('fa-moon');
+                document.offsetHeight;
             }, 200);
 
             break;
     }
-    document.style.display='none';
-    document.offsetHeight; // no need to store this anywhere, the reference is enough
-    document.style.display='';
+
 }
 
 export function toggleTheme() {

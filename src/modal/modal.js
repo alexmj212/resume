@@ -3,6 +3,9 @@ import "./modal.scss";
 
 export class Modal extends HTMLElement {
 
+    static PORTFOLIO_MODAL() { return 'portfolio-modal' };
+    static CONTACT_MODAL() { return 'contact-modal' };
+
     constructor() {
         super();
         this.modalOpen = false;
@@ -39,34 +42,22 @@ export class Modal extends HTMLElement {
         document.getElementById('close-modal').removeEventListener('click', ()=>{});
     }
 
-    openModal(portfolioItem) {
+    openModal(modalType, data) {
         return new Promise(resolve => {
             fetch('modal.html').then(response => response.text()).then(body => {
                 let parser = new DOMParser();
                 parser.parseFromString(body, 'text/html').querySelectorAll('#modal').forEach(element => {
                     //this.addEventListeners();
                     document.getElementsByTagName('modal-element')[0].appendChild(element);
-                    document.querySelector('div.modal-header h1').innerHTML = portfolioItem.project;
 
-                    let listItemDescriptionSummary = document.createElement('ul');
-                    listItemDescriptionSummary.classList.add('description');
-                    if (portfolioItem.bullets) {
-                        portfolioItem.bullets.forEach(bullet => {
-                            let listItemDescriptionBullet = document.createElement('li');
-                            listItemDescriptionBullet.innerHTML = bullet;
-                            listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
-                        });
+                    switch(modalType) {
+                        case Modal.PORTFOLIO_MODAL:
+                            this.openPortfolioModal(data);
+                            break;
+                        case Modal.CONTACT_MODAL:
+                            this.openContactModal(data);
+                            break;
                     }
-                    let listItemDescription = document.createElement('div');
-                    listItemDescription.innerHTML = portfolioItem.description;
-                    document.querySelector('div.modal-content').appendChild(listItemDescriptionSummary);
-                    document.querySelector('div.modal-content').appendChild(listItemDescription);
-                    document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
-                    this.generateModalSlideshow(portfolioItem.images);
-                    this.slideCount = document.getElementsByClassName('slides')[0].children.length;
-                    this.updateSlideArrows();
-
-
 
                     setTimeout(() => {
                         document.getElementById('modal').classList.remove('hidden');
@@ -140,6 +131,58 @@ export class Modal extends HTMLElement {
             document.getElementById('previous-slide').classList.remove('disabled');
             document.getElementById('next-slide').classList.remove('disabled');
         }
+    }
+
+    openPortfolioModal(portfolioItem) {
+        document.querySelector('div.modal-header h2').innerHTML = portfolioItem.project;
+
+        let listItemDescriptionSummary = document.createElement('ul');
+        listItemDescriptionSummary.classList.add('description');
+        if (portfolioItem.bullets) {
+            portfolioItem.bullets.forEach(bullet => {
+                let listItemDescriptionBullet = document.createElement('li');
+                listItemDescriptionBullet.innerHTML = bullet;
+                listItemDescriptionSummary.appendChild(listItemDescriptionBullet);
+            });
+        }
+        let listItemDescription = document.createElement('div');
+        listItemDescription.innerHTML = portfolioItem.description;
+        document.querySelector('div.modal-content').appendChild(listItemDescriptionSummary);
+        document.querySelector('div.modal-content').appendChild(listItemDescription);
+        document.querySelector('div.modal-footer').innerHTML = portfolioItem.date;
+        this.generateModalSlideshow(portfolioItem.images);
+        this.slideCount = document.getElementsByClassName('slides')[0].children.length;
+        this.updateSlideArrows();
+    }
+
+    openContactModal(contactForm) {
+        document.querySelector('#modal').classList.add('contact');
+        document.querySelector('div.modal-header h2').innerHTML = contactForm.header;
+        document.querySelector('div.modal-content').innerHTML = contactForm.form;
+        document.querySelector('#submit-contact').addEventListener('click', () => {
+            this.openEmail();
+        })
+    }
+
+    openEmail() {
+        let mailTo = 'mailto:alexmj212@gmail.com';
+        let contactName = document.querySelector('#contact-name');
+        let contactOrg = document.querySelector('#contact-org');
+        let contactReason = document.querySelector('#contact-reason');
+        if (contactName.value || contactOrg.value || contactReason.value) {
+            mailTo += '?subject=';
+
+            if (contactReason.value) {
+                mailTo += encodeURIComponent(contactReason.value) + ' - ';
+            }
+            if (contactName.value) {
+                mailTo += encodeURIComponent(contactName.value) + ' @ ';
+            }
+            if (contactOrg.value) {
+                mailTo += encodeURIComponent(contactOrg.value);
+            }
+        }
+        window.location.href = mailTo;
     }
 }
 

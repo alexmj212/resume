@@ -1,4 +1,6 @@
 import "./header.scss";
+import "../sidebar/sidebar";
+import { Sidebar } from "../sidebar/sidebar";
 
 export class headerPage extends HTMLElement {
 
@@ -9,6 +11,9 @@ export class headerPage extends HTMLElement {
         let parser = new DOMParser();
         parser.parseFromString(await res.text(), 'text/html').querySelectorAll('header').forEach(element => {
             this.appendChild(element);
+        });
+        Array.from(document.getElementsByClassName('nav-item')).forEach(item => {
+            item.addEventListener('click', event => Sidebar.navigate(event.currentTarget))
         });
     }
 }

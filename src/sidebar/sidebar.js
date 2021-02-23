@@ -12,14 +12,14 @@ export class Sidebar extends HTMLElement {
             this.appendChild(element);
         });
         Array.from(document.getElementsByClassName('nav-item')).forEach(item => {
-            item.addEventListener('click', event => this.navigate(event.currentTarget))
+            item.addEventListener('click', event => Sidebar.navigate(event.currentTarget))
         });
         document.getElementById('theme-control').addEventListener('click', event => {
             DarkMode.toggleTheme();
         });
     }
 
-    navigate(navItem) {
+    static navigate(navItem) {
         var page = navItem.id.substring(0, navItem.id.lastIndexOf('-'));
         //document.getElementsByTagName(page)[0].scrollIntoView({ behavior: "smooth", block: "center" });
 

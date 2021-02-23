@@ -32,14 +32,13 @@ header-page {
 
     header {
         width: 100%;
-        border-left: 30px solid var(--accent-color2);
         padding-left: var(--base-margin);
         color: var(--white-text);
 
 
         h1 {
             font-size: var(--font-size-greeting);
-            margin-bottom: 0;
+            margin-bottom: 10px;
         }
 
         h3 {
@@ -47,7 +46,6 @@ header-page {
         }
 
         p {
-            font-size: var(--font-size-emphasize);
             margin-bottom: 0;
         }
     }
