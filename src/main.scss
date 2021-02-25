@@ -202,7 +202,7 @@ main {
     border-radius: var(--border-radius);
     padding: 10px 30px;
     margin: var(--base-margin) 0;
-    color: var(--white-text);
+    color: #{$cultured};
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-thicc);
     width: fit-content;
@@ -216,3 +216,4 @@ main {
 }
 
 @import "mobile";
+@import "print";

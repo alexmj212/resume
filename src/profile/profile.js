@@ -27,7 +27,7 @@ export let modalContent = {
             <li><a href="tel:8596636843" title="Phone"><i class="fas fa-phone-alt"></i>859-663-6843</a></li>
             <li><a href="https://www.linkedin.com/in/alex-johnson-077b3564/" title="LinkedIn" target="_blank">
                     <i class="fab fa-linkedin"></i>LinkedIn</a></li>
-            <li><a href="http://www.github.com/alexmj212" title="GitHub" target="_blank"><i class="fab fa-github"></i>GitHub</a>
+            <li><a href="https://www.github.com/alexmj212" title="GitHub" target="_blank"><i class="fab fa-github"></i>GitHub</a>
             </li>
         </ul>
     `

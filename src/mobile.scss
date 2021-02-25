@@ -47,7 +47,6 @@
 
                 .tool {
                     @include flex(row, center, center);
-                    flex-direction: row;
                     padding-left: 0;
 
                     i {
@@ -90,6 +89,10 @@
 
                     a {
                         text-decoration: underline;
+
+                        &.print {
+                            display: none;
+                        }
 
                         i {
                             width: 35px;

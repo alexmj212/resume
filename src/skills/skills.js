@@ -4,15 +4,13 @@ export let skills = [
     {
         "skill": "Angular (v2+)",
         "icon": "fab fa-angular",
-        "level": 4.5,
         "description": `
-            Modules, components, services, routing, NG tooling, Material.
+            Modules, components, services, routing, NG tooling, Material
         `
     },
     {
         "skill": "TypeScript",
         "icon": "fab fa-microsoft",
-        "level": 4,
         "description": `
             Typing, classes, inheritance, interfaces, generics, compiler configuration
         `
@@ -20,15 +18,13 @@ export let skills = [
     {
         "skill": "JavaScript (ES5+)",
         "icon": "fab fa-js-square",
-        "level": 4,
         "description": `
-            Classes, objects, event-based programming, modern ECMA feature like modules, web components
+            Classes, objects, JSON, event-based programming, ECMA modules, web components
         `
     },
     {
         "skill": "NodeJS",
         "icon": "fab fa-node-js",
-        "level": 2.5,
         "description": `
             Server-level Javascript development, environment configuration
         `
@@ -36,7 +32,6 @@ export let skills = [
     {
         "skill": "Responsive Design",
         "icon": "fa fa-mobile-alt",
-        "level": 4.5,
         "description": `
             Browser and operating system testing, media queries, responsive layouts, mobile-focused design
         `
@@ -44,31 +39,27 @@ export let skills = [
     {
         "skill": "SASS / CSS3",
         "icon": "fab fa-css3",
-        "level": 4.5,
         "description": `
-            Styling frameworks, reusability, precedence, pseudo-selectors, media queries, inheritence
+            Styling frameworks, reusability, precedence, pseudo-selectors, media queries, inheritence, flex box
         `
     },
     {
         "skill": "HTML5",
         "icon": "fab fa-html5",
-        "level": 3.5,
         "description": `
             Semantic document elements, multimedia content and controls
         `
     },
     {
-        "skill": "NPM, Grunt, Gulp, Webpack",
+        "skill": "NPM, Grunt, Webpack",
         "icon": "fab fa-npm",
-        "level": 3.5,
         "description": `
-            Implementing toolchains for building and testing complex front-end frameworks, minification, uglification, linting
+            Implementing toolchains for building and testing complex front-end frameworks
         `
     },
     {
         "skill": "Git / GitHub",
         "icon": "fab fa-github",
-        "level": 4,
         "description": `
             Branching strategy, merge conflict resolution, tagging, pull requests
         `

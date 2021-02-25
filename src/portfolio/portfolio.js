@@ -163,7 +163,7 @@ export class portfolioPage extends HTMLElement {
                 listItemBadges.classList.add('badges');
 
                 let listItemHeroButton = document.createElement('a');
-                listItemHeroButton.classList.add('view');
+                listItemHeroButton.classList.add('hero-button');
                 listItemHeroButton.innerHTML = 'View Project';
                 listItemDescription.appendChild(listItemHeroButton);
 

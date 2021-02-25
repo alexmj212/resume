@@ -37,7 +37,7 @@ header-page {
 
 
         h1 {
-            font-size: var(--font-size-greeting);
+            font-size: var(--font-size-huge);
             margin-bottom: 10px;
         }
 
@@ -47,6 +47,10 @@ header-page {
 
         p {
             margin-bottom: 0;
+        }
+
+        .contact {
+            display: none;
         }
     }
 }

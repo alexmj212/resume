@@ -5,6 +5,7 @@ skills-page {
         ul {
             list-style: none;
             margin: 0;
+            margin-bottom: var(--base-margin);
             padding: 0;
             @include flex(row, space-around, inherit);
             flex-wrap: wrap;
@@ -36,6 +37,9 @@ skills-page {
                 }
                 // x
             }
+        }
+        p {
+            font-size: var(--font-size-small);
         }
     }
 }
